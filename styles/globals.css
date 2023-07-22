@@ -2,26 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@font-face {
+  font-family: "Sofia Pro";
+  src: url("/font/sofiapro-light.otf");
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+:root {
+  --font: "Sofia Pro", sans-serif;
+  --bg-primary: #333646;
+  --bg-secondary: #252734;
+  --text-white: #ebebec;
+  --text-gray: #646672;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  outline-color: transparent;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: var(--font);
+  @apply pt-10 text-xs md:text-sm lg:text-base font-medium bg-bgPrimary text-textWhite;
+}
+
+img {
+  user-select: none;
+}
+
+select {
+  -webkit-appearance: inherit;
+  appearance: inherit;
+}
+
+/* change all mui fonts to my font */
+.MuiTypography-root {
+  font-family: var(--font) !important;
+}
+
+/* style aos animation library */
+[data-aos] {
+  pointer-events: none;
+}
+.aos-animate {
+  pointer-events: auto;
+}
+.aos-init[data-aos][data-aos].aos-animate {
+  transform: unset;
+}
+
+/* style react toastify */
+.Toastify__toast {
+  font-family: var(--font) !important;
+  @apply !rounded-lg !text-sm;
+}
+
+/* capitalize first text in toast  */
+.Toastify__toast-body > div:nth-child(2):first-letter {
+  text-transform: capitalize;
+}
+
+.universal_x {
+  @apply mx-auto max-w-6xl px-6;
 }

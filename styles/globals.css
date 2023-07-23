@@ -67,3 +67,13 @@ select {
 .universal_x {
   @apply mx-auto max-w-6xl px-6;
 }
+
+.stacked {
+  /* display: grid; */
+  isolation: isolate;
+}
+
+.stacked > * {
+  grid-column: 1/-1;
+  grid-row: 1/-1;
+}

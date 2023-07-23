@@ -1,6 +1,7 @@
 import React from "react";
 import Balancer from "react-wrap-balancer";
 import { FaGithub, FaDiscord, FaInstagram, FaTwitter } from "react-icons/fa";
+import Image from "next/image";
 
 type social = {
   name: string;
@@ -33,10 +34,16 @@ const Header = () => {
   ];
 
   return (
-    <header className="universal_x relative grid md:grid-cols-2 py-10 isolate">
+    <header className="universal_x overflow-hidden relative grid md:grid-cols-2 py-10 isolate">
       {/* image */}
       <div className="absolute bottom-0 -z-10 hidden md:block left-[15%] lg:left-[20%] w-[30rem] xl:w-[35rem]">
-        <img src="/img/israel.png" className="w-full" alt="Michael Israel" />
+        <Image
+          width={1000}
+          height={1000}
+          src="/img/israel.png"
+          className="w-full"
+          alt="Michael Israel"
+        />
       </div>
 
       <section>

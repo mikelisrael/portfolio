@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Balancer from "react-wrap-balancer";
 import { FaGithub, FaDiscord, FaInstagram, FaTwitter } from "react-icons/fa";
 import Image from "next/image";
+import styles from "@/styles/Animations.module.css";
 
 type Social = {
   name: string;
@@ -10,6 +11,20 @@ type Social = {
 };
 
 const Header = () => {
+  // Add state to track scroll position
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  // Add a scroll event listener to update the scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   const socials: Social[] = [
     {
       name: "Github",
@@ -41,31 +56,45 @@ const Header = () => {
       {/* image */}
       <div
         role="img"
-        className="absolute hidden md:block bottom-0 -z-10 left-[15%] lg:left-[20%] w-[32rem] xl:w-[36rem]"
+        className="absolute overflow-hidden hidden md:block bottom-0 -z-10 left-[15%] lg:left-[20%] w-[32rem] xl:w-[36rem]"
         onContextMenu={(e) => e.preventDefault()} // prevent right click
       >
         <Image
+          // data-aos="fade-up"
+          // data-aos-anchor-placement="bottom-left"
+
           priority
           width={1000}
           height={1000}
           src="/img/israel2.png"
-          className="w-full hidden md:block"
+          className={styles.fadeInBottomLeft + " w-full hidden md:block"}
           alt="Michael Israel"
           aria-label="Michael Israel"
         />
       </div>
 
-      <section>
-        <h1
-          role="heading"
-          aria-level={1}
-          className="relative text-7xl lg:text-8xl xl:text-9xl font-black md:pt-10 after:absolute after:content-[''] after:-bottom-4 after:bg-yellowPrimary after:h-2 lg:after:h-4 after:w-[15%] md:after:w-[20%]"
-        >
-          Israel{" "}
-          <span className="block -translate-y-2 md:-translate-y-4 lg:-translate-y-6">
-            Michael.
-          </span>
-        </h1>
+      <section
+        style={{ transform: `translateY(-${scrollPosition * 0.3}px)` }} //parallax scroll
+      >
+        <div className="relative">
+          <h1
+            data-aos="fade-left"
+            role="heading"
+            aria-level={1}
+            className="relative text-7xl lg:text-8xl xl:text-9xl font-black md:pt-10"
+          >
+            Israel{" "}
+            <span className="block -translate-y-2 md:-translate-y-4 lg:-translate-y-6">
+              Michael.
+            </span>
+          </h1>
+          {/* underline */}
+          <div
+            data-aos="fade-left"
+            data-aos-delay="150"
+            className="absolute content-[''] -bottom-4 bg-yellowPrimary h-2 lg:h-4 w-[15%] md:w-[20%]"
+          ></div>
+        </div>
 
         {/* icons */}
         <ul
@@ -73,8 +102,15 @@ const Header = () => {
           aria-label="social media links"
           className="mt-16 md:mt-32 text-xl flex gap-5 md:gap-8 backdrop-blur-md w-max pr-2"
         >
-          {socials.map(({ name, link, Icon }) => (
-            <li key={name} aria-label={name} title={name} role="listitem">
+          {socials.map(({ name, link, Icon }, idx) => (
+            <li
+              key={name}
+              aria-label={name}
+              title={name}
+              role="listitem"
+              data-aos="fade-left"
+              data-aos-delay={`${idx * 50 + 200}`}
+            >
               <a
                 // open new tab
                 href={link}
@@ -89,12 +125,21 @@ const Header = () => {
         </ul>
       </section>
 
-      <section role="complementary" className="pt-10 flex justify-end">
+      <section
+        role="complementary"
+        className="pt-10 flex justify-end"
+        style={{ transform: `translateY(-${scrollPosition * 0.3}px)` }} // parallax scroll
+      >
         <div className="md:max-w-xs backdrop-blur md:px-2">
-          <h4 className="tracking-[0.2em] md:text-sm text-textGray">
+          <h4
+            data-aos="fade-left"
+            className="tracking-[0.2em] md:text-sm text-textGray"
+          >
             - Introduction
           </h4>
           <h2
+            data-aos="fade-left"
+            data-aos-delay="100"
             aria-label="about"
             className="text-2xl sm:text-3xl mt-3 mb-7 md:mb-10 font-semibold"
           >
@@ -104,6 +149,8 @@ const Header = () => {
           </h2>
 
           <p
+            data-aos="fade-left"
+            data-aos-delay="200"
             className="text-textGray"
             aria-label="description"
             aria-labelledby="about"

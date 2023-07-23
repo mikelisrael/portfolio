@@ -34,7 +34,7 @@ const LazyLoader = (props: LazyLoaderProps) => {
       />
       <img
         {...props}
-        className={`w-full h-full animate-pulse absolute inset-0 fade_in object-cover opacity-${
+        className={`w-full h-full absolute inset-0 fade_in object-cover opacity-${
           isImageLoaded
             ? "100"
             : "0 transition-opacity duration-1000 ease-in-out"

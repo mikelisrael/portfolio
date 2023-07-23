@@ -76,7 +76,7 @@ const Navbar = () => {
 
       <ul
         role="menubar"
-        className="flex select-none text-xl md:text-3xl items-center gap-5 md:gap-8 relative"
+        className="flex select-none text-lg sm:text-xl md:text-3xl items-center gap-3 sm:gap-5 md:gap-8 relative"
       >
         {linkList.map(({ key, label }, index) => (
           <li

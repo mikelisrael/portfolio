@@ -1,0 +1,51 @@
+/* ======fade right animation dynamic variable time ======*/
+.fadeRight {
+  animation: fadeRight 1s;
+  animation-delay: var(--time);
+  will-change: opacity, transform;
+}
+
+@keyframes fadeRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-150%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/*====== scale up ======*/
+.scaleUp {
+  animation: scaleUp 0.5s;
+  will-change: opacity, transform;
+}
+
+@keyframes scaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/*====== fade in from bottom left ======*/
+.fadeInBottomLeft {
+  animation: fadeInBottomLeft 0.5s;
+  will-change: opacity, transform;
+}
+
+@keyframes fadeInBottomLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-30%, 30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}

@@ -38,13 +38,20 @@ const Navbar = () => {
   }, [activeTab]);
 
   return (
-    <nav className="universal_x py-5 my-5 flex justify-between sticky top-0 z-30">
+    <nav
+      role="navigation"
+      aria-label="Main Navigation"
+      className="universal_x py-5 my-5 flex justify-between sticky top-0 z-30"
+    >
       {/* add class above for blur: backdrop-blur-md  */}
       <div className="w-16 h-16 bg-yellowPrimary" />
 
-      <ul className="flex text-xl md:text-3xl items-center gap-5 md:gap-8 relative">
+      <ul
+        role="menubar"
+        className="flex select-none text-xl md:text-3xl items-center gap-5 md:gap-8 relative"
+      >
         <li
-          role="link"
+          role="menuitem"
           tabIndex={activeTab === "services" ? 0 : -1}
           data-tab="services"
           className={returnClassName("services")}
@@ -53,7 +60,7 @@ const Navbar = () => {
           Services
         </li>
         <li
-          role="link"
+          role="menuitem"
           tabIndex={activeTab === "projects" ? 0 : -1}
           data-tab="projects"
           className={returnClassName("projects")}
@@ -62,7 +69,7 @@ const Navbar = () => {
           Projects
         </li>
         <li
-          role="link"
+          role="menuitem"
           tabIndex={activeTab === "blog" ? 0 : -1}
           data-tab="blog"
           className={returnClassName("blog")}
@@ -71,8 +78,10 @@ const Navbar = () => {
           Blog
         </li>
 
-        {/* indicator */}
+        {/* yellow circle indicator */}
         <li
+          role="presentation"
+          aria-hidden="true"
           ref={indicatorRef}
           className="absolute bottom-0 md:-bottom-2 transition-all delay-200 indicator bg-yellowPrimary h-2 w-2 rounded-full"
         ></li>

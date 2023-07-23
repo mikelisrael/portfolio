@@ -56,18 +56,15 @@ const Header = () => {
       {/* image */}
       <div
         role="img"
-        className="absolute overflow-hidden hidden md:block bottom-0 -z-10 left-[15%] lg:left-[20%] w-[32rem] xl:w-[36rem]"
+        className="absolute -scale-x-100 md:scale-x-100 overflow-hidden bottom-0 -z-10 -right-64 md:right-auto left-auto md:left-[15%] lg:left-[20%] w-[32rem] xl:w-[36rem]"
         onContextMenu={(e) => e.preventDefault()} // prevent right click
       >
         <Image
-          // data-aos="fade-up"
-          // data-aos-anchor-placement="bottom-left"
-
           priority
           width={1000}
           height={1000}
           src="/img/israel2.png"
-          className={styles.fadeInBottomLeft + " w-full hidden md:block"}
+          className={styles.fadeInBottomLeft + " w-full"}
           alt="Michael Israel"
           aria-label="Michael Israel"
         />
@@ -127,10 +124,10 @@ const Header = () => {
 
       <section
         role="complementary"
-        className="pt-10 flex justify-end"
+        className="pt-10 flex justify-start md:justify-end"
         style={{ transform: `translateY(-${scrollPosition * 0.3}px)` }} // parallax scroll
       >
-        <div className="md:max-w-xs backdrop-blur md:px-2">
+        <div className="sm:max-w-sm md:max-w-xs backdrop-blur md:px-2">
           <h4
             data-aos="fade-left"
             className="tracking-[0.2em] md:text-sm text-textGray"

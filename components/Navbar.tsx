@@ -84,14 +84,10 @@ const Navbar = () => {
             role="menuitem"
             tabIndex={activeTab === path ? 0 : -1}
             data-tab={path}
-            className={returnClassName(path) + " " + styles.fadeRight}
+            className={returnClassName(path)}
             onClick={() => handleClickedTab(path)}
-            // add variable time
-            style={
-              {
-                "--time": `${idx * 0.05 * 0.1}s`,
-              } as React.CSSProperties
-            }
+            data-aos="fade-right"
+            data-aos-delay={`${idx * 10 + 200}`}
           >
             {label}
           </li>

@@ -1,20 +1,4 @@
-/* ======fade right animation dynamic variable time ======*/
-.fadeRight {
-  animation: fadeRight 1s;
-  animation-delay: var(--time);
-  will-change: opacity, transform;
-}
 
-@keyframes fadeRight {
-  0% {
-    opacity: 0;
-    transform: translateX(-150%);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
 
 /*====== scale up ======*/
 .scaleUp {

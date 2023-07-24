@@ -63,7 +63,7 @@ const Header = () => {
           priority
           width={1000}
           height={1000}
-          src="/img/israel2.png"
+          src="/img/israel3.png"
           className={styles.fadeInBottomLeft + " w-full"}
           alt="Michael Israel"
           aria-label="Michael Israel"
@@ -138,7 +138,7 @@ const Header = () => {
             data-aos="fade-left"
             data-aos-delay="100"
             aria-label="about"
-            className="text-2xl sm:text-3xl mt-3 mb-7 md:mb-10 font-semibold"
+            className="text-xl sm:text-3xl mt-3 mb-7 md:mb-10 font-semibold"
           >
             <Balancer>
               Web developer and product designer based in Nigeria.

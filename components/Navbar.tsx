@@ -14,6 +14,28 @@ const Navbar = () => {
     "services"
   );
   const indicatorRef = useRef<HTMLLIElement>(null);
+  const [isLinksLoaded, setIsLinksLoaded] = useState(false);
+
+  // make sure links animation only runs once
+  useEffect(() => {
+    // Move the indicator after 2 seconds if it's the first page load
+    if (!isLinksLoaded) {
+      const timeoutId = setTimeout(() => {
+        setIsLinksLoaded(true);
+      }, 1000);
+
+      return () => clearTimeout(timeoutId);
+    }
+  }, [isLinksLoaded]);
+
+  const returnAosAnimation = (idx: number) => {
+    return !isLinksLoaded
+      ? {
+          ["data-aos"]: "fade-right",
+          ["data-aos-delay"]: `${idx * 50 + 200}`,
+        }
+      : {};
+  };
 
   // Array to hold link details
   const linkList: Link[] = [
@@ -86,8 +108,7 @@ const Navbar = () => {
             data-tab={path}
             className={returnClassName(path)}
             onClick={() => handleClickedTab(path)}
-            data-aos="fade-right"
-            data-aos-delay={`${idx * 50 + 200}`}
+            {...returnAosAnimation(idx)}
           >
             {label}
           </li>

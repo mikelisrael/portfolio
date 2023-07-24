@@ -3,7 +3,7 @@ import cn from "classnames";
 import styles from "@/styles/Animations.module.css";
 
 type Link = {
-  key: "services" | "projects" | "blog";
+  path: "services" | "projects" | "blog";
   label: string;
 };
 
@@ -17,9 +17,9 @@ const Navbar = () => {
 
   // Array to hold link details
   const linkList: Link[] = [
-    { key: "services", label: "Services" },
-    { key: "projects", label: "Projects" },
-    { key: "blog", label: "Blog" },
+    { path: "services", label: "Services" },
+    { path: "projects", label: "Projects" },
+    { path: "blog", label: "Blog" },
   ];
 
   const returnClassName = (tab: "services" | "projects" | "blog") => {
@@ -78,18 +78,18 @@ const Navbar = () => {
         role="menubar"
         className="flex select-none text-lg sm:text-xl md:text-3xl items-center gap-3 sm:gap-5 md:gap-8 relative"
       >
-        {linkList.map(({ key, label }, index) => (
+        {linkList.map(({ path, label }, idx) => (
           <li
-            key={key}
+            key={idx}
             role="menuitem"
-            tabIndex={activeTab === key ? 0 : -1}
-            data-tab={key}
-            className={returnClassName(key) + " " + styles.fadeRight}
-            onClick={() => handleClickedTab(key)}
+            tabIndex={activeTab === path ? 0 : -1}
+            data-tab={path}
+            className={returnClassName(path) + " " + styles.fadeRight}
+            onClick={() => handleClickedTab(path)}
             // add variable time
             style={
               {
-                "--time": `${index * 0.05 * 0.1}s`,
+                "--time": `${idx * 0.05 * 0.1}s`,
               } as React.CSSProperties
             }
           >

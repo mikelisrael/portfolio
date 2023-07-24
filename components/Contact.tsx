@@ -1,6 +1,5 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
-// import LazyLoader from "./LazyLoader";
 import { Balancer } from "react-wrap-balancer";
 
 const Contact = () => {
@@ -38,7 +37,11 @@ const Contact = () => {
           </div>
 
           {/* second element */}
-          <a data-aos="fade-up" href="" className="text-yellowPrimary group">
+          <a
+            data-aos="fade-up"
+            href="mailto:israelipnkz@gmail.com"
+            className="text-yellowPrimary group"
+          >
             <span>{`israelipinkz@gmail.com`}</span>{" "}
             <FaArrowRight className="inline-block group-hover:translate-x-3 duration-100" />
           </a>

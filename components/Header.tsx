@@ -138,7 +138,7 @@ const Header = () => {
             data-aos="fade-left"
             data-aos-delay="100"
             aria-label="about"
-            className="text-xl sm:text-3xl mt-3 mb-7 md:mb-10 font-semibold"
+            className="text-xl sm:text-3xl mt-3 mb-3 sm:mb-7 md:mb-10 font-semibold"
           >
             <Balancer>
               Web developer and product designer based in Nigeria.

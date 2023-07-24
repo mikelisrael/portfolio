@@ -46,7 +46,7 @@ const Contact = () => {
               <h2
                 data-aos="fade-up"
                 data-aos-delay="100"
-                className="text-xl sm:text-3xl mt-3 mb-7 md:mb-10 font-semibold capitalize"
+                className="text-xl sm:text-3xl mt-3 mb-3 sm:mb-7 md:mb-10 font-semibold capitalize"
               >
                 any type of query & discussion
               </h2>
@@ -87,7 +87,7 @@ const Contact = () => {
             <h2
               data-aos="fade-up"
               data-aos-delay="100"
-              className="text-xl sm:text-3xl mb-7 md:mb-10 font-semibold"
+              className="text-xl sm:text-3xl mb-3 sm:mb-7 md:mb-10 font-semibold"
             >
               You {`can't`} use up creativity, the more you use, more you have
               in your significant mind

@@ -87,7 +87,7 @@ const Navbar = () => {
             className={returnClassName(path)}
             onClick={() => handleClickedTab(path)}
             data-aos="fade-right"
-            data-aos-delay={`${idx * 10 + 200}`}
+            data-aos-delay={`${idx * 50 + 200}`}
           >
             {label}
           </li>

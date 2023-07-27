@@ -11,7 +11,7 @@ const Navbar = () => {
   const [isIndicatorMoved, setIsIndicatorMoved] = useState(false);
   // State to track the active link
   const [activeTab, setActiveTab] = useState<"services" | "projects" | "blog">(
-    "services"
+    "services",
   );
   const indicatorRef = useRef<HTMLLIElement>(null);
   const [isLinksLoaded, setIsLinksLoaded] = useState(false);
@@ -74,7 +74,7 @@ const Navbar = () => {
     if (indicatorRef.current) {
       const activeTabElement =
         indicatorRef.current.parentElement!.querySelector(
-          `[data-tab="${activeTab}"]`
+          `[data-tab="${activeTab}"]`,
         );
       if (activeTabElement) {
         const parentRect =

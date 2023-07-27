@@ -39,6 +39,7 @@ const LazyLoader = (props: LazyLoaderProps) => {
             ? "100"
             : "0 transition-opacity duration-1000 ease-in-out"
         }`}
+        alt={props.alt}
       />
     </div>
   );

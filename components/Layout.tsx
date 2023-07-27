@@ -1,10 +1,16 @@
 import React, { ReactNode } from "react";
 import Navbar from "./Navbar";
+import { IProps } from "@/pages";
 
-const Layout = ({ children }: { children: ReactNode }) => {
+interface ILayoutProps extends IProps {
+  children: ReactNode;
+  headerInView?: boolean;
+}
+
+const Layout = ({ children, headerInView }: ILayoutProps) => {
   return (
     <>
-      <Navbar />
+      <Navbar headerInView={headerInView} />
 
       {children}
     </>

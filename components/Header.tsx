@@ -3,6 +3,7 @@ import Balancer from "react-wrap-balancer";
 import { FaGithub, FaDiscord, FaInstagram, FaTwitter } from "react-icons/fa";
 import Image from "next/image";
 import styles from "@/styles/Animations.module.css";
+import { IProps } from "@/pages";
 
 type Social = {
   name: string;
@@ -10,7 +11,7 @@ type Social = {
   Icon: React.ReactNode;
 };
 
-const Header = () => {
+const Header: React.FC<IProps> = ({ headerRef }) => {
   // Add state to track scroll position
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -50,6 +51,7 @@ const Header = () => {
 
   return (
     <header
+      ref={headerRef}
       role="banner"
       className="universal_x relative grid md:grid-cols-2 py-10 isolate"
     >

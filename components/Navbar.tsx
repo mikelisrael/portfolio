@@ -1,13 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import cn from "classnames";
 import styles from "@/styles/Animations.module.css";
+import { IProps } from "@/pages";
 
 type Link = {
   path: "services" | "projects" | "blog";
   label: string;
 };
 
-const Navbar = () => {
+const Navbar: React.FC<IProps> = ({ headerInView }) => {
   const [isIndicatorMoved, setIsIndicatorMoved] = useState(false);
   // State to track the active link
   const [activeTab, setActiveTab] = useState<"services" | "projects" | "blog">(
@@ -87,18 +88,34 @@ const Navbar = () => {
     }
   };
 
+  const navBarClassName = cn(
+    "universal_x py-2 md:py-5 my-5 flex justify-between z-30",
+    {
+      ["backdrop-blur-md sticky top-0 " + styles.dropDown]: !headerInView,
+    },
+  );
+
   return (
     <nav
       role="navigation"
       aria-label="Main Navigation"
-      className="universal_x py-5 my-5 flex justify-between sticky top-0 z-30"
+      className={navBarClassName}
     >
       {/* add class above for blur: backdrop-blur-md  */}
-      <div className={styles.scaleUp + " w-16 h-16 bg-yellowPrimary"} />
+      <div
+        className={cn(styles.scaleUp + " w-16 h-16 bg-yellowPrimary", {
+          ["w-10 h-10"]: !headerInView,
+        })}
+      />
 
       <ul
         role="menubar"
-        className="flex select-none text-lg sm:text-xl md:text-3xl items-center gap-3 sm:gap-5 md:gap-8 relative"
+        className={cn(
+          "flex select-none text-lg sm:text-xl md:text-3xl items-center gap-3 sm:gap-5 md:gap-8 relative",
+          {
+            ["pb-3"]: !headerInView,
+          },
+        )}
       >
         {linkList.map(({ path, label }, idx) => (
           <li
@@ -119,9 +136,13 @@ const Navbar = () => {
           role="presentation"
           aria-hidden="true"
           ref={indicatorRef}
-          className={`
-          ${isIndicatorMoved ? "opacity-100" : "opacity-0"}
-          absolute bottom-0 md:-bottom-2 transition-all delay-200 indicator bg-yellowPrimary h-2 w-2 rounded-full`}
+          className={cn(
+            {
+              "opacity-100": isIndicatorMoved,
+              "opacity-0": !isIndicatorMoved,
+            },
+            "absolute bottom-0 md:-bottom-2 transition-all delay-200 indicator bg-yellowPrimary h-2 w-2 rounded-full",
+          )}
         ></li>
       </ul>
     </nav>

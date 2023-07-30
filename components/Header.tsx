@@ -58,18 +58,20 @@ const Header: React.FC<IProps> = ({ headerRef }) => {
       {/* image */}
       <div
         role="img"
-        className="absolute -scale-x-100 md:scale-x-100 overflow-hidden bottom-0 -z-10 -right-64 md:right-auto left-auto md:left-[15%] lg:left-[20%] w-[32rem] xl:w-[36rem]"
+        className="absolute overflow-hidden bottom-0 -z-10 right-0 md:right-auto left-auto md:left-[15%] lg:left-[20%] w-[32rem] xl:w-[36rem]"
         onContextMenu={(e) => e.preventDefault()} // prevent right click
       >
-        <Image
-          priority
-          width={1000}
-          height={1000}
-          src="/img/israel3.png"
-          className={styles.fadeInBottomLeft + " w-full"}
-          alt="Michael Israel"
-          aria-label="Michael Israel"
-        />
+        <div className={styles.fadeInBottomLeft + " w-full h-full"}>
+          <Image
+            priority
+            width={1000}
+            height={1000}
+            src="/img/israel3.png"
+            className="-scale-x-100 md:scale-x-100 translate-x-[16rem] md:translate-x-0 w-full"
+            alt="Michael Israel"
+            aria-label="Michael Israel"
+          />
+        </div>
       </div>
 
       <section

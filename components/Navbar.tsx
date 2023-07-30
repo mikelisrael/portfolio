@@ -112,7 +112,7 @@ const Navbar: React.FC<IProps> = ({ headerInView }) => {
       <ul
         role="menubar"
         className={cn(
-          "flex select-none text-lg sm:text-xl md:text-3xl items-center gap-3 sm:gap-5 md:gap-8 relative",
+          "flex select-none z-30 text-lg sm:text-xl md:text-3xl items-center gap-3 sm:gap-5 md:gap-8 relative",
           {
             ["pb-2 md:pb-3"]: !headerInView,
           },

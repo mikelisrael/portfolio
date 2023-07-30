@@ -24,7 +24,7 @@
 }
 
 body {
-  font-family: var(--font);
+  font-family: var(--font) !important;
   @apply pt-0 md:pt-10 text-xs md:text-sm lg:text-base font-medium bg-bgPrimary text-textWhite overflow-x-hidden;
 }
 

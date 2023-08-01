@@ -4,6 +4,7 @@ import Layout from "@/components/Layout";
 import Services from "@/components/Services";
 import { useInView } from "react-intersection-observer";
 import React from "react";
+import Stacks from "@/components/Stacks";
 
 const Home = () => {
   const { ref: headerRef, inView: headerInView } = useInView({
@@ -15,6 +16,7 @@ const Home = () => {
       <Header headerRef={headerRef} />
       <Contact />
       <Services />
+      <Stacks />
     </Layout>
   );
 };

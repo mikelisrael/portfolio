@@ -90,7 +90,8 @@ const Stacks = () => {
 
   return (
     <div>
-      <section className="-mt-20 md:-mt-10 mb-14">
+      <section className="-mt-20 md:-mt-10 mb-14 relative">
+        <div className="absolute bg-gradient-to-r from-bgPrimary via-transparent to-bgPrimary left-0 w-full h-full" />
         <div
           ref={containerRef}
           className="flex gap-x-5 md:gap-x-10 items-center overflow-hidden"

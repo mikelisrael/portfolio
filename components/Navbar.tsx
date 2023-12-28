@@ -91,7 +91,7 @@ const Navbar: React.FC<IProps> = ({ headerInView }) => {
   const navBarClassName = cn(
     "universal_x py-2 md:py-5 my-5 flex justify-between z-30",
     {
-      ["backdrop-blur-md sticky top-0 " + styles.dropDown]: !headerInView,
+      [" sticky top-0 " + styles.dropDown]: !headerInView, //backdrop-blur-md
     },
   );
 

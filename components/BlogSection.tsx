@@ -58,7 +58,9 @@ const BlogSection = () => {
                 <span>{blog.category}</span>
               </span>
 
-              <h4 className="text-base font-bold md:text-xl">{blog.title}</h4>
+              <h4 className="text-sm font-bold sm:text-base md:text-xl">
+                {blog.title}
+              </h4>
 
               <FaArrowRight className="inline-block -translate-x-3 text-yellowPrimary duration-200 group-hover:translate-x-0" />
             </li>

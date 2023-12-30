@@ -89,7 +89,7 @@ const Projects = () => {
         data-aos="fade-left"
         data-aos-delay="100"
         aria-label="about"
-        className="mb-1 mt-3 text-xl font-semibold sm:mb-4 sm:text-3xl md:mb-10"
+        className="mb-10 mt-3 text-xl font-semibold sm:text-3xl md:mb-16"
       >
         <Balancer>All creative works, selected projects</Balancer>
       </h2>

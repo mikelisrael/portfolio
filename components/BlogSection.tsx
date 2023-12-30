@@ -40,7 +40,7 @@ const BlogSection = () => {
             className="mb-1 mt-3 text-xl font-semibold sm:mb-4 sm:text-3xl md:mb-10"
           >
             <Balancer>
-              What's New? <br /> My blog and news.
+              What&rsquo;s New? <br /> My blog and news.
             </Balancer>
           </h2>
         </div>

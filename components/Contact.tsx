@@ -28,25 +28,25 @@ const Contact = () => {
   }, [yearsInView, yearsCounted, clientsInView, clientsCounted]);
 
   return (
-    <div id="contact" className="bg-bgSecondary pt-12 pb-60 md:pt-40 md:pb-72">
+    <div id="contact" className="bg-bgSecondary pb-60 pt-12 md:pb-72 md:pt-40">
       <div className="universal_x grid gap-x-5 gap-y-16 md:grid-cols-2">
         <section
           role="region"
           aria-label="Contact Section"
-          className="flex flex-col gap-y-10 md:min-h-[20rem] justify-between"
+          className="flex flex-col justify-between gap-y-10 md:min-h-[20rem]"
         >
           <div className="md:max-w-md">
             <Balancer>
               <h4
                 data-aos="fade-up"
-                className="tracking-[0.2em] md:text-sm text-textGray"
+                className="tracking-[0.2em] text-textGray md:text-sm"
               >
                 - Contact
               </h4>
               <h2
                 data-aos="fade-up"
                 data-aos-delay="100"
-                className="text-xl sm:text-3xl mt-3 mb-1 sm:mb-4 md:mb-10 font-semibold capitalize"
+                className="mb-1 mt-3 text-xl font-semibold capitalize sm:mb-4 sm:text-3xl md:mb-10"
               >
                 any type of query & discussion
               </h2>
@@ -71,23 +71,23 @@ const Contact = () => {
             aria-describedby="emailDescription"
             data-aos="fade-up"
             href="mailto:israelipinkz@gmail.com"
-            className="text-yellowPrimary group"
+            className="group font-bold text-yellowPrimary"
           >
             <span>{`israelipinkz@gmail.com`}</span>{" "}
-            <FaArrowRight className="inline-block group-hover:translate-x-3 duration-200" />
+            <FaArrowRight className="inline-block duration-200 group-hover:translate-x-3" />
           </a>
         </section>
 
         <section
           role="region"
           aria-label="Creative Section"
-          className="flex flex-col gap-y-10 md:min-h-[20rem] items-start justify-between"
+          className="flex flex-col items-start justify-between gap-y-10 md:min-h-[20rem]"
         >
           <div>
             <h2
               data-aos="fade-up"
               data-aos-delay="100"
-              className="text-xl sm:text-3xl mb-1 sm:mb-4 md:mb-10 font-semibold"
+              className="mb-1 text-xl font-semibold sm:mb-4 sm:text-3xl md:mb-10"
             >
               You {`can't`} use up creativity, the more you use, more you have
               in your significant mind
@@ -109,9 +109,9 @@ const Contact = () => {
 
           {/* second element*/}
           <div data-aos="fade-up" className="flex gap-10 lg:gap-20">
-            <div className="flex gap-3 items-end">
+            <div className="flex items-end gap-3">
               <h4
-                className="text-yellowPrimary text-5xl lg:text-7xl font-semibold"
+                className="text-5xl font-semibold text-yellowPrimary lg:text-7xl"
                 ref={yearsRef}
                 aria-level={2}
                 aria-live="polite"
@@ -123,9 +123,9 @@ const Contact = () => {
               </span>
             </div>
 
-            <div className="flex gap-3 items-end">
+            <div className="flex items-end gap-3">
               <h4
-                className="text-yellowPrimary text-5xl lg:text-7xl font-semibold"
+                className="text-5xl font-semibold text-yellowPrimary lg:text-7xl"
                 ref={clientsRef}
                 aria-level={2}
                 aria-live="polite"

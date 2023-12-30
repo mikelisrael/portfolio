@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Balancer from "react-wrap-balancer";
 import { FaGithub, FaDiscord, FaInstagram, FaTwitter } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import Image from "next/image";
 import styles from "@/styles/Animations.module.css";
 import { IProps } from "@/pages";
@@ -45,7 +46,7 @@ const Header: React.FC<IProps> = ({ headerRef }) => {
     {
       name: "Twitter",
       link: "",
-      Icon: <FaTwitter />,
+      Icon: <FaXTwitter />,
     },
   ];
 
@@ -53,21 +54,21 @@ const Header: React.FC<IProps> = ({ headerRef }) => {
     <header
       ref={headerRef}
       role="banner"
-      className="universal_x relative grid md:grid-cols-2 py-10 isolate"
+      className="universal_x relative isolate grid py-10 md:grid-cols-2"
     >
       {/* image */}
       <div
         role="img"
-        className="absolute overflow-hidden bottom-0 -z-10 right-0 md:right-auto left-auto md:left-[15%] lg:left-[20%] w-[32rem] xl:w-[36rem]"
+        className="absolute bottom-0 left-auto right-0 -z-10 w-[32rem] overflow-hidden md:left-[15%] md:right-auto lg:left-[20%] xl:w-[36rem]"
         onContextMenu={(e) => e.preventDefault()} // prevent right click
       >
-        <div className={styles.fadeInBottomLeft + " w-full h-full"}>
+        <div className={styles.fadeInBottomLeft + " h-full w-full"}>
           <Image
             priority
             width={1000}
             height={1000}
             src="/img/israel3.png"
-            className="-scale-x-100 md:scale-x-100 translate-x-[16rem] md:translate-x-0 w-full"
+            className="w-full translate-x-[16rem] -scale-x-100 md:translate-x-0 md:scale-x-100"
             alt="Michael Israel"
             aria-label="Michael Israel"
           />
@@ -82,7 +83,7 @@ const Header: React.FC<IProps> = ({ headerRef }) => {
             data-aos="fade-left"
             role="heading"
             aria-level={1}
-            className="relative text-7xl lg:text-8xl xl:text-9xl font-black md:pt-10"
+            className="relative text-7xl font-black md:pt-10 lg:text-8xl xl:text-9xl"
           >
             Israel{" "}
             <span className="block -translate-y-2 md:-translate-y-4 lg:-translate-y-6">
@@ -93,7 +94,7 @@ const Header: React.FC<IProps> = ({ headerRef }) => {
           <div
             data-aos="fade-left"
             data-aos-delay="150"
-            className="absolute content-[''] -bottom-4 bg-yellowPrimary h-2 lg:h-4 w-[15%] md:w-[20%]"
+            className="absolute -bottom-4 h-2 w-[15%] bg-yellowPrimary content-[''] md:w-[20%] lg:h-4"
           ></div>
         </div>
 
@@ -101,7 +102,7 @@ const Header: React.FC<IProps> = ({ headerRef }) => {
         <ul
           role="list"
           aria-label="social media links"
-          className="mt-16 md:mt-32 text-xl flex gap-5 md:gap-8 backdrop-blur-md w-max pr-2"
+          className="mt-16 flex w-max gap-5 pr-2 text-xl backdrop-blur-md md:mt-32 md:gap-8"
         >
           {socials.map(({ name, link, Icon }, idx) => (
             <li
@@ -128,13 +129,13 @@ const Header: React.FC<IProps> = ({ headerRef }) => {
 
       <section
         role="complementary"
-        className="pt-10 flex justify-start md:justify-end"
+        className="flex justify-start pt-10 md:justify-end"
         style={{ transform: `translateY(-${scrollPosition * 0.3}px)` }} // parallax scroll
       >
-        <div className="sm:max-w-sm md:max-w-xs backdrop-blur md:px-2">
+        <div className="backdrop-blur sm:max-w-sm md:max-w-xs md:px-2">
           <h4
             data-aos="fade-left"
-            className="tracking-[0.2em] md:text-sm text-textGray"
+            className="tracking-[0.2em] text-textGray md:text-sm"
           >
             - Introduction
           </h4>
@@ -142,7 +143,7 @@ const Header: React.FC<IProps> = ({ headerRef }) => {
             data-aos="fade-left"
             data-aos-delay="100"
             aria-label="about"
-            className="text-xl sm:text-3xl mt-3 mb-1 sm:mb-4 md:mb-10 font-semibold"
+            className="mb-1 mt-3 text-xl font-semibold sm:mb-4 sm:text-3xl md:mb-10"
           >
             <Balancer>
               Web developer and product designer based in Nigeria.

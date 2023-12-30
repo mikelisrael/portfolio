@@ -1,6 +1,6 @@
-import React from "react";
 import { IconType } from "react-icons";
 import { FaCube } from "react-icons/fa";
+import { FaLaptop, FaPenNib } from "react-icons/fa6";
 
 type Service = {
   title: string;
@@ -10,17 +10,17 @@ type Service = {
 
 const servicesData: Service[] = [
   {
-    title: "Product Designer",
+    title: "Web Developer",
     projects: 524,
-    Icon: FaCube,
-  },
-  {
-    title: "Web Development",
-    projects: 524,
-    Icon: FaCube,
+    Icon: FaLaptop,
   },
   {
     title: "Brand Designer",
+    projects: 524,
+    Icon: FaPenNib,
+  },
+  {
+    title: "Problem Solving",
     projects: 524,
     Icon: FaCube,
   },
@@ -28,7 +28,7 @@ const servicesData: Service[] = [
 
 const Services = () => {
   return (
-    <section className="universal_x grid gap-5 sm:grid-cols-3 -translate-y-32">
+    <section className="universal_x grid -translate-y-32 gap-5 sm:grid-cols-3">
       {servicesData.map(({ title, projects, Icon }, index) => {
         const [firstWord, ...rest] = title.split(" ");
 
@@ -37,12 +37,12 @@ const Services = () => {
             key={index}
             data-aos="fade-up"
             data-aos-delay={index * 50}
-            className="h-80 py-10 px-2 lg:p-10 bg-bgTertiary grid items-end place-items-center"
+            className="grid h-80 place-items-center items-end bg-bgTertiary px-2 py-10 lg:p-10"
           >
-            <div className="flex items-start gap-4 lg:gap-7 justify-center">
+            <div className="flex items-start justify-center gap-4 lg:gap-7">
               <Icon className="text-xl" />
-              <div className="space-y-3">
-                <h2 className="text-2xl md:text-xl lg:text-3xl font-medium capitalize">
+              <div className="-translate-y-2 space-y-3">
+                <h2 className="text-2xl font-medium capitalize md:text-xl lg:text-3xl">
                   {firstWord} <br /> {rest.join(" ")}
                 </h2>
                 <p className="text-textGray">{projects} projects</p>

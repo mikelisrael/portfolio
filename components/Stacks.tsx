@@ -90,15 +90,15 @@ const Stacks = () => {
 
   return (
     <div>
-      <section className="-mt-20 md:-mt-10 mb-14 relative">
-        <div className="absolute bg-gradient-to-r from-bgPrimary via-transparent to-bgPrimary left-0 w-full h-full" />
+      <section className="relative -mt-10 mb-14 md:-mt-5">
+        <div className="absolute left-0 h-full w-full bg-gradient-to-r from-bgPrimary via-transparent to-bgPrimary" />
         <div
           ref={containerRef}
-          className="flex gap-x-5 md:gap-x-10 items-center overflow-hidden"
+          className="flex items-center gap-x-5 overflow-hidden md:gap-x-10"
         >
           {stacks.map(({ title, img }, index) => {
             return (
-              <div key={index} className="flex-shrink-0 min-w-0">
+              <div key={index} className="min-w-0 flex-shrink-0">
                 <Image
                   width={100}
                   height={100}

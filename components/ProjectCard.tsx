@@ -22,7 +22,7 @@ const ProjectCard = ({
 }: IProject) => {
   return (
     <article data-aos="fade-up" className="group flex flex-col gap-1.5">
-      <div className="outline-gray-400 block aspect-[1.5] h-56 overflow-hidden rounded-lg outline outline-1 ">
+      <div className="block aspect-[1.5] h-56 overflow-hidden rounded-lg outline outline-1 outline-gray ">
         <Image
           src={image}
           alt={name}

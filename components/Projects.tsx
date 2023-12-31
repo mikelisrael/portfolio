@@ -1,7 +1,8 @@
+import { IProps } from "@/pages";
 import Balancer from "react-wrap-balancer";
 import ProjectCard, { IProject } from "./ProjectCard";
 
-const Projects = () => {
+const Projects: React.FC<IProps> = ({ projectRef }) => {
   const projects: IProject[] = [
     {
       name: "Esque bot",
@@ -78,7 +79,11 @@ const Projects = () => {
   ];
 
   return (
-    <section className="universal_x my-20 md:my-32">
+    <section
+      ref={projectRef}
+      id="projects"
+      className="universal_x my-20 pb-10 pt-20 md:my-32 md:py-32"
+    >
       <h4
         data-aos="fade-left"
         className="tracking-[0.2em] text-textGray md:text-sm"

@@ -1,21 +1,28 @@
-import React, { useState, useRef, useEffect } from "react";
-import cn from "classnames";
-import styles from "@/styles/Animations.module.css";
 import { IProps } from "@/pages";
+import styles from "@/styles/Animations.module.css";
+import cn from "classnames";
+import { useRouter } from "next/router";
+import React, { useEffect, useRef, useState } from "react";
 
 type Link = {
-  path: "services" | "projects" | "blog";
+  path: "contact" | "projects" | "blog";
   label: string;
 };
 
-const Navbar: React.FC<IProps> = ({ headerInView }) => {
+const Navbar: React.FC<IProps> = ({
+  headerInView,
+  contactInView,
+  projectInView,
+  blogInView,
+}) => {
   const [isIndicatorMoved, setIsIndicatorMoved] = useState(false);
   // State to track the active link
-  const [activeTab, setActiveTab] = useState<"services" | "projects" | "blog">(
-    "services",
+  const [activeTab, setActiveTab] = useState<"contact" | "projects" | "blog">(
+    "contact",
   );
   const indicatorRef = useRef<HTMLLIElement>(null);
   const [isLinksLoaded, setIsLinksLoaded] = useState(false);
+  const router = useRouter();
 
   // make sure links animation only runs once
   useEffect(() => {
@@ -40,20 +47,21 @@ const Navbar: React.FC<IProps> = ({ headerInView }) => {
 
   // Array to hold link details
   const linkList: Link[] = [
-    { path: "services", label: "Services" },
+    { path: "contact", label: "Contact" },
     { path: "projects", label: "Projects" },
     { path: "blog", label: "Blog" },
   ];
 
-  const returnClassName = (tab: "services" | "projects" | "blog") => {
+  const returnClassName = (tab: "contact" | "projects" | "blog") => {
     return cn("relative cursor-pointer", {
       ["text-textWhite"]: activeTab === tab,
       ["text-gray hover:text-textWhite"]: activeTab !== tab,
     });
   };
 
-  const handleClickedTab = (tab: "services" | "projects" | "blog") => {
+  const handleClickedTab = (tab: "contact" | "projects" | "blog") => {
     setActiveTab(tab);
+    goToPath(tab);
   };
 
   useEffect(() => {
@@ -91,9 +99,55 @@ const Navbar: React.FC<IProps> = ({ headerInView }) => {
   const navBarClassName = cn(
     "universal_x py-2 md:py-5 my-5 flex justify-between z-30",
     {
-      [" sticky top-0 " + styles.dropDown]: !headerInView, //backdrop-blur-md
+      [" sticky top-0 border-gray border backdrop-blur-md rounded-xl " +
+      styles.dropDown]: !headerInView, //backdrop-blur-md
     },
   );
+
+  function goToPath(path: string) {
+    const element = document.getElementById(path);
+
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop,
+        behavior: "smooth",
+      });
+      // add path to url as query and don't go back to top of page
+      router.push(`/?path=${path}`, undefined, { shallow: true });
+    }
+  }
+
+  // NOTE: This useEffect is for when the user visits the page
+  useEffect(() => {
+    const path = router.query.path; // Get the path from the query parameter
+    if (path) {
+      // setActiveTab(path as "contact" | "projects" | "blog");
+      const element = document.getElementById(
+        path as "contact" | "projects" | "blog",
+      );
+      if (element) {
+        window.scrollTo({
+          top: element.offsetTop,
+          behavior: "smooth",
+        });
+      }
+    }
+  }, [router.query.path]);
+
+  //NOTE: This useEffect is for when the user scrolls
+  useEffect(() => {
+    if (contactInView) {
+      setActiveTab("contact");
+    }
+
+    if (projectInView) {
+      setActiveTab("projects");
+    }
+
+    if (blogInView) {
+      setActiveTab("blog");
+    }
+  }, [contactInView, projectInView, blogInView]);
 
   return (
     <nav
@@ -103,16 +157,23 @@ const Navbar: React.FC<IProps> = ({ headerInView }) => {
     >
       {/* add class above for blur: backdrop-blur-md  */}
       <div
-        className={cn(styles.scaleUp + " bg-yellowPrimary", {
-          ["w-16 h-16"]: headerInView,
-          ["w-10 h-10"]: !headerInView,
+        className={cn(styles.scaleUp + " cursor-pointer bg-yellowPrimary", {
+          ["h-16 w-16"]: headerInView,
+          ["h-10 w-10"]: !headerInView,
         })}
+        onClick={() => {
+          // scroll to top
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        }}
       />
 
       <ul
         role="menubar"
         className={cn(
-          "flex select-none z-30 text-lg sm:text-xl md:text-3xl items-center gap-3 sm:gap-5 md:gap-8 relative",
+          "relative z-30 flex select-none items-center gap-3 text-lg sm:gap-5 sm:text-xl md:gap-8 md:text-3xl",
           {
             ["pb-2 md:pb-3"]: !headerInView,
           },
@@ -142,7 +203,7 @@ const Navbar: React.FC<IProps> = ({ headerInView }) => {
               "opacity-100": isIndicatorMoved,
               "opacity-0": !isIndicatorMoved,
             },
-            "absolute bottom-0 md:-bottom-2 transition-all delay-200 indicator bg-yellowPrimary h-2 w-2 rounded-full",
+            "indicator absolute bottom-0 h-2 w-2 rounded-full bg-yellowPrimary transition-all delay-200 md:-bottom-2",
           )}
         ></li>
       </ul>

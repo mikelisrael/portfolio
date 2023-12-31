@@ -4,8 +4,9 @@ import { FaArrowRight } from "react-icons/fa";
 import { Balancer } from "react-wrap-balancer";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
+import { IProps } from "@/pages";
 
-const Contact = () => {
+const Contact: React.FC<IProps> = ({ contactRef }) => {
   const { ref: yearsRef, inView: yearsInView } = useInView({
     threshold: 0.5,
   });
@@ -28,7 +29,11 @@ const Contact = () => {
   }, [yearsInView, yearsCounted, clientsInView, clientsCounted]);
 
   return (
-    <div id="contact" className="bg-bgSecondary pb-60 pt-12 md:pb-72 md:pt-40">
+    <div
+      ref={contactRef}
+      id="contact"
+      className="bg-bgSecondary pb-60 pt-20 md:pb-72 md:pt-40"
+    >
       <div className="universal_x grid gap-x-5 gap-y-16 md:grid-cols-2">
         <section
           role="region"

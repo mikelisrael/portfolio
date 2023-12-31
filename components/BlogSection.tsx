@@ -1,7 +1,8 @@
+import { IProps } from "@/pages";
 import { FaArrowRight } from "react-icons/fa";
 import Balancer from "react-wrap-balancer";
 
-const BlogSection = () => {
+const BlogSection: React.FC<IProps> = ({ blogRef }) => {
   const blogs = [
     {
       title: "Let this be a lesson to you",
@@ -24,17 +25,17 @@ const BlogSection = () => {
   ];
 
   return (
-    <section className="bg-bgSecondary">
+    <section ref={blogRef} className="bg-bgSecondary">
       <div className="universal_x grid gap-y-10 py-24 md:grid-cols-[40%,1fr] md:py-32">
         <div>
           <h4
-            data-aos="fade-left"
+            data-aos="fade-up"
             className="tracking-[0.2em] text-textGray md:text-sm"
           >
             - Blog
           </h4>
           <h2
-            data-aos="fade-left"
+            data-aos="fade-up"
             data-aos-delay="100"
             aria-label="about"
             className="mb-1 mt-3 text-xl font-semibold sm:mb-4 sm:text-3xl md:mb-10"

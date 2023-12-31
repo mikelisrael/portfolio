@@ -25,11 +25,19 @@
 
 body {
   font-family: var(--font) !important;
-  @apply pt-0 md:pt-10 text-xs md:text-sm lg:text-base font-medium bg-bgPrimary text-textWhite overflow-x-hidden;
+  @apply overflow-x-hidden bg-bgPrimary pt-0 text-xs font-medium text-textWhite md:pt-10 md:text-sm lg:text-base;
   scrollbar-gutter: stable;
 }
 
+/* image reset */
 img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 1rem;
   user-select: none;
 }
 

@@ -6,11 +6,34 @@ import Image from "next/image";
 import styles from "@/styles/Animations.module.css";
 import { IProps } from "@/pages";
 
-type Social = {
+export type Social = {
   name: string;
   link: string;
   Icon: React.ReactNode;
 };
+
+export const socials: Social[] = [
+  {
+    name: "Github",
+    link: "",
+    Icon: <FaGithub />,
+  },
+  {
+    name: "Discord",
+    link: "",
+    Icon: <FaDiscord />,
+  },
+  {
+    name: "Instagram",
+    link: "",
+    Icon: <FaInstagram />,
+  },
+  {
+    name: "Twitter",
+    link: "",
+    Icon: <FaXTwitter />,
+  },
+];
 
 const Header: React.FC<IProps> = ({ headerRef }) => {
   // Add state to track scroll position
@@ -27,34 +50,12 @@ const Header: React.FC<IProps> = ({ headerRef }) => {
     };
   }, []);
 
-  const socials: Social[] = [
-    {
-      name: "Github",
-      link: "",
-      Icon: <FaGithub />,
-    },
-    {
-      name: "Discord",
-      link: "",
-      Icon: <FaDiscord />,
-    },
-    {
-      name: "Instagram",
-      link: "",
-      Icon: <FaInstagram />,
-    },
-    {
-      name: "Twitter",
-      link: "",
-      Icon: <FaXTwitter />,
-    },
-  ];
-
   return (
     <header
       ref={headerRef}
       role="banner"
       className="universal_x relative isolate grid py-10 md:grid-cols-2"
+      id="home"
     >
       {/* image */}
       <div

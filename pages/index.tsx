@@ -11,15 +11,29 @@ const Home = () => {
   const { ref: headerRef, inView: headerInView } = useInView({
     threshold: 0.5,
   });
+  const { ref: contactRef, inView: contactInView } = useInView({
+    threshold: 0.5,
+  });
+  const { ref: projectRef, inView: projectInView } = useInView({
+    threshold: 0.4,
+  });
+  const { ref: blogRef, inView: blogInView } = useInView({
+    threshold: 0.5,
+  });
 
   return (
-    <Layout headerInView={headerInView}>
+    <Layout
+      headerInView={headerInView}
+      contactInView={contactInView}
+      projectInView={projectInView}
+      blogInView={blogInView}
+    >
       <Header headerRef={headerRef} />
-      <Contact />
+      <Contact contactRef={contactRef} />
       <Services />
       <Stacks />
-      <Projects />
-      <BlogSection />
+      <Projects projectRef={projectRef} />
+      <BlogSection blogRef={blogRef} />
     </Layout>
   );
 };
@@ -28,5 +42,12 @@ export default Home;
 
 export interface IProps {
   headerRef?: (node?: Element | null | undefined) => void;
+  contactRef?: (node?: Element | null | undefined) => void;
+  projectRef?: (node?: Element | null | undefined) => void;
+  blogRef?: (node?: Element | null | undefined) => void;
   headerInView?: boolean;
+  contactInView?: boolean;
+  projectInView?: boolean;
+  blogInView?: boolean;
 }
+//

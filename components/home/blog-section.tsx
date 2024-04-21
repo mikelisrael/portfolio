@@ -66,7 +66,7 @@ const BlogSection = () => {
                 href="/"
                 className="group grid grid-cols-[auto,1fr,auto] items-center gap-5 py-5 md:gap-10 lg:gap-20 lg:py-10"
               >
-                <span className="space-x-1 text-textGray md:space-x-2 md:text-sm">
+                <span className="space-x-1 text-xs text-textGray md:space-x-2 md:text-sm">
                   <span>{blog.date}</span>
                   <span>•</span>
                   <span>{blog.category}</span>

@@ -60,7 +60,6 @@ const BlogSection = () => {
             <AnimatedLeftComponent
               delay={0.2}
               key={idx}
-              threshold={1}
               className="border-b border-gray last-of-type:border-0"
             >
               <Link

@@ -14,7 +14,7 @@ const ProjectCard = ({
   isPrivate,
 }: IProject) => {
   return (
-    <AnimatedUpComponent>
+    <AnimatedUpComponent threshold={0.2}>
       <article className="group flex h-full flex-col gap-1.5">
         <div className="block aspect-[1.5] h-56 overflow-hidden rounded-lg outline outline-1 outline-gray ">
           <Image

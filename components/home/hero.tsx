@@ -57,7 +57,7 @@ const Hero = () => {
           <h1
             role="heading"
             aria-level={1}
-            className="relative text-7xl font-medium duration-300 animate-in fade-in slide-in-from-right-48 md:pt-10 lg:text-8xl xl:text-9xl"
+            className="relative text-6xl font-medium duration-300 animate-in fade-in slide-in-from-right-48 sm:text-7xl md:pt-10 lg:text-8xl xl:text-9xl"
           >
             Israel{" "}
             <span className="block -translate-y-2 md:-translate-y-4 lg:-translate-y-6">

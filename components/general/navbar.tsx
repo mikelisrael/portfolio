@@ -17,7 +17,7 @@ const linkList: Link[] = [
   { path: "blog", label: "Blog" },
 ];
 
-const hideAtLocations = ["/studio"];
+// TODO: figure out why projects is not set to active tab when in mobile
 
 const Navbar = () => {
   const {
@@ -112,6 +112,7 @@ const Navbar = () => {
           !headerInView && "size-10",
         )}
         onClick={() => {
+          // DEBUG: Not working, probably use link
           // scroll to top
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}

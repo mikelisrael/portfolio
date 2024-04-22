@@ -27,7 +27,7 @@ const ProjectCard = ({
         </div>
 
         <h3 className="mt-2 text-sm font-bold md:text-base">{name}</h3>
-        <p className="text-textGray">{description}</p>
+        <p className="text-foreground-secondary">{description}</p>
 
         <div
           className={cn("mt-auto flex items-center py-7", {
@@ -36,7 +36,7 @@ const ProjectCard = ({
           })}
         >
           {isPrivate && (
-            <span className="text-gray-400 bg-secondary-background px-4 py-0.5 text-[10px] tracking-wider">
+            <span className="text-gray-400 bg-background-secondary px-4 py-0.5 text-[10px] tracking-wider">
               PRIVATE
             </span>
           )}

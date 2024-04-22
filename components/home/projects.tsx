@@ -62,8 +62,6 @@ const Projects = () => {
       id="projects"
       className="universal_x relative isolate py-20 md:py-40"
     >
-      <div ref={projectTopRef} />
-
       <AnimatedLeftComponent>
         <h6 className="text-foreground-secondary text-xs tracking-[0.2em] md:text-sm">
           - Portfolio
@@ -78,6 +76,8 @@ const Projects = () => {
           All creative works, selected projects
         </h2>{" "}
       </AnimatedLeftComponent>
+
+      <div ref={projectTopRef} />
 
       <div className="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
         {projects.map((project, index) => (

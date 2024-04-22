@@ -1,9 +1,9 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useGlobalContext } from "../providers/context";
-import { usePathname } from "next/navigation";
 
 type Link = {
   path: "contact" | "projects" | "blog";
@@ -16,8 +16,6 @@ const linkList: Link[] = [
   { path: "projects", label: "Projects" },
   { path: "blog", label: "Blog" },
 ];
-
-// TODO: figure out why projects is not set to active tab when in mobile
 
 const Navbar = () => {
   const {
@@ -34,7 +32,6 @@ const Navbar = () => {
     "contact",
   );
   const indicatorRef = useRef<HTMLDivElement>(null);
-  const pathname = usePathname();
 
   const handleClickedTab = (tab: "contact" | "projects" | "blog") => {
     setActiveTab(tab);
@@ -107,16 +104,12 @@ const Navbar = () => {
       )}
     >
       {/* logo */}
-      <div
+      <Link
+        href="/"
         className={cn(
           "size-16 cursor-pointer bg-primary duration-500 animate-in zoom-in-0",
           !headerInView && "size-10",
         )}
-        onClick={() => {
-          // DEBUG: Not working, probably use link
-          // scroll to top
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        }}
       />
 
       <div

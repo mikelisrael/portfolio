@@ -60,7 +60,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="universal_x relative isolate py-20 md:py-40"
+      className="universal_x relative overflow-x-hidden isolate py-20 md:py-40"
     >
       <AnimatedLeftComponent>
         <h6 className="text-foreground-secondary text-xs tracking-[0.2em] md:text-sm">

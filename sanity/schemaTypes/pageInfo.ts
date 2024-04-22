@@ -57,5 +57,22 @@ export default defineType({
       title: "Email",
       type: "string",
     }),
+    defineField({
+      name: "contactInfo",
+      title: "Contact Info",
+      type: "text",
+      rows: 3,
+    }),
+    defineField({
+      name: "freeTalkHeading",
+      title: "Free Talk Heading",
+      type: "string",
+    }),
+    defineField({
+      name: "freeTalk",
+      title: "Free Talk",
+      type: "text",
+      rows: 3,
+    }),
   ],
 });

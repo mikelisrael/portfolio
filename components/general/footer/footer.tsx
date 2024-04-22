@@ -1,5 +1,3 @@
-"use client";
-
 import { client } from "@/sanity/lib/client";
 import { ISocial } from "@/types";
 import { groq } from "next-sanity";

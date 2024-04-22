@@ -16,8 +16,11 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
   const { ref: contactRef, inView: contactInView } = useInView({
     threshold: 0.5,
   });
-  const { ref: projectRef, inView: projectInView } = useInView({
-    threshold: 0.4,
+  const { ref: projectTopRef, inView: projectTopInView } = useInView({
+    threshold: 0.5,
+  });
+  const { ref: projectBottomRef, inView: projectBottomInView } = useInView({
+    threshold: 0.5,
   });
   const { ref: blogRef, inView: blogInView } = useInView({
     threshold: 0.5,
@@ -34,11 +37,13 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
       value={{
         headerInView,
         contactInView,
-        projectInView,
+        projectTopInView,
+        projectBottomInView,
         blogInView,
         headerRef,
         contactRef,
-        projectRef,
+        projectTopRef,
+        projectBottomRef,
         blogRef,
         isFooterAndNavHidden,
       }}

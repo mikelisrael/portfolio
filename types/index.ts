@@ -3,7 +3,8 @@ import React from "react";
 export interface AppContextValue {
   headerInView: boolean;
   contactInView: boolean;
-  projectInView: boolean;
+  projectTopInView: boolean;
+  projectBottomInView: boolean;
   blogInView: boolean;
   headerRef:
     | ((node?: Element | null | undefined) => void)
@@ -11,7 +12,10 @@ export interface AppContextValue {
   contactRef:
     | ((node?: Element | null | undefined) => void)
     | React.RefObject<HTMLDivElement>;
-  projectRef:
+  projectTopRef:
+    | ((node?: Element | null | undefined) => void)
+    | React.RefObject<HTMLDivElement>;
+  projectBottomRef:
     | ((node?: Element | null | undefined) => void)
     | React.RefObject<HTMLDivElement>;
   blogRef:

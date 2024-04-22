@@ -23,7 +23,8 @@ const Navbar = () => {
   const {
     headerInView,
     contactInView,
-    projectInView,
+    projectTopInView,
+    projectBottomInView,
     blogInView,
     isFooterAndNavHidden,
   } = useGlobalContext();
@@ -61,14 +62,14 @@ const Navbar = () => {
       setActiveTab("contact");
     }
 
-    if (projectInView) {
+    if (projectTopInView || projectBottomInView) {
       setActiveTab("projects");
     }
 
     if (blogInView) {
       setActiveTab("blog");
     }
-  }, [contactInView, projectInView, blogInView]);
+  }, [contactInView, projectTopInView, projectBottomInView, blogInView]);
 
   function moveIndicator() {
     if (indicatorRef.current) {

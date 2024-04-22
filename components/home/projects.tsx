@@ -6,7 +6,7 @@ import { useGlobalContext } from "../providers/context";
 import { AnimatedLeftComponent } from "../general/animated-components";
 
 const Projects = () => {
-  const { projectRef } = useGlobalContext();
+  const { projectTopRef, projectBottomRef } = useGlobalContext();
   const projects: IProject[] = [
     {
       name: "Project Z",
@@ -59,10 +59,11 @@ const Projects = () => {
 
   return (
     <section
-      ref={projectRef}
       id="projects"
-      className="universal_x  py-20 md:py-40"
+      className="universal_x relative isolate py-20 md:py-40"
     >
+      <div ref={projectTopRef} />
+
       <AnimatedLeftComponent>
         <h6 className="text-xs tracking-[0.2em] text-textGray md:text-sm">
           - Portfolio
@@ -83,6 +84,8 @@ const Projects = () => {
           <ProjectCard key={index} {...project} />
         ))}
       </div>
+
+      <div ref={projectBottomRef} />
     </section>
   );
 };

@@ -1,14 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import CountUp from "react-countup";
 import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 import { AnimatedUpComponent } from "../general/animated-components";
 import { useGlobalContext } from "../providers/context";
+import { IPageInfo } from "@/types";
 
-const Contact = () => {
+const Contact: React.FC<IPageInfo> = ({
+  yearsOfExperience,
+  satisfiedClients,
+}) => {
   const { contactRef } = useGlobalContext();
   const { ref: yearsRef, inView: yearsInView } = useInView({
     threshold: 0.5,
@@ -33,7 +37,7 @@ const Contact = () => {
     <div
       ref={contactRef}
       id="contact"
-      className="scroll-m-20 bg-secondary-background py-20 md:py-40"
+      className="bg-background-secondary scroll-m-20 py-20 md:py-40"
     >
       <div className="universal_x grid gap-x-5 gap-y-16 md:grid-cols-2">
         <section
@@ -43,7 +47,7 @@ const Contact = () => {
         >
           <div className="md:max-w-md">
             <AnimatedUpComponent>
-              <h6 className="text-xs tracking-[0.2em] text-textGray md:text-sm">
+              <h6 className="text-foreground-secondary text-xs tracking-[0.2em] md:text-sm">
                 - Contact
               </h6>
             </AnimatedUpComponent>
@@ -55,7 +59,7 @@ const Contact = () => {
             </AnimatedUpComponent>
 
             <AnimatedUpComponent>
-              <p className="text-balance text-textGray">
+              <p className="text-foreground-secondary text-balance">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Possimus iure, numquam omnis excepturi, totam debitis
                 dignissimos unde incidunt iste labore delectus a quod sunt
@@ -90,7 +94,7 @@ const Contact = () => {
               </h2>
             </AnimatedUpComponent>
             <AnimatedUpComponent>
-              <p className="text-balance text-textGray">
+              <p className="text-foreground-secondary text-balance">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                 Possimus iure, numquam omnis excepturi, totam debitis
                 dignissimos unde incidunt iste labore delectus a quod sunt
@@ -107,7 +111,7 @@ const Contact = () => {
                   className="text-5xl font-semibold text-primary lg:text-7xl"
                   ref={yearsRef}
                 >
-                  {yearsCounted ? <CountUp end={6} /> : 0}
+                  {yearsCounted ? <CountUp end={yearsOfExperience} /> : 0}
                 </h4>
                 <span>
                   Years of <br /> Experience.
@@ -119,7 +123,7 @@ const Contact = () => {
                   className="text-5xl font-semibold text-primary lg:text-7xl"
                   ref={clientsRef}
                 >
-                  {clientsCounted ? <CountUp end={26} /> : 0}
+                  {clientsCounted ? <CountUp end={satisfiedClients} /> : 0}
                 </h4>
                 <span>
                   Satisfied <br /> Clients.

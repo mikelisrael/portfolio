@@ -20,7 +20,7 @@ const Hero: React.FC<IPageInfo> = ({
 
   // Add a scroll event listener to update the scroll position
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll: EventListener = () => {
       setScrollPosition(window.scrollY);
     };
     window.addEventListener("scroll", handleScroll);

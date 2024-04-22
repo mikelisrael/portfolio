@@ -55,9 +55,19 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-s-full bg-primary;
+}
+
 body {
-  @apply overflow-x-hidden bg-background text-sm text-foreground lg:text-base;
-  /* scrollbar-gutter: stable; */
+  @apply h-dvh overflow-x-hidden bg-background pt-0 text-sm text-foreground md:pt-10 lg:text-base;
+  scrollbar-gutter: stable;
 }
 
 /* image reset */

@@ -71,11 +71,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={comfortaa.className}>
         <AppProvider>
-          <ScrollArea className="h-dvh">
-            <Navbar />
-            {children}
-            <Footer />
-          </ScrollArea>
+          <Navbar />
+          {children}
+          <Footer />
         </AppProvider>
       </body>
     </html>

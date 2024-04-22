@@ -1,13 +1,11 @@
 "use client";
 
+import { urlForImage } from "@/sanity/lib/image";
 import { IPageInfo } from "@/types";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Socials from "../general/socials";
 import { useGlobalContext } from "../providers/context";
-import urlBuilder from "@sanity/image-url";
-import { ImageUrlBuilder } from "@sanity/image-url/lib/types/builder";
-import { urlForImage } from "@/sanity/lib/image";
 
 const Hero: React.FC<IPageInfo> = ({
   name,

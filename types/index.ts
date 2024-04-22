@@ -61,4 +61,7 @@ export interface IPageInfo extends Base {
   yearsOfExperience: number;
   satisfiedClients: number;
   email: string;
+  contactInfo: string;
+  freeTalkHeading: string;
+  freeTalk: string;
 }

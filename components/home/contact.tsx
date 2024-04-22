@@ -12,6 +12,8 @@ import { IPageInfo } from "@/types";
 const Contact: React.FC<IPageInfo> = ({
   yearsOfExperience,
   satisfiedClients,
+  email,
+  contactInfo,
 }) => {
   const { contactRef } = useGlobalContext();
   const { ref: yearsRef, inView: yearsInView } = useInView({
@@ -60,10 +62,7 @@ const Contact: React.FC<IPageInfo> = ({
 
             <AnimatedUpComponent>
               <p className="text-foreground-secondary text-balance">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Possimus iure, numquam omnis excepturi, totam debitis
-                dignissimos unde incidunt iste labore delectus a quod sunt
-                vitae! Enim magni totam corporis quibusdam?
+                {contactInfo}
               </p>
             </AnimatedUpComponent>
           </div>
@@ -72,10 +71,10 @@ const Contact: React.FC<IPageInfo> = ({
             <Link
               aria-label="Email Address"
               aria-describedby="emailDescription"
-              href="mailto:israelipinkz@gmail.com"
+              href={"mailto:" + email}
               className="group font-bold text-primary"
             >
-              <span>{`israelipinkz@gmail.com`}</span>{" "}
+              <span>{email}</span>{" "}
               <FaArrowRight className="inline-block duration-200 group-hover:translate-x-3" />
             </Link>
           </AnimatedUpComponent>
@@ -100,7 +99,7 @@ const Contact: React.FC<IPageInfo> = ({
                 dignissimos unde incidunt iste labore delectus a quod sunt
                 vitae! Enim magni totam corporis quibusdam?
               </p>
-            </AnimatedUpComponent>{" "}
+            </AnimatedUpComponent>
           </div>
 
           {/* second element*/}

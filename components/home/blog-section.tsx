@@ -1,11 +1,11 @@
 "use client";
+import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
-import { useGlobalContext } from "../providers/context";
 import {
   AnimatedLeftComponent,
   AnimatedUpComponent,
 } from "../general/animated-components";
-import Link from "next/link";
+import { useGlobalContext } from "../providers/context";
 
 const BlogSection = () => {
   const { blogRef } = useGlobalContext();
@@ -14,17 +14,20 @@ const BlogSection = () => {
     {
       title: "Let this be a lesson to you",
       date: "Feb 26",
-      link: "/",
+      category: "Blog",
+      link: "https://www.trulyao.dev",
     },
     {
       title: "How do you use time tracking to improve your productivity?",
       date: "Mar 15",
-      link: "/",
+      category: "Blog",
+      link: "https://www.trulyao.dev/second-blog",
     },
     {
       title: "Third blog title",
       date: "Mar 30",
-      link: "/",
+      category: "Blog",
+      link: "https://www.trulyao.dev/third-blog",
     },
   ];
 
@@ -60,13 +63,13 @@ const BlogSection = () => {
               className="border-b border-gray last-of-type:border-0"
             >
               <Link
-                href={blog.link}
+                href="/"
                 className="group grid grid-cols-[auto,1fr,auto] items-center gap-5 py-5 md:gap-10 lg:gap-20 lg:py-10"
               >
                 <span className="space-x-1 text-xs text-textGray md:space-x-2 md:text-sm">
                   <span>{blog.date}</span>
                   <span>•</span>
-                  <span>Blog</span>
+                  <span>{blog.category}</span>
                 </span>
 
                 <h4 className="text-sm font-bold sm:text-base md:text-xl">

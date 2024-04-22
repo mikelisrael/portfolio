@@ -52,7 +52,7 @@ const BlogSection = () => {
           </AnimatedUpComponent>
         </div>
 
-        <div>
+        <div className="overflow-x-hidden">
           {blogs.map((blog, idx) => (
             <AnimatedLeftComponent
               delay={0.2}

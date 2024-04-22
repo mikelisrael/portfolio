@@ -110,6 +110,7 @@ const Navbar = () => {
           "size-16 cursor-pointer bg-primary duration-500 animate-in zoom-in-0",
           !headerInView && "size-10",
         )}
+        onClick={() => setActiveTab("contact")}
       />
 
       <div

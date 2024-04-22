@@ -65,7 +65,7 @@ const Projects = () => {
       <div ref={projectTopRef} />
 
       <AnimatedLeftComponent>
-        <h6 className="text-xs tracking-[0.2em] text-textGray md:text-sm">
+        <h6 className="text-foreground-secondary text-xs tracking-[0.2em] md:text-sm">
           - Portfolio
         </h6>
       </AnimatedLeftComponent>

@@ -21,15 +21,19 @@ const config = {
       colors: {
         bgPrimary: "#333646",
         bgTertiary: "#424657",
-        textGray: "#96979f",
         gray: "#646672",
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        ["secondary-background"]: "hsl(var(--secondary-background))",
-        foreground: "hsl(var(--foreground))",
+        background: {
+          DEFAULT: "hsl(var(--background))",
+          secondary: "hsl(var(--background-secondary))",
+        },
+        foreground: {
+          DEFAULT: "hsl(var(--foreground))",
+          secondary: "hsl(var(--foreground-secondary))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

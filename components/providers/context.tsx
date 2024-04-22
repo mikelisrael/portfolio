@@ -17,10 +17,10 @@ export const AppProvider: React.FC<{ children: ReactNode }> = ({
     threshold: 0.5,
   });
   const { ref: projectTopRef, inView: projectTopInView } = useInView({
-    threshold: 0.5,
+    threshold: 1,
   });
   const { ref: projectBottomRef, inView: projectBottomInView } = useInView({
-    threshold: 0.5,
+    threshold: 1,
   });
   const { ref: blogRef, inView: blogInView } = useInView({
     threshold: 0.5,

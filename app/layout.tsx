@@ -1,10 +1,10 @@
+import Footer from "@/components/general/footer/footer";
 import Navbar from "@/components/general/navbar";
 import { AppProvider } from "@/components/providers/context";
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import type { Metadata } from "next";
 import { Comfortaa } from "next/font/google";
 import "./globals.css";
-import Footer from "@/components/general/footer";
 
 const comfortaa = Comfortaa({
   subsets: ["cyrillic"],

@@ -5,12 +5,16 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Socials from "../general/socials";
 import { useGlobalContext } from "../providers/context";
+import urlBuilder from "@sanity/image-url";
+import { ImageUrlBuilder } from "@sanity/image-url/lib/types/builder";
+import { urlForImage } from "@/sanity/lib/image";
 
 const Hero: React.FC<IPageInfo> = ({
   name,
   introductionHeading,
   introduction,
   socials,
+  subjectImage,
 }) => {
   const { headerRef } = useGlobalContext();
   // Add state to track scroll position
@@ -46,9 +50,9 @@ const Hero: React.FC<IPageInfo> = ({
             priority
             width={1000}
             height={1000}
-            src="/img/israel3.png"
+            src={urlForImage(subjectImage)}
+            alt={subjectImage.alt}
             className="w-full translate-x-[16rem] -scale-x-100 md:translate-x-0 md:scale-x-100"
-            alt="Michael Israel"
             aria-label="Michael Israel"
           />
         </div>

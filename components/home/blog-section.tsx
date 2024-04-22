@@ -14,19 +14,16 @@ const BlogSection = () => {
     {
       title: "Let this be a lesson to you",
       date: "Feb 26",
-      category: "Blog",
       link: "https://www.trulyao.dev",
     },
     {
       title: "How do you use time tracking to improve your productivity?",
       date: "Mar 15",
-      category: "Blog",
       link: "https://www.trulyao.dev/second-blog",
     },
     {
       title: "Third blog title",
       date: "Mar 30",
-      category: "Blog",
       link: "https://www.trulyao.dev/third-blog",
     },
   ];
@@ -69,7 +66,7 @@ const BlogSection = () => {
                 <span className="space-x-1 text-xs text-textGray md:space-x-2 md:text-sm">
                   <span>{blog.date}</span>
                   <span>•</span>
-                  <span>{blog.category}</span>
+                  <span>Blog</span>
                 </span>
 
                 <h4 className="text-sm font-bold sm:text-base md:text-xl">

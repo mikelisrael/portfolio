@@ -1,5 +1,13 @@
 import React from "react";
 
+type Base = {
+  _createdAt: string;
+  _id: string;
+  _rev: string;
+  _type: string;
+  _updatedAt: string;
+};
+
 export interface AppContextValue {
   headerInView: boolean;
   contactInView: boolean;
@@ -31,4 +39,26 @@ export interface IProject {
   github: string;
   link?: string;
   isPrivate?: boolean;
+}
+
+export interface ISocial extends Base {
+  name: string;
+  link: string;
+}
+
+export interface IPageInfo extends Base {
+  name: string;
+  introductionHeading: string;
+  introduction: string;
+  subjectImage: {
+    alt: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
+  socials: ISocial[];
+  yearsOfExperience: number;
+  satisfiedClients: number;
+  email: string;
 }

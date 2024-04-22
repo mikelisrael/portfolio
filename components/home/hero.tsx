@@ -1,13 +1,17 @@
 "use client";
 
+import { IPageInfo } from "@/types";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import Socials from "../general/socials";
 import { useGlobalContext } from "../providers/context";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
-import { socials } from "../general/socials";
 
-const Hero = () => {
+const Hero: React.FC<IPageInfo> = ({
+  name,
+  introductionHeading,
+  introduction,
+  socials,
+}) => {
   const { headerRef } = useGlobalContext();
   // Add state to track scroll position
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -22,6 +26,8 @@ const Hero = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const [firstName, lastName] = name.split(" ");
 
   return (
     <header
@@ -59,9 +65,9 @@ const Hero = () => {
             aria-level={1}
             className="relative text-6xl font-medium duration-300 animate-in fade-in slide-in-from-right-48 sm:text-7xl md:pt-10 lg:text-8xl xl:text-9xl"
           >
-            Israel{" "}
+            {firstName}{" "}
             <span className="block -translate-y-2 md:-translate-y-4 lg:-translate-y-6">
-              Michael.
+              {lastName}.
             </span>
           </h1>
           {/* underline */}
@@ -77,28 +83,7 @@ const Hero = () => {
           aria-label="social media links"
           className="mt-16 flex w-max gap-5 pr-2 text-xl backdrop-blur-md md:mt-32 md:gap-8"
         >
-          {socials.map(({ name, link, Icon }, idx) => (
-            <li
-              key={name}
-              aria-label={name}
-              title={name}
-              role="listitem"
-              style={{ animationDuration: `${(idx + 1) * 100 + 300}ms` }}
-              className={cn(
-                "duration-200 animate-in fade-in slide-in-from-right-32",
-              )}
-            >
-              <Link
-                // open new tab
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-primary"
-              >
-                {Icon}
-              </Link>
-            </li>
-          ))}
+          <Socials socials={socials} />
         </ul>
       </section>
 
@@ -107,8 +92,8 @@ const Hero = () => {
         className="flex justify-start pt-10 md:justify-end"
         style={{ transform: `translateY(-${scrollPosition * 0.3}px)` }} // parallax scroll
       >
-        <div className="backdrop-blur sm:max-w-sm md:max-w-xs md:px-2">
-          <h6 className="text-xs tracking-[0.2em] text-textGray duration-300  animate-in  fade-in slide-in-from-right-48 md:text-sm">
+        <div className="backdrop-blur sm:max-w-sm md:px-2">
+          <h6 className="text-foreground-secondary text-xs tracking-[0.2em] duration-300  animate-in  fade-in slide-in-from-right-48 md:text-sm">
             - Introduction
           </h6>
 
@@ -116,18 +101,15 @@ const Hero = () => {
             aria-label="about"
             className="mb-1 mt-3 text-balance text-xl font-medium duration-500 animate-in fade-in slide-in-from-right-48 sm:mb-4 sm:text-3xl md:mb-10"
           >
-            Web developer and product designer based in Nigeria.
+            {introductionHeading}
           </h2>
 
           <p
-            className="text-textGray duration-700 animate-in fade-in slide-in-from-right-48"
+            className="text-foreground-secondary duration-700 animate-in fade-in slide-in-from-right-48"
             aria-label="description"
             aria-labelledby="about"
           >
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus
-            iure, numquam omnis excepturi, totam debitis dignissimos unde
-            incidunt iste labore delectus a quod sunt vitae! Enim magni totam
-            corporis quibusdam?
+            {introduction}
           </p>
         </div>
       </section>

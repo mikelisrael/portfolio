@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@radix-ui/react-scroll-area": "^1.0.5",
+    "@radix-ui/react-tooltip": "^1.0.7",
     "@sanity/image-url": "1",
     "@sanity/vision": "3",
     "aos": "^2.3.4",

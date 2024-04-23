@@ -24,8 +24,8 @@ const Home = async () => {
       <Hero {...pageInfo} />
       <Contact {...pageInfo} />
       <Services />
-      <Technologies/>
-      <Projects />
+      <Technologies />
+      <Projects {...pageInfo} />
       <BlogSection />
     </main>
   );

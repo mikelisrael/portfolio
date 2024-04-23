@@ -43,7 +43,7 @@ const Hero: React.FC<IPageInfo> = ({
         role="img"
         className="absolute bottom-0 left-auto right-0 -z-10 w-[32rem] overflow-hidden md:left-[15%] md:right-auto lg:left-[20%] xl:w-[36rem]"
       >
-        <div className="size-full duration-500 animate-in fade-in-0 slide-in-from-bottom-[30%] slide-in-from-left-[30%]">
+        <div className="size-full duration-700 animate-in fade-in slide-in-from-bottom-[30%] slide-in-from-left-[30%]">
           <Image
             priority
             width={1000}
@@ -65,7 +65,7 @@ const Hero: React.FC<IPageInfo> = ({
           <h1
             role="heading"
             aria-level={1}
-            className="relative text-6xl font-medium duration-300 animate-in fade-in slide-in-from-right-48 sm:text-7xl md:pt-10 lg:text-8xl xl:text-9xl"
+            className="relative text-6xl font-medium duration-500 animate-in fade-in slide-in-from-right-48 sm:text-7xl md:pt-10 lg:text-8xl xl:text-9xl"
           >
             {firstName}{" "}
             <span className="block -translate-y-2 md:-translate-y-4 lg:-translate-y-6">
@@ -75,7 +75,7 @@ const Hero: React.FC<IPageInfo> = ({
           {/* underline */}
           <div
             data-aos-delay="150"
-            className="absolute -bottom-4 h-2 w-[15%] bg-primary duration-500 content-[''] animate-in fade-in slide-in-from-right-32 md:w-[20%] lg:h-4"
+            className="absolute -bottom-4 h-2 w-[15%] bg-primary duration-700 content-[''] animate-in fade-in slide-in-from-right-32 md:w-[20%] lg:h-4"
           ></div>
         </div>
 
@@ -95,13 +95,13 @@ const Hero: React.FC<IPageInfo> = ({
         style={{ transform: `translateY(-${scrollPosition * 0.3}px)` }} // parallax scroll
       >
         <div className="backdrop-blur sm:max-w-sm md:px-2">
-          <h6 className="text-foreground-secondary text-xs tracking-[0.2em] duration-300  animate-in  fade-in slide-in-from-right-48 md:text-sm">
+          <h6 className="text-xs tracking-[0.2em] text-foreground-secondary duration-500  animate-in  fade-in slide-in-from-right-48 md:text-sm">
             - Introduction
           </h6>
 
           <h2
             aria-label="about"
-            className="mb-1 mt-3 text-balance text-xl font-medium duration-500 animate-in fade-in slide-in-from-right-48 sm:mb-4 sm:text-3xl md:mb-10"
+            className="mb-1 mt-3 text-balance text-xl font-medium duration-700 animate-in fade-in slide-in-from-right-48 sm:mb-4 sm:text-3xl md:mb-10"
           >
             {introductionHeading}
           </h2>

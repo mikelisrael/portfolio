@@ -4,6 +4,12 @@ import Link from "next/link";
 import { FaDiscord, FaGithub, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IconType } from "react-icons/lib";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const iconMap: { [key: string]: IconType } = {
   Discord: FaDiscord,
@@ -43,13 +49,21 @@ function Socials({ socials }: { socials: ISocial[] }) {
             )}
           >
             <Link
-              // open new tab
               href={link}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary"
             >
-              <Icon />
+              <TooltipProvider key={idx} delayDuration={0}>
+                <Tooltip>
+                  <TooltipTrigger aria-label={name} role="listitem">
+                    <Icon />
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>{name}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </Link>
           </li>
         );

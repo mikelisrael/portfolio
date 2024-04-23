@@ -1,8 +1,9 @@
 import BlogSection from "@/components/home/blog-section";
 import Contact from "@/components/home/contact";
 import Hero from "@/components/home/hero";
-import Projects from "@/components/home/projects";
-import { client } from "@/sanity/lib/client";
+import Projects from "@/components/home/projects/projects-section";
+import Services from "@/components/home/services";
+import Technologies from "@/components/home/technologies";
 import { sanityFetch } from "@/sanity/lib/onDemandFetch";
 import { IPageInfo } from "@/types";
 import { groq } from "next-sanity";
@@ -22,6 +23,8 @@ const Home = async () => {
     <main className="pt-0 md:pt-10">
       <Hero {...pageInfo} />
       <Contact {...pageInfo} />
+      <Services />
+      <Technologies/>
       <Projects />
       <BlogSection />
     </main>

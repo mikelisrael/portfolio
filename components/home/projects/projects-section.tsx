@@ -1,10 +1,7 @@
 "use client";
 
-import { IProject } from "@/types";
-import {
-  AnimatedLeftComponent,
-  AnimatedUpComponent,
-} from "../../general/animated-components";
+import { IPageInfo, IProject } from "@/types";
+import { AnimatedUpComponent } from "../../general/animated-components";
 import { useGlobalContext } from "../../providers/context";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,8 +9,12 @@ import { FaArrowRight } from "react-icons/fa";
 import { cn } from "@/lib/utils";
 import { GiEmptyHourglass } from "react-icons/gi";
 import { Badge } from "@/components/ui/badge";
+import React from "react";
 
-const Projects = () => {
+const Projects: React.FC<IPageInfo> = ({
+  projectInvitation,
+  projectInvitationHeading,
+}) => {
   const { projectTopRef, projectBottomRef } = useGlobalContext();
   const projects: IProject[] = [
     {
@@ -63,15 +64,13 @@ const Projects = () => {
               aria-label="about"
               className="mb-7 mt-3 text-balance text-xl font-semibold capitalize sm:text-3xl"
             >
-              All creative works, selected projects.
+              
+              {projectInvitationHeading}
             </h2>{" "}
           </AnimatedUpComponent>
 
           <AnimatedUpComponent>
-            <p className="text-foreground-secondary">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore,
-              placeat.
-            </p>
+            <p className="text-foreground-secondary">{projectInvitation}</p>
           </AnimatedUpComponent>
 
           <AnimatedUpComponent className="mt-10 md:mt-16">

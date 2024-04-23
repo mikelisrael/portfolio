@@ -44,7 +44,7 @@ const Services = () => {
               <div className="flex items-start justify-center gap-4 lg:gap-7">
                 <Icon className="text-xl" />
                 <div className="-translate-y-1 space-y-3">
-                  <h2 className="text-2xl capitalize md:text-xl lg:text-3xl">
+                  <h2 className="text-2xl capitalize sm:text-xl lg:text-3xl">
                     {firstWord} <br /> {rest.join(" ")}
                   </h2>
                 </div>

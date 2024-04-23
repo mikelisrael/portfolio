@@ -69,7 +69,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={comfortaa.className}>
+      <body
+        className={comfortaa.className + "  duration-200 animate-in fade-in"}
+      >
         <AppProvider>
           <Navbar />
           {children}

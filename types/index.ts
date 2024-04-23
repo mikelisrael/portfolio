@@ -42,6 +42,18 @@ export interface IProject {
   isPrivate?: boolean;
 }
 
+export interface ITool extends Base {
+  name: string;
+  toolImage: {
+    alt: string;
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+  };
+  priority: number;
+}
+
 export interface ISocial extends Base {
   name: string;
   link: string;
@@ -65,4 +77,6 @@ export interface IPageInfo extends Base {
   contactInfo: string;
   freeTalkHeading: string;
   freeTalk: string;
+  projectInvitationHeading: string;
+  projectInvitation: string;
 }

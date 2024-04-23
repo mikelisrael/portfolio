@@ -34,7 +34,7 @@ const Projects: React.FC<IPageInfo> = ({
       image: "/img/project1.jpg",
       github: "",
       isPrivate: true,
-      link: "https://www.trulyao.dev",
+      link: "/",
     },
     {
       name: "Flamestar",
@@ -64,7 +64,6 @@ const Projects: React.FC<IPageInfo> = ({
               aria-label="about"
               className="mb-7 mt-3 text-balance text-xl font-semibold capitalize sm:text-3xl"
             >
-              
               {projectInvitationHeading}
             </h2>{" "}
           </AnimatedUpComponent>
@@ -90,14 +89,15 @@ const Projects: React.FC<IPageInfo> = ({
               key={index}
               threshold={index == 1 ? 0.1 : undefined}
             >
-              <article
+              <Link
+                href={project.link ?? project.github}
                 className={cn(
-                  "h-full w-full justify-self-end overflow-hidden bg-background-secondary",
+                  "group block h-full w-full justify-self-end overflow-hidden bg-background-secondary outline-1 transition-all duration-300 hover:outline hover:outline-gray",
                   index == 1 && "md:-translate-y-40 lg:-translate-y-80",
                 )}
               >
                 <header className="m-5 flex items-center justify-between gap-5 md:m-10">
-                  <h3 className="text-2xl font-medium lg:text-3xl">
+                  <h3 className="text-2xl font-medium group-hover:text-primary group-focus-visible:text-primary lg:text-3xl">
                     {project.name}
                   </h3>
                   <Badge className="shrink-0 bg-background text-right text-xs capitalize md:text-sm">
@@ -105,22 +105,22 @@ const Projects: React.FC<IPageInfo> = ({
                   </Badge>
                 </header>
 
-                <div className="relative mt-10 h-[400px] md:mt-28 md:aspect-[5/4] md:h-auto lg:w-[600px]">
+                <div className="relative mt-32 h-[300px] sm:mt-48 sm:h-[400px] md:aspect-[5/4] md:h-auto">
                   {project.image ? (
                     <Image
                       src={project.image}
                       alt={project.name}
                       width={1920}
                       height={1080}
-                      className="absolute inset-0 h-full w-full translate-y-10 object-cover md:object-fill lg:-translate-x-10 lg:-rotate-12"
+                      className="absolute inset-0 h-full w-full -rotate-12 scale-125 object-cover transition-transform duration-300 group-hover:scale-[1.3] md:object-fill"
                     />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-background/50 lg:-translate-x-5">
-                      <GiEmptyHourglass className="-mt-40 translate-y-20 text-3xl text-foreground-secondary lg:-ml-20 lg:translate-y-24" />
+                    <div className="flex h-full w-full -rotate-12 scale-125 items-center justify-center bg-background/50">
+                      <GiEmptyHourglass className="-mt-40 translate-y-20 text-3xl text-foreground-secondary" />
                     </div>
                   )}
                 </div>
-              </article>
+              </Link>
             </AnimatedUpComponent>
           );
         })}

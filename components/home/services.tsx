@@ -12,17 +12,14 @@ type Service = {
 const servicesData: Service[] = [
   {
     title: "Responsive Design",
-
     Icon: FaLaptop,
   },
   {
     title: "UI/UX optimization",
-
     Icon: FaPenNib,
   },
   {
     title: "Secure development",
-
     Icon: MdSecurity,
   },
 ];
@@ -34,7 +31,7 @@ const Services = () => {
         const [firstWord, ...rest] = title.split(" ");
 
         return (
-          <AnimatedUpComponent key={index} delay={index * 0.5}>
+          <AnimatedUpComponent key={index} delay={index * 0.2}>
             <article
               className={cn(
                 "grid h-80 place-items-center items-end  bg-bgTertiary px-2 py-10 font-medium lg:p-10",

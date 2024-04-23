@@ -74,5 +74,22 @@ export default defineType({
       type: "text",
       rows: 3,
     }),
+   
+    defineField({
+      name: "projectInvitationHeading",
+      title: "Project Invitation Heading",
+      type: "string",
+    }),
+    defineField({
+      name: "projectInvitation",
+      title: "Project Invitation",
+      type: "string",
+    }),
+    defineField({
+      name: "projects",
+      title: "Projects",
+      type: "array",
+      of: [{ type: "reference", to: { type: "project" } }],
+    }),
   ],
 });

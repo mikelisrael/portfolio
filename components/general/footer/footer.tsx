@@ -1,7 +1,7 @@
 import { client } from "@/sanity/lib/client";
 import { ISocial } from "@/types";
 import { groq } from "next-sanity";
-import FooterContent from "./footerContent";
+import FooterContent from "./footer-client";
 
 const Footer = async () => {
   const query = groq`*[_type == "social"]`;

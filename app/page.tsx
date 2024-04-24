@@ -18,7 +18,7 @@ const query = groq`*[_type == "pageInfo"][0]{
 const Home = async () => {
   const pageInfo: IPageInfo = await sanityFetch({
     query,
-    tags: ["pageInfo"], // will revalidate for page info changes
+    tags: ["pageInfo", "testimonial"], // will revalidate for page info changes
   });
 
   return (

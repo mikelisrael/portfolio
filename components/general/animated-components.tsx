@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { LazyMotion, domAnimation, motion } from "framer-motion";
 import React from "react";
 
 interface AnimatedComponentProps {
@@ -8,6 +8,7 @@ interface AnimatedComponentProps {
   delay?: number;
   className?: string;
   threshold?: number;
+  x?: number;
 }
 
 export const AnimatedUpComponent = ({
@@ -17,15 +18,17 @@ export const AnimatedUpComponent = ({
   className,
 }: AnimatedComponentProps) => {
   return (
-    <motion.div
-      initial={{ y: 100, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6 + (delay || 0) }}
-      viewport={{ once: true, amount: threshold || 0.5 }}
-      className={className}
-    >
-      {children}
-    </motion.div>
+    <LazyMotion features={domAnimation}>
+      <motion.div
+        initial={{ y: 100, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6 + (delay || 0) }}
+        viewport={{ once: true, amount: threshold || 0.5 }}
+        className={className}
+      >
+        {children}
+      </motion.div>
+    </LazyMotion>
   );
 };
 
@@ -34,16 +37,19 @@ export const AnimatedLeftComponent = ({
   delay,
   className,
   threshold,
+  x,
 }: AnimatedComponentProps) => {
   return (
-    <motion.div
-      initial={{ x: 100, opacity: 0 }}
-      whileInView={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.6 + (delay || 0) }}
-      viewport={{ once: true, amount: threshold || 0.5 }}
-      className={className}
-    >
-      {children}
-    </motion.div>
+    <LazyMotion features={domAnimation}>
+      <motion.div
+        initial={{ x: x || 100, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.6 + (delay || 0) }}
+        viewport={{ once: true, amount: threshold || 0.5 }}
+        className={className}
+      >
+        {children}
+      </motion.div>
+    </LazyMotion>
   );
 };

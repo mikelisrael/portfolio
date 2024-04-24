@@ -25,6 +25,7 @@ const Projects: React.FC<IPageInfo> = ({
       image: "",
       github: "",
       isPrivate: true,
+      priority: 0,
     },
     {
       name: "Tabs",
@@ -35,6 +36,7 @@ const Projects: React.FC<IPageInfo> = ({
       github: "",
       isPrivate: true,
       link: "/",
+      priority: 0,
     },
     {
       name: "Flamestar",
@@ -42,6 +44,7 @@ const Projects: React.FC<IPageInfo> = ({
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       image: "/img/project.png",
       github: "",
+      priority: 0,
     },
   ];
 
@@ -105,17 +108,21 @@ const Projects: React.FC<IPageInfo> = ({
                   </Badge>
                 </header>
 
-                <div className="relative mt-32 h-[300px] sm:mt-48 sm:h-[400px] md:aspect-[5/4] md:h-auto">
+                <div className="mx-5 origin-top-left scale-0 overflow-hidden transition-transform duration-300 group-hover:scale-100 group-focus-visible:scale-100 md:mx-10">
+                  {project.description}
+                </div>
+
+                <div className="relative mt-20 h-[300px] sm:h-[400px] md:mt-28 md:aspect-[5/4] md:h-auto">
                   {project.image ? (
                     <Image
                       src={project.image}
                       alt={project.name}
                       width={1920}
                       height={1080}
-                      className="absolute inset-0 h-full w-full -rotate-12 scale-125 object-cover transition-transform duration-300 group-hover:scale-[1.3] md:object-fill"
+                      className="absolute inset-0 h-full w-full -rotate-12 scale-125 object-cover transition-transform duration-300 group-hover:rotate-0 group-focus-visible:rotate-0 md:object-fill"
                     />
                   ) : (
-                    <div className="flex h-full w-full -rotate-12 scale-125 items-center justify-center bg-background/50">
+                    <div className="flex h-full w-full -rotate-12 scale-125 items-center justify-center bg-background/50 transition-transform duration-300 group-hover:rotate-0 group-focus-visible:rotate-0">
                       <GiEmptyHourglass className="-mt-40 translate-y-20 text-3xl text-foreground-secondary" />
                     </div>
                   )}

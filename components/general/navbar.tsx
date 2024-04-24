@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useGlobalContext } from "../providers/context";
-
+import { motion } from "framer-motion";
 type Link = {
   path: "contact" | "projects" | "blog";
   label: string;
@@ -103,15 +103,22 @@ const Navbar = () => {
           "sticky top-0 rounded-xl border border-gray backdrop-blur-md duration-500 animate-in slide-in-from-top-10 ",
       )}
     >
+      <Link href="/" onClick={() => setActiveTab("contact")}>
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ rotate: 180, scale: 1 }}
+          transition={{
+            type: "spring",
+            stiffness: 260,
+            damping: 20,
+          }}
+          className={cn(
+            "size-16 cursor-pointer rounded-lg bg-primary",
+            !headerInView && "size-10",
+          )}
+        ></motion.div>
+      </Link>
       {/* logo */}
-      <Link
-        href="/"
-        className={cn(
-          "size-16 cursor-pointer bg-primary duration-500 animate-in zoom-in-0",
-          !headerInView && "size-10",
-        )}
-        onClick={() => setActiveTab("contact")}
-      />
 
       <div
         role="menubar"

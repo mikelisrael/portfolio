@@ -113,7 +113,7 @@ const Navbar = () => {
             damping: 20,
           }}
           className={cn(
-            "size-16 cursor-pointer rounded-lg bg-primary",
+            "size-16 cursor-pointer rounded-lg bg-primary duration-200",
             !headerInView && "size-10",
           )}
         ></motion.div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { LazyMotion, domAnimation, motion } from "framer-motion";
+import { LazyMotion, domAnimation, m } from "framer-motion";
 import React from "react";
 
 interface AnimatedComponentProps {
@@ -19,7 +19,7 @@ export const AnimatedUpComponent = ({
 }: AnimatedComponentProps) => {
   return (
     <LazyMotion features={domAnimation}>
-      <motion.div
+      <m.div
         initial={{ y: 100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 + (delay || 0) }}
@@ -27,7 +27,7 @@ export const AnimatedUpComponent = ({
         className={className}
       >
         {children}
-      </motion.div>
+      </m.div>
     </LazyMotion>
   );
 };
@@ -41,7 +41,7 @@ export const AnimatedLeftComponent = ({
 }: AnimatedComponentProps) => {
   return (
     <LazyMotion features={domAnimation}>
-      <motion.div
+      <m.div
         initial={{ x: x || 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.6 + (delay || 0) }}
@@ -49,7 +49,7 @@ export const AnimatedLeftComponent = ({
         className={className}
       >
         {children}
-      </motion.div>
+      </m.div>
     </LazyMotion>
   );
 };

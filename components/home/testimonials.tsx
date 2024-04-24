@@ -21,7 +21,7 @@ const Testimonials: React.FC<IPageInfo> = ({ testimonials }) => {
 
   return (
     <section className="scroll-m-20 bg-background-secondary pb-24 md:pb-40">
-      <div className="universal_x grid gap-5 sm:grid-cols-[auto_1fr] sm:gap-10 lg:gap-32">
+      <div className="universal_x grid gap-5 sm:grid-cols-[auto_1fr] sm:gap-10 lg:gap-28">
         <AnimatedUpComponent threshold={0.2}>
           {/* Testimonial Image */}
           <Image

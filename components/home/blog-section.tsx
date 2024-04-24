@@ -32,12 +32,12 @@ const BlogSection = () => {
     <section
       id="blog"
       ref={blogRef}
-      className="bg-background-secondary scroll-m-20"
+      className="scroll-m-20 bg-background-secondary"
     >
-      <div className="universal_x grid gap-y-10 py-24 md:grid-cols-[40%,1fr] md:py-32">
+      <div className="universal_x grid gap-x-10 gap-y-10 py-24 md:grid-cols-[350px,1fr] md:py-32 lg:gap-x-28">
         <div>
           <AnimatedUpComponent>
-            <h6 className="text-foreground-secondary text-xs tracking-[0.2em] md:text-sm">
+            <h6 className="text-xs tracking-[0.2em] text-foreground-secondary md:text-sm">
               - Blog
             </h6>
           </AnimatedUpComponent>
@@ -61,9 +61,9 @@ const BlogSection = () => {
             >
               <Link
                 href="/"
-                className="group grid grid-cols-[auto,1fr,auto] items-center gap-5 py-5 md:gap-10 lg:gap-20 lg:py-10"
+                className="group grid grid-cols-[auto,1fr,auto] items-center gap-5 py-5 md:gap-5 lg:gap-20 lg:py-10"
               >
-                <span className="text-foreground-secondary space-x-1 text-xs md:space-x-2 md:text-sm">
+                <span className="space-x-0.5 text-xs text-foreground-secondary md:space-x-2 md:text-sm lg:space-x-1">
                   <span>{blog.date}</span>
                   <span>•</span>
                   <span>Blog</span>

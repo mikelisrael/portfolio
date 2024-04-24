@@ -12,6 +12,17 @@ import Image from "next/image";
 import { IPageInfo } from "@/types";
 import { blurUpImage, urlForImage } from "@/sanity/lib/image";
 
+const SlideInVariants = {
+  initial: { opacity: 0, x: 100 },
+  animate: (index: number) => ({
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, delay: 0.2 * index },
+  }),
+  hover: { scale: 1.25 },
+  tap: { scale: 0.9 },
+};
+
 const Testimonials: React.FC<IPageInfo> = ({ testimonials }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -66,18 +77,20 @@ const Testimonials: React.FC<IPageInfo> = ({ testimonials }) => {
           {/* Controls Buttons */}
           <div className="flex gap-5">
             {testimonials.map((_, index) => (
-              <AnimatedLeftComponent key={index} delay={index * 0.3} x={50}>
-                <motion.button
-                  whileHover={{ scale: 1.25 }}
-                  whileTap={{ scale: 0.9 }}
-                  transition={{ duration: 0.2 }}
-                  className={cn(
-                    "h-3 w-14 bg-foreground-secondary/50 md:w-20",
-                    activeIndex === index && "bg-primary",
-                  )}
-                  onClick={() => handleButtonClick(index)}
-                />
-              </AnimatedLeftComponent>
+              <motion.button
+                variants={SlideInVariants}
+                initial="initial"
+                whileInView="animate"
+                whileHover="hover"
+                whileTap="tap"
+                viewport={{ once: true }}
+                custom={index}
+                className={cn(
+                  "h-3 w-14 bg-foreground-secondary/50 md:w-20",
+                  activeIndex === index && "bg-primary",
+                )}
+                onClick={() => handleButtonClick(index)}
+              />
             ))}
           </div>
         </div>

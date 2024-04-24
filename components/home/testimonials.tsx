@@ -2,35 +2,17 @@
 
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import React, { useState } from "react";
 import { RiDoubleQuotesL } from "react-icons/ri";
 import {
   AnimatedLeftComponent,
   AnimatedUpComponent,
 } from "../general/animated-components";
+import Image from "next/image";
+import { IPageInfo } from "@/types";
+import { blurUpImage, urlForImage } from "@/sanity/lib/image";
 
-const Testimonials = () => {
-  // Define an array of testimonials data
-  const testimonialsData = [
-    {
-      id: 1,
-      quote:
-        "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Possimus maxime excepturi nostrum. Vitae aliquam eius tempora adipisci consequuntur expedita non, labore minus ad nihil fugit dolores accusantium quos, ducimus culpa?",
-      name: "John Doe",
-      position: "CEO at Company",
-      photo: "/img/guy1.jpg",
-    },
-    {
-      id: 2,
-      quote:
-        "Another testimonial quote goes here. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore quae sit assumenda vero consequatur nostrum fugit.",
-      name: "Jane Smith",
-      position: "Designer at Studio",
-      photo: "/img/guy1.jpg",
-    },
-    // Add more testimonial data as needed
-  ];
-
+const Testimonials: React.FC<IPageInfo> = ({ testimonials }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handleButtonClick = (index: number) => {
@@ -42,8 +24,12 @@ const Testimonials = () => {
       <div className="universal_x grid gap-5 sm:grid-cols-[auto_1fr] sm:gap-10 lg:gap-32">
         <AnimatedUpComponent threshold={0.2}>
           {/* Testimonial Image */}
-          <img
-            src={testimonialsData[activeIndex].photo}
+          <Image
+            src={urlForImage(testimonials[activeIndex].photo)}
+            placeholder="blur"
+            blurDataURL={blurUpImage(testimonials[activeIndex].photo)}
+            width={350}
+            height={400}
             alt={`testimonial-${activeIndex}`}
             className="size-[150px] rounded-full object-cover brightness-110 contrast-[1.1] grayscale filter sm:size-[200px] md:h-[400px] md:w-[350px] md:rounded-none"
           />
@@ -58,28 +44,28 @@ const Testimonials = () => {
 
             <AnimatedUpComponent>
               <p className="mt-3 font-medium sm:text-base md:text-lg lg:text-xl">
-                {testimonialsData[activeIndex].quote}
+                {testimonials[activeIndex].quote}
               </p>
             </AnimatedUpComponent>
 
             {/* Testimonial author */}
             <AnimatedUpComponent threshold={0.2}>
               <h6 className="mt-5 text-sm font-semibold md:mt-10 md:text-lg">
-                {testimonialsData[activeIndex].name}
+                {testimonials[activeIndex].name}
               </h6>
             </AnimatedUpComponent>
 
             {/* Testimonial position */}
             <AnimatedUpComponent threshold={0.2}>
               <span className="text-xs text-foreground-secondary md:text-sm">
-                {testimonialsData[activeIndex].position}
+                {testimonials[activeIndex].position}
               </span>
             </AnimatedUpComponent>
           </div>
 
           {/* Controls Buttons */}
           <div className="flex gap-5">
-            {testimonialsData.map((_, index) => (
+            {testimonials.map((_, index) => (
               <AnimatedLeftComponent key={index} delay={index * 0.3} x={50}>
                 <motion.button
                   whileTap={{ scale: 2 }}

@@ -63,10 +63,7 @@ const Projects: React.FC<IPageInfo> = ({
           </AnimatedUpComponent>
 
           <AnimatedUpComponent>
-            <h2
-              aria-label="about"
-              className="mb-7 mt-3 text-balance text-xl font-semibold capitalize sm:text-3xl"
-            >
+            <h2 className="mb-7 mt-3 text-balance text-xl font-semibold capitalize sm:text-3xl">
               {projectInvitationHeading}
             </h2>{" "}
           </AnimatedUpComponent>

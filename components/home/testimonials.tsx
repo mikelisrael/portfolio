@@ -28,8 +28,8 @@ const Testimonials: React.FC<IPageInfo> = ({ testimonials }) => {
             src={urlForImage(testimonials[activeIndex].photo)}
             placeholder="blur"
             blurDataURL={blurUpImage(testimonials[activeIndex].photo)}
-            width={350}
-            height={400}
+            width={600}
+            height={900}
             alt={testimonials[activeIndex].name}
             className="size-[150px] rounded-full object-cover brightness-110 contrast-[1.1] grayscale filter sm:size-[200px] md:h-[400px] md:w-[350px] md:rounded-none"
           />
@@ -49,14 +49,14 @@ const Testimonials: React.FC<IPageInfo> = ({ testimonials }) => {
             </AnimatedUpComponent>
 
             {/* Testimonial author */}
-            <AnimatedUpComponent threshold={0.2}>
+            <AnimatedUpComponent threshold={0.1}>
               <h6 className="mt-5 text-sm font-semibold md:mt-10 md:text-lg">
                 {testimonials[activeIndex].name}
               </h6>
             </AnimatedUpComponent>
 
             {/* Testimonial position */}
-            <AnimatedUpComponent threshold={0.2}>
+            <AnimatedUpComponent threshold={0.1}>
               <span className="text-xs text-foreground-secondary md:text-sm">
                 {testimonials[activeIndex].position}
               </span>
@@ -68,9 +68,11 @@ const Testimonials: React.FC<IPageInfo> = ({ testimonials }) => {
             {testimonials.map((_, index) => (
               <AnimatedLeftComponent key={index} delay={index * 0.3} x={50}>
                 <motion.button
-                  whileTap={{ scale: 2 }}
+                  whileHover={{ scale: 1.25 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ duration: 0.2 }}
                   className={cn(
-                    "h-3 w-14 bg-foreground-secondary/50 transition-all duration-200 ease-in-out md:w-20",
+                    "h-3 w-14 bg-foreground-secondary/50 md:w-20",
                     activeIndex === index && "bg-primary",
                   )}
                   onClick={() => handleButtonClick(index)}

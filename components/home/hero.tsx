@@ -1,6 +1,6 @@
 "use client";
 
-import { urlForImage } from "@/sanity/lib/image";
+import { blurUpImage, urlForImage } from "@/sanity/lib/image";
 import { IPageInfo } from "@/types";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -50,6 +50,8 @@ const Hero: React.FC<IPageInfo> = ({
             height={1000}
             src={urlForImage(subjectImage)}
             alt={subjectImage.alt}
+            placeholder="blur"
+            blurDataURL={blurUpImage(subjectImage)}
             className="w-full translate-x-[16rem] -scale-x-100 md:translate-x-0 md:scale-x-100"
             aria-label="Michael Israel"
           />

@@ -8,12 +8,14 @@ import project from "./schemaTypes/project";
 import pageInfo from "./schemaTypes/pageInfo";
 import social from "./schemaTypes/social";
 import tool from "./schemaTypes/tool";
+import testimonial from "./schemaTypes/testimonial";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
     pageInfo,
     social,
     tool,
+    testimonial,
     post,
     author,
     category,

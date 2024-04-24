@@ -48,6 +48,7 @@ export interface IProject {
   github: string;
   link?: string;
   isPrivate?: boolean;
+  priority: number;
 }
 
 export interface ITool extends Base {

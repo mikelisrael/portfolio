@@ -22,7 +22,7 @@ export default defineType({
       title: "Description",
       type: "text",
       rows: 3,
-      validation: (Rule) => Rule.required(),
+      validation: (Rule) => Rule.required().max(150),
     }),
     defineField({
       name: "isPrivate",
@@ -51,6 +51,13 @@ export default defineType({
       options: {
         hotspot: true,
       },
+    }),
+    defineField({
+      name: "priority",
+      title: "Priority",
+      type: "number",
+      initialValue: 0,
+      validation: (Rule) => Rule.required(),
     }),
   ],
 });

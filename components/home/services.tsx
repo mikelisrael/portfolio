@@ -44,6 +44,7 @@ const Services = () => {
 
         return (
           <motion.li
+            key={index}
             className={cn(
               "grid h-80 place-items-center items-end  bg-bgTertiary px-2 py-10 font-medium lg:p-10",
               index == 0 && "bg-primary font-bold text-secondary-foreground",

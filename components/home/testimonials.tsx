@@ -78,6 +78,7 @@ const Testimonials: React.FC<IPageInfo> = ({ testimonials }) => {
           <div className="flex gap-5">
             {testimonials.map((_, index) => (
               <motion.button
+                key={index}
                 variants={SlideInVariants}
                 initial="initial"
                 whileInView="animate"

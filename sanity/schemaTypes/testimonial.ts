@@ -15,6 +15,7 @@ export default defineType({
       title: "Quote",
       type: "text",
       rows: 3,
+      validation: (Rule) => Rule.max(290),
     }),
     defineField({
       name: "position",

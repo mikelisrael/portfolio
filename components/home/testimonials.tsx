@@ -30,7 +30,7 @@ const Testimonials: React.FC<IPageInfo> = ({ testimonials }) => {
             blurDataURL={blurUpImage(testimonials[activeIndex].photo)}
             width={350}
             height={400}
-            alt={testimonials[activeIndex].name}}
+            alt={testimonials[activeIndex].name}
             className="size-[150px] rounded-full object-cover brightness-110 contrast-[1.1] grayscale filter sm:size-[200px] md:h-[400px] md:w-[350px] md:rounded-none"
           />
         </AnimatedUpComponent>

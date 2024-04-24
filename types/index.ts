@@ -32,6 +32,14 @@ export interface AppContextValue {
   isFooterAndNavHidden: boolean;
 }
 
+type sanityImage = {
+  alt: string;
+  asset: {
+    _ref: string;
+    _type: string;
+  };
+};
+
 export interface IProject {
   name: string;
   subtitle: string;
@@ -44,13 +52,7 @@ export interface IProject {
 
 export interface ITool extends Base {
   name: string;
-  toolImage: {
-    alt: string;
-    asset: {
-      _ref: string;
-      _type: string;
-    };
-  };
+  toolImage: sanityImage;
   priority: number;
 }
 
@@ -59,17 +61,18 @@ export interface ISocial extends Base {
   link: string;
 }
 
+export interface ITestimonials extends Base {
+  name: string;
+  quote: string;
+  position: string;
+  photo: sanityImage;
+}
+
 export interface IPageInfo extends Base {
   name: string;
   introductionHeading: string;
   introduction: string;
-  subjectImage: {
-    alt: string;
-    asset: {
-      _ref: string;
-      _type: string;
-    };
-  };
+  subjectImage: sanityImage;
   socials: ISocial[];
   yearsOfExperience: number;
   satisfiedClients: number;
@@ -79,4 +82,5 @@ export interface IPageInfo extends Base {
   freeTalk: string;
   projectInvitationHeading: string;
   projectInvitation: string;
+  testimonials: ITestimonials[];
 }

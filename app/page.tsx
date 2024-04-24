@@ -4,6 +4,7 @@ import Hero from "@/components/home/hero";
 import Projects from "@/components/home/projects/projects-section";
 import Services from "@/components/home/services";
 import Technologies from "@/components/home/technologies";
+import Testimonials from "@/components/home/testimonials";
 import { sanityFetch } from "@/sanity/lib/onDemandFetch";
 import { IPageInfo } from "@/types";
 import { groq } from "next-sanity";
@@ -27,6 +28,7 @@ const Home = async () => {
       <Technologies />
       <Projects {...pageInfo} />
       <BlogSection />
+      <Testimonials />
     </main>
   );
 };

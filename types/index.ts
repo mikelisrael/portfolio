@@ -84,4 +84,5 @@ export interface IPageInfo extends Base {
   projectInvitationHeading: string;
   projectInvitation: string;
   testimonials: ITestimonials[];
+  cta: string;
 }

@@ -1,10 +1,10 @@
 import Footer from "@/components/general/footer/footer";
 import Navbar from "@/components/general/navbar";
 import { AppProvider } from "@/components/providers/context";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import type { Metadata } from "next";
 import { Comfortaa } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner";
 
 const comfortaa = Comfortaa({
   subsets: ["cyrillic"],
@@ -32,17 +32,17 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://mikelisrael.vercel.app"),
   // openGraph: {
   //   title:
-  //     "Tabs | Efficient Inventory Management and HR Solutions. Boost Your Business with Tabs",
+  //     "",
   //   description:
-  //     "Tabs provides seamless inventory management and HR solutions, streamlining your business operations for enhanced productivity and success.",
-  //   url: "https://usetabs.app/",
-  //   siteName: "Tabs",
+  //     "",
+  //   url: "https://mikelisrael.vercel.app",
+  //   siteName: "Mikelisrael portfolio",
   //   images: [
   //     {
   //       url: "/OG.png",
   //       width: 1200,
   //       height: 630,
-  //       alt: "Tabs openGraph image",
+  //       alt: "Mikelisrael openGraph image",
   //     },
   //   ],
   //   locale: "en_US",
@@ -50,12 +50,16 @@ export const metadata: Metadata = {
   // },
   // =========== SEO ===========
   // keywords: [
-  //   "Tabs",
-  //   "Inventory Management",
-  //   "HR Solutions",
-  //   "Business Operations",
-  //   "Productivity",
-  //   "Success",
+  //   "JavaScript development",
+  //   "Frontend development",
+  //   "JavaScript frameworks",
+  //   "Web development",
+  //   "Client-side scripting",
+  //   "JavaScript libraries",
+  //   "Responsive web design",
+  //   "Single-page applications (SPAs)",
+  //   "Cross-platform development",
+  //   "Modern web development"
   // ],
   robots: "follow, index",
   authors: [{ name: "Michael Israel", url: "https://mikelisrael-vercel.app" }],
@@ -76,6 +80,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <Toaster richColors position="top-center" />
         </AppProvider>
       </body>
     </html>

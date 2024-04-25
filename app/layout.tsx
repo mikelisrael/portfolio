@@ -5,6 +5,8 @@ import type { Metadata } from "next";
 import { Comfortaa } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
+import { metaKeywords } from "@/lib/metaKeywords";
+
 
 const comfortaa = Comfortaa({
   subsets: ["cyrillic"],
@@ -49,18 +51,7 @@ export const metadata: Metadata = {
   //   type: "website",
   // },
   // =========== SEO ===========
-  // keywords: [
-  //   "JavaScript development",
-  //   "Frontend development",
-  //   "JavaScript frameworks",
-  //   "Web development",
-  //   "Client-side scripting",
-  //   "JavaScript libraries",
-  //   "Responsive web design",
-  //   "Single-page applications (SPAs)",
-  //   "Cross-platform development",
-  //   "Modern web development"
-  // ],
+  keywords: metaKeywords,
   robots: "follow, index",
   authors: [{ name: "Michael Israel", url: "https://mikelisrael-vercel.app" }],
   creator: "Michael Israel",

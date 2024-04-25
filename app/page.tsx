@@ -1,5 +1,6 @@
 import BlogSection from "@/components/home/blog-section";
 import Contact from "@/components/home/contact";
+import FormSection from "@/components/home/contact-form/form-section";
 import Hero from "@/components/home/hero";
 import Projects from "@/components/home/projects-section";
 import Services from "@/components/home/services";
@@ -30,6 +31,7 @@ const Home = async () => {
       <Projects {...pageInfo} />
       <BlogSection />
       <Testimonials {...pageInfo} />
+      <FormSection email={pageInfo.email} cta={pageInfo.cta} />
     </main>
   );
 };

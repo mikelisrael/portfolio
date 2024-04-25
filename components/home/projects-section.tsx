@@ -18,7 +18,7 @@ const Projects: React.FC<IPageInfo> = ({
   const { projectTopRef, projectBottomRef } = useGlobalContext();
   const projects: IProject[] = [
     {
-      name: "Techworld gadgets",
+      name: "Techworld gadgets.",
       subtitle: "Inventory mgt.",
       description:
         "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
@@ -28,7 +28,7 @@ const Projects: React.FC<IPageInfo> = ({
       priority: 0,
     },
     {
-      name: "Tabs",
+      name: "Tabs.",
       subtitle: "inventory mgt.",
       description:
         "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
@@ -39,7 +39,7 @@ const Projects: React.FC<IPageInfo> = ({
       priority: 0,
     },
     {
-      name: "Flamestar",
+      name: "Flamestar.",
       subtitle: "Fintech",
       description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       image: "/img/project.png",

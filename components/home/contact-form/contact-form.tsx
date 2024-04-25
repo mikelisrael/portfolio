@@ -51,7 +51,7 @@ const ContactForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-base font-semibold text-foreground-secondary md:text-lg">
-                  What's your name?
+                  What&rsquo;s your name?
                 </FormLabel>
                 <FormControl>
                   <Input

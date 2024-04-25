@@ -41,7 +41,7 @@ const FormSection = ({ email, cta }: { email: string; cta: string }) => {
             aria-label="about"
             className="mb-10 text-balance text-xl font-semibold sm:text-3xl"
           >
-            Fill in the details below. <br /> Let's get the ball rolling.
+            Fill in the details below. <br /> Let&rsquo;s get the ball rolling.
           </h2>
         </AnimatedUpComponent>
 

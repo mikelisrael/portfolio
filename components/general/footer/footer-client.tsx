@@ -19,7 +19,7 @@ function FooterContent({ socials }: Props) {
       <div className="text-gray-400 flex flex-wrap-reverse items-center justify-between gap-x-2 gap-y-5 py-5 md:py-10">
         <div className="flex gap-2 text-xs md:text-sm">
           <span className="flex items-center gap-1">
-            <FaRegCopyright className="text-xs" /> 2023
+            <FaRegCopyright className="text-xs" /> 2024
           </span>
           <span>Michael Israel.</span>
         </div>

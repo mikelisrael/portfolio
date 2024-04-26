@@ -121,7 +121,6 @@ const Navbar = () => {
           <Image src="/logo.png" alt="logo" fill />
         </motion.div>
       </Link>
-      {/* logo */}
 
       <div
         role="menubar"

@@ -6,6 +6,7 @@ import Projects from "@/components/home/projects-section";
 import Services from "@/components/home/services";
 import Technologies from "@/components/home/technologies/technologies";
 import Testimonials from "@/components/home/testimonials";
+import ThankYou from "@/components/home/thank-you";
 import { sanityFetch } from "@/sanity/lib/onDemandFetch";
 import { IPageInfo } from "@/types";
 import { groq } from "next-sanity";
@@ -32,6 +33,7 @@ const Home = async () => {
       <BlogSection />
       <Testimonials {...pageInfo} />
       <FormSection email={pageInfo.email} cta={pageInfo.cta} />
+      <ThankYou/>
     </main>
   );
 };

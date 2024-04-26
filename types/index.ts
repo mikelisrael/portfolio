@@ -44,7 +44,7 @@ export interface IProject {
   name: string;
   subtitle: string;
   description: string;
-  image: string;
+  image: sanityImage;
   github?: string;
   link?: string;
   isPrivate?: boolean;
@@ -85,4 +85,5 @@ export interface IPageInfo extends Base {
   projectInvitation: string;
   testimonials: ITestimonials[];
   cta: string;
+  projects: IProject[];
 }

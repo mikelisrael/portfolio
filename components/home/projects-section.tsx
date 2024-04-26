@@ -90,7 +90,7 @@ const Projects: React.FC<IPageInfo> = ({
               threshold={index == 1 ? 0.1 : undefined}
             >
               <Link
-                href={project.link ?? project.github}
+                href={project.link ?? project.github ?? "/projects"}
                 className={cn(
                   "group block h-full w-full justify-self-end overflow-hidden bg-background-secondary outline-2 transition-all duration-300 hover:outline hover:outline-gray",
                   index == 1 && "md:-translate-y-40 lg:-translate-y-80",

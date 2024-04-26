@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useGlobalContext } from "../providers/context";
 import { motion } from "framer-motion";
+import Image from "next/image";
 type Link = {
   path: "contact" | "projects" | "blog";
   label: string;
@@ -113,10 +114,12 @@ const Navbar = () => {
             damping: 20,
           }}
           className={cn(
-            "size-16 cursor-pointer rounded-lg bg-primary duration-200",
+            "relative size-16 cursor-pointer duration-200",
             !headerInView && "size-10",
           )}
-        ></motion.div>
+        >
+          <Image src="/logo.png" alt="logo" fill />
+        </motion.div>
       </Link>
       {/* logo */}
 

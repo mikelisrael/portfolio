@@ -10,43 +10,14 @@ import { FaArrowRight } from "react-icons/fa";
 import { GiEmptyHourglass } from "react-icons/gi";
 import { AnimatedUpComponent } from "../general/animated-components";
 import { useGlobalContext } from "../providers/context";
+import { blurUpImage, urlForImage } from "@/sanity/lib/image";
 
 const Projects: React.FC<IPageInfo> = ({
   projectInvitation,
   projectInvitationHeading,
+  projects,
 }) => {
   const { projectTopRef, projectBottomRef } = useGlobalContext();
-  const projects: IProject[] = [
-    {
-      name: "Techworld gadgets.",
-      subtitle: "Inventory mgt.",
-      description:
-        "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      image: "",
-      github: "",
-      isPrivate: true,
-      priority: 0,
-    },
-    {
-      name: "Tabs.",
-      subtitle: "inventory mgt.",
-      description:
-        "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
-      image: "/img/project1.jpg",
-      github: "",
-      isPrivate: true,
-      link: "/",
-      priority: 0,
-    },
-    {
-      name: "Flamestar.",
-      subtitle: "Fintech",
-      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      image: "/img/project.png",
-      github: "",
-      priority: 0,
-    },
-  ];
 
   return (
     <>
@@ -91,6 +62,8 @@ const Projects: React.FC<IPageInfo> = ({
             >
               <Link
                 href={project.link ?? project.github ?? "/projects"}
+                rel="noopener noreferrer"
+                target="_blank"
                 className={cn(
                   "group block h-full w-full justify-self-end overflow-hidden bg-background-secondary outline-2 transition-all duration-300 hover:outline hover:outline-gray",
                   index == 1 && "md:-translate-y-40 lg:-translate-y-80",
@@ -109,14 +82,16 @@ const Projects: React.FC<IPageInfo> = ({
                   {project.description}
                 </p>
 
-                <div className="relative mt-20 h-[300px] sm:h-[400px] md:mt-28 md:aspect-[5/4] md:h-auto">
+                <div className="relative mt-20 h-[300px] sm:h-[400px] md:mt-24 md:aspect-[5/4] md:h-auto">
                   {project.image ? (
                     <Image
-                      src={project.image}
+                      src={urlForImage(project.image)}
+                      placeholder="blur"
+                      blurDataURL={blurUpImage(project.image)}
                       alt={project.name}
                       width={1920}
                       height={1080}
-                      className="absolute inset-0 h-full w-full -rotate-12 scale-125 object-cover transition-transform duration-300 group-hover:rotate-0 md:object-fill"
+                      className="absolute inset-0 h-full w-full -rotate-12 scale-125 object-cover transition-transform duration-300 group-hover:rotate-0"
                     />
                   ) : (
                     <div className="flex h-full w-full -rotate-12 scale-125 items-center justify-center bg-background/50 transition-transform duration-300 group-hover:rotate-0">

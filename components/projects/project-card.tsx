@@ -5,6 +5,7 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { GiEmptyHourglass } from "react-icons/gi";
 import { AnimatedUpComponent } from "../general/animated-components";
+import Link from "next/link";
 
 const ProjectCard = ({
   name,
@@ -50,14 +51,16 @@ const ProjectCard = ({
 
           <div className="flex items-center gap-3">
             {link && (
-              <a href={link}>
+              <Link target="_blank" rel="noopener noreferrer" href={link}>
                 <FaExternalLinkAlt className="text-base hover:text-primary lg:text-lg" />
-              </a>
+              </Link>
             )}
 
-            <a href={github}>
-              <FaGithub className="text-base hover:text-primary lg:text-lg" />
-            </a>
+            {github && (
+              <Link target="_blank" rel="noopener noreferrer" href={github}>
+                <FaGithub className="text-base hover:text-primary lg:text-lg" />
+              </Link>
+            )}
           </div>
         </div>
       </article>

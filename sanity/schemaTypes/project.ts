@@ -42,7 +42,6 @@ export default defineType({
       name: "github",
       title: "Github link",
       type: "url",
-      validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "image",

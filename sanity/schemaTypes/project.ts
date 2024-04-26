@@ -22,7 +22,7 @@ export default defineType({
       title: "Description",
       type: "text",
       rows: 3,
-      validation: (Rule) => Rule.required().max(150),
+      validation: (Rule) => Rule.required().max(200),
     }),
     defineField({
       name: "isPrivate",

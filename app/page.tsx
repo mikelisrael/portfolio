@@ -14,7 +14,8 @@ import { groq } from "next-sanity";
 const query = groq`*[_type == "pageInfo"][0]{
   ...,
   socials[]->,
-  testimonials[]->
+  testimonials[]->,
+  projects[]->
 }`;
 
 const Home = async () => {

@@ -91,7 +91,7 @@ const Projects: React.FC<IPageInfo> = ({
                       alt={project.name}
                       width={1920}
                       height={1080}
-                      className="absolute inset-0 h-full w-full -rotate-12 scale-125 object-cover transition-transform duration-300 group-hover:rotate-0"
+                      className="absolute inset-0 h-full w-full -rotate-12 scale-125 object-cover transition-all duration-300 group-hover:rotate-0 group-hover:object-left"
                     />
                   ) : (
                     <div className="flex h-full w-full -rotate-12 scale-125 items-center justify-center bg-background/50 transition-transform duration-300 group-hover:rotate-0">

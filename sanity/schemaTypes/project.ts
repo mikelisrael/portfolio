@@ -52,6 +52,12 @@ export default defineType({
       },
     }),
     defineField({
+      name: "tools",
+      title: "Tools",
+      type: "array",
+      of: [{ type: "reference", to: { type: "tool" } }],
+    }),
+    defineField({
       name: "priority",
       title: "Priority",
       type: "number",

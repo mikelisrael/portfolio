@@ -7,7 +7,7 @@ const ThankYou = () => {
       <AnimatedUpComponent>
         <p className="text-center">
           <span className="font-black">Thanks for scrolling. </span>
-          That's all folks!
+          That&rsquo;s all folks!
         </p>
       </AnimatedUpComponent>
     </div>

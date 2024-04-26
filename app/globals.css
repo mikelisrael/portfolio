@@ -65,6 +65,10 @@
   @apply rounded-s-full bg-primary;
 }
 
+html {
+  @apply bg-background;
+}
+
 body {
   @apply relative overflow-x-hidden bg-background text-sm text-foreground lg:text-base;
   scrollbar-gutter: stable;

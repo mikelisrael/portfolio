@@ -1,15 +1,22 @@
-import { client } from "@/sanity/lib/client";
-import { ISocial } from "@/types";
+import { IPageInfo, ISocial } from "@/types";
 import { groq } from "next-sanity";
 import FooterContent from "./footer-client";
+import { sanityFetch } from "@/sanity/lib/onDemandFetch";
+
+const query = groq`*[_type == "pageInfo"][0]{
+  socials[]->,
+  name
+}`;
 
 const Footer = async () => {
-  const query = groq`*[_type == "social"]`;
-  const socials: ISocial[] = await client.fetch(query);
+  const pageInfo: IPageInfo = await sanityFetch({
+    query,
+    tags: ["social"], // will revalidate for social changes
+  });
 
   return (
     <footer>
-      <FooterContent socials={socials} />
+      <FooterContent socials={pageInfo.socials} name={pageInfo.name} />
     </footer>
   );
 };

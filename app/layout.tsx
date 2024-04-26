@@ -6,7 +6,7 @@ import { Comfortaa } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { metaKeywords } from "@/lib/metaKeywords";
-
+import { Analytics } from "@vercel/analytics/react";
 
 const comfortaa = Comfortaa({
   subsets: ["cyrillic"],
@@ -67,6 +67,7 @@ export default function RootLayout({
       <body
         className={comfortaa.className + "  duration-200 animate-in fade-in"}
       >
+        <Analytics />
         <AppProvider>
           <Navbar />
           {children}

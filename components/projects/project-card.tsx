@@ -6,6 +6,7 @@ import { FaGithub } from "react-icons/fa6";
 import { GiEmptyHourglass } from "react-icons/gi";
 import { AnimatedUpComponent } from "../general/animated-components";
 import Link from "next/link";
+import { blurUpImage, urlForImage } from "@/sanity/lib/image";
 
 const ProjectCard = ({
   name,
@@ -21,7 +22,9 @@ const ProjectCard = ({
         <div className="block aspect-[1.5] h-56 overflow-hidden rounded-lg outline outline-1 outline-gray ">
           {image ? (
             <Image
-              src={image}
+              src={urlForImage(image)}
+              placeholder="blur"
+              blurDataURL={blurUpImage(image)}
               alt={name}
               width={500}
               height={500}

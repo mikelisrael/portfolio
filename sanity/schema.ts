@@ -16,10 +16,10 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     social,
     tool,
     testimonial,
+    project,
     post,
     author,
     category,
     blockContent,
-    project,
   ],
 };

@@ -45,7 +45,7 @@ export interface IProject {
   subtitle: string;
   description: string;
   image: string;
-  github: string;
+  github?: string;
   link?: string;
   isPrivate?: boolean;
   priority: number;

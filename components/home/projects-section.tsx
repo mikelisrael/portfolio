@@ -82,7 +82,7 @@ const Projects: React.FC<IPageInfo> = ({
                   {project.description}
                 </p>
 
-                <div className="relative mt-20 h-[300px] sm:h-[400px] md:mt-24 md:aspect-[5/4] md:h-auto">
+                <div className="relative mt-10 h-[300px] sm:h-[400px] md:mt-24 md:aspect-[5/4] md:h-auto">
                   {project.image ? (
                     <Image
                       src={urlForImage(project.image)}

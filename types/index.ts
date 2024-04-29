@@ -1,4 +1,4 @@
-import React from "react";
+import { TypedObject } from "sanity";
 
 type Base = {
   _createdAt: string;
@@ -7,30 +7,6 @@ type Base = {
   _type: string;
   _updatedAt: string;
 };
-
-export interface AppContextValue {
-  headerInView: boolean;
-  contactInView: boolean;
-  projectTopInView: boolean;
-  projectBottomInView: boolean;
-  blogInView: boolean;
-  headerRef:
-    | ((node?: Element | null | undefined) => void)
-    | React.RefObject<HTMLDivElement>;
-  contactRef:
-    | ((node?: Element | null | undefined) => void)
-    | React.RefObject<HTMLDivElement>;
-  projectTopRef:
-    | ((node?: Element | null | undefined) => void)
-    | React.RefObject<HTMLDivElement>;
-  projectBottomRef:
-    | ((node?: Element | null | undefined) => void)
-    | React.RefObject<HTMLDivElement>;
-  blogRef:
-    | ((node?: Element | null | undefined) => void)
-    | React.RefObject<HTMLDivElement>;
-  isFooterAndNavHidden: boolean;
-}
 
 type sanityImage = {
   alt: string;
@@ -86,4 +62,17 @@ export interface IPageInfo extends Base {
   testimonials: ITestimonials[];
   cta: string;
   projects: IProject[];
+}
+
+export interface IPost extends Base {
+  title: string;
+  slug: { current: string };
+  author: { name: string };
+  mainImage: sanityImage;
+  categories: { title: string }[];
+  publishedAt: string;
+  body: TypedObject[];
+  category: string[];
+  plainText: string;
+  estimatedReadingTime: number;
 }

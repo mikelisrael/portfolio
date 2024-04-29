@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { useGlobalContext } from "../providers/context";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
 type Link = {
   path: "contact" | "projects" | "blog";
   label: string;
@@ -33,11 +34,13 @@ const Navbar = () => {
     "contact",
   );
   const indicatorRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
+  const pathname = usePathname();
 
-  const handleClickedTab = (tab: "contact" | "projects" | "blog") => {
-    setActiveTab(tab);
-    goToPath(tab);
-  };
+  function goToPath(path: string) {
+    const element = document.getElementById(path);
+    if (element) element.scrollIntoView({ behavior: "smooth" });
+  }
 
   useEffect(() => {
     // Move the indicator after 2 seconds if it's the first page load
@@ -86,10 +89,22 @@ const Navbar = () => {
     }
   }
 
-  function goToPath(path: string) {
-    const element = document.getElementById(path);
-    if (element) element.scrollIntoView({ behavior: "smooth" });
-  }
+  useEffect(() => {
+    if (pathname === "/") {
+      setActiveTab("contact");
+    } else {
+      setActiveTab(pathname.slice(1) as "projects" | "blog");
+    }
+  }, [pathname]);
+
+  const handleClickedTab = (tab: "contact" | "projects" | "blog") => {
+    setActiveTab(tab);
+    if (tab === "contact") {
+      router.push("/");
+      return;
+    }
+    router.push(`/${tab}`);
+  };
 
   // Hide the navbar on certain pages
   if (isFooterAndNavHidden) return null;

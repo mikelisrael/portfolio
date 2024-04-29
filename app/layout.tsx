@@ -69,9 +69,12 @@ export default function RootLayout({
       >
         <Analytics />
         <Providers>
-          <Navbar />
-          {children}
-          <Footer />
+          <div className="grid min-h-screen grid-cols-1 grid-rows-[auto_1fr_auto]">
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
+
           <Toaster richColors position="top-center" />
         </Providers>
       </body>

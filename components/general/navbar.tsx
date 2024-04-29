@@ -92,6 +92,8 @@ const Navbar = () => {
   useEffect(() => {
     if (pathname === "/") {
       setActiveTab("contact");
+    } else if (pathname.includes("/blog")) {
+      setActiveTab("blog");
     } else {
       setActiveTab(pathname.slice(1) as "projects" | "blog");
     }

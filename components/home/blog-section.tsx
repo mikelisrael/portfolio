@@ -65,7 +65,7 @@ const BlogSection = () => {
               >
                 <span className="space-x-0.5 text-xs text-foreground-secondary md:space-x-2 md:text-sm lg:space-x-1">
                   <span>{blog.date}</span>
-                  <span>•</span>
+                  <span className="text-primary">•</span>
                   <span>Blog</span>
                 </span>
 

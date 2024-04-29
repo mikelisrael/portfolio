@@ -1,7 +1,7 @@
-import { IPageInfo, ISocial } from "@/types";
+import { sanityFetch } from "@/sanity/lib/fetch";
+import { IPageInfo } from "@/types";
 import { groq } from "next-sanity";
 import FooterContent from "./footer-client";
-import { sanityFetch } from "@/sanity/lib/onDemandFetch";
 
 const query = groq`*[_type == "pageInfo"][0]{
   socials[]->,

@@ -1,6 +1,6 @@
 "use client";
 
-import { AppContextValue } from "@/types";
+import { AppContextValue } from "@/types/context";
 import { usePathname } from "next/navigation";
 import React, { ReactNode, useContext } from "react";
 import { useInView } from "react-intersection-observer";

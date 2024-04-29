@@ -3,9 +3,10 @@ import { IPost } from "@/types";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponent } from "./rich-text-component";
 import Image from "next/image";
+import { blurUpImage, urlForImage } from "@/sanity/lib/image";
 
 const SingleBlogPost = ({ data }: { data: IPost }) => {
-  const { title, publishedAt, estimatedReadingTime, body } = data;
+  const { title, publishedAt, estimatedReadingTime, body, mainImage } = data;
 
   return (
     <article className="prose prose-sm prose-h2:mt-5 lg:prose-base prose-ol:pl-3 prose-ul:pl-3 prose-headings:text-foreground max-w-full text-foreground-secondary">
@@ -23,13 +24,17 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
         {title}
       </h1>
 
-      <Image
-        src="/img/project.png"
-        alt="Picture of the author"
-        className="h-56 object-cover object-center"
-        width={1920}
-        height={1080}
-      />
+      {mainImage && (
+        <Image
+          src={urlForImage(mainImage)}
+          placeholder="blur"
+          blurDataURL={blurUpImage(mainImage)}
+          alt={mainImage.alt || title}
+          className="h-56 object-cover object-center"
+          width={1920}
+          height={1080}
+        />
+      )}
 
       <PortableText value={body} components={RichTextComponent} />
     </article>

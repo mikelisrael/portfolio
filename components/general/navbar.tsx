@@ -1,12 +1,12 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { useGlobalContext } from "../providers/context";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
+import { useGlobalContext } from "../providers/context";
 type Link = {
   path: "contact" | "projects" | "blog";
   label: string;
@@ -34,13 +34,7 @@ const Navbar = () => {
     "contact",
   );
   const indicatorRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
   const pathname = usePathname();
-
-  function goToPath(path: string) {
-    const element = document.getElementById(path);
-    if (element) element.scrollIntoView({ behavior: "smooth" });
-  }
 
   useEffect(() => {
     // Move the indicator after 2 seconds if it's the first page load
@@ -101,12 +95,11 @@ const Navbar = () => {
 
   const handleClickedTab = (tab: "contact" | "projects" | "blog") => {
     setActiveTab(tab);
-    if (tab === "contact") {
-      router.push("/");
-      return;
-    }
-    router.push(`/${tab}`);
   };
+
+  
+  // TODO: check is404 by selecting an html element that is only present on 404 pages
+  const is404 = !linkList.some(({ path }) => activeTab.includes(path));
 
   // Hide the navbar on certain pages
   if (isFooterAndNavHidden) return null;
@@ -116,7 +109,7 @@ const Navbar = () => {
       role="navigation"
       aria-label="Main Navigation"
       className={cn(
-        "universal_x z-30 my-5 flex justify-between py-2 md:py-5",
+        "universal_x z-30 my-5 flex w-full justify-between py-2 md:py-5",
         !headerInView &&
           "sticky top-0 rounded-xl border border-gray backdrop-blur-md duration-500 animate-in slide-in-from-top-10 ",
       )}
@@ -149,7 +142,8 @@ const Navbar = () => {
         )}
       >
         {linkList.map(({ path, label }, idx) => (
-          <button
+          <Link
+            href={path === "contact" ? "/" : `/${path}`}
             key={idx}
             role="menuitem"
             tabIndex={0}
@@ -163,7 +157,7 @@ const Navbar = () => {
             )}
           >
             {label}
-          </button>
+          </Link>
         ))}
 
         {/* yellow circle indicator */}
@@ -174,7 +168,7 @@ const Navbar = () => {
           className={cn(
             {
               "opacity-100": isIndicatorMoved,
-              "opacity-0": !isIndicatorMoved,
+              "opacity-0": !isIndicatorMoved || is404,
             },
             "absolute bottom-0 h-2 w-2 rounded-full bg-primary transition-all delay-200 md:-bottom-2",
           )}

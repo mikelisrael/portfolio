@@ -1,5 +1,6 @@
 import ImportPreviewBlog from "@/components/blog/import-preview-Blog";
 import SingleBlogPost from "@/components/blog/single-blog-post";
+import HeaderRef from "@/components/home/header-ref";
 import { client } from "@/sanity/lib/client";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { IPost } from "@/types";
@@ -34,15 +35,18 @@ const BlogPost = async ({ params: { slug } }: { params: { slug: string } }) => {
   if (!data) notFound();
 
   return (
-    <LiveQuery
-      enabled={draftMode().isEnabled}
-      query={query}
-      params={{ slug: slug }}
-      initialData={data}
-      as={ImportPreviewBlog}
-    >
-      <SingleBlogPost data={data} />
-    </LiveQuery>
+    <>
+      <HeaderRef />
+      <LiveQuery
+        enabled={draftMode().isEnabled}
+        query={query}
+        params={{ slug: slug }}
+        initialData={data}
+        as={ImportPreviewBlog}
+      >
+        <SingleBlogPost data={data} />
+      </LiveQuery>
+    </>
   );
 };
 

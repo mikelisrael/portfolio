@@ -1,8 +1,10 @@
 import { getDate } from "@/lib/utils";
 import { IPost } from "@/types";
+import { PortableText } from "@portabletext/react";
+import { RichTextComponent } from "./rich-text-component";
 
 const SingleBlogPost = ({ data }: { data: IPost }) => {
-  const { title, publishedAt, estimatedReadingTime } = data;
+  const { title, publishedAt, estimatedReadingTime, body } = data;
 
   return (
     <article className="prose prose-sm lg:prose-base prose-ol:pl-3 prose-ul:pl-3 prose-headings:text-foreground max-w-full text-foreground-secondary">
@@ -20,27 +22,7 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
         {title}
       </h1>
 
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia
-        repellendus quae corrupti iure doloribus illo harum vitae dignissimos
-        temporibus! Perspiciatis, dolore sed? Eius quis aperiam consequuntur
-        laboriosam sequi aspernatur exercitationem!
-      </p>
-
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quia
-        repellendus quae corrupti iure doloribus illo harum vitae dignissimos
-        temporibus! Perspiciatis, dolore sed? Eius quis aperiam consequuntur
-        laboriosam sequi aspernatur exercitationem!
-      </p>
-
-      <h2>Go Away</h2>
-      <ul>
-        <li>Go away</li>
-        <li>Go away</li>
-        <li>Go away</li>
-        <li>Go away</li>
-      </ul>
+      <PortableText value={body} components={RichTextComponent} />
     </article>
   );
 };

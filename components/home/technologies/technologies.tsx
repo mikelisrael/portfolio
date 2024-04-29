@@ -1,4 +1,4 @@
-import { sanityFetch } from "@/sanity/lib/onDemandFetch";
+import { sanityFetch } from "@/sanity/lib/fetch";
 import { ITool } from "@/types";
 import { groq } from "next-sanity";
 import { AnimatedUpComponent } from "../../general/animated-components";

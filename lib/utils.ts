@@ -20,6 +20,6 @@ export const trimData = (data: any) => {
   return trimmedData;
 };
 
-export const getDate = (date: string | undefined) => {
+export const getDate = (date?: string) => {
   return moment(date).format("Do MMMM, YYYY");
 };

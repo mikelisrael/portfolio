@@ -22,10 +22,8 @@ const config = {
     },
     extend: {
       colors: {
-        bgPrimary: "#333646",
         bgTertiary: "#424657",
         gray: "#646672",
-
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -87,7 +85,11 @@ const config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("tailwind-scrollbar")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("tailwind-scrollbar"),
+    require("@tailwindcss/typography"),
+  ],
 } satisfies Config;
 
 export default config;

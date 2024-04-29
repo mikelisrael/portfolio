@@ -11,7 +11,7 @@ export const RichTextComponent = {
   types: {
     image: ({ value }: any) => {
       return (
-        <div className="relative w-full">
+        <div>
           <Image
             className="h-auto w-full"
             src={urlForImage(value)}
@@ -19,7 +19,6 @@ export const RichTextComponent = {
             width={1920}
             height={1080}
           />
-          <div className="absolute inset-0" />
         </div>
       );
     },

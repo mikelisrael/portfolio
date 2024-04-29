@@ -10,6 +10,7 @@ type Base = {
 
 type sanityImage = {
   alt: string;
+  caption?: string;
   asset: {
     _ref: string;
     _type: string;
@@ -67,7 +68,7 @@ export interface IPageInfo extends Base {
 export interface IPost extends Base {
   title: string;
   slug: { current: string };
-  author: { name: string };
+  author: { name: string, image: sanityImage};
   mainImage: sanityImage;
   categories: { title: string }[];
   publishedAt: string;

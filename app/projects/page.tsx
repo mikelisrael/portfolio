@@ -3,7 +3,7 @@ import React from "react";
 
 const Projects = () => {
   return (
-    <main className="pt-0 md:pt-10">
+    <main className="pb-32 pt-10">
       <Header />
     </main>
   );

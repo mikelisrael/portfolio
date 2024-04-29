@@ -20,6 +20,7 @@ export async function generateStaticParams() {
 const query = groq`*[_type == "post" && slug.current == $slug][0]{
   ...,
   categories[]->,
+  author->,
    'estimatedReadingTime': round(length(pt::text(body)) / 5 / 180 )
 }`;
 

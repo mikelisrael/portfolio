@@ -2,12 +2,13 @@ import { getDate } from "@/lib/utils";
 import { IPost } from "@/types";
 import { PortableText } from "@portabletext/react";
 import { RichTextComponent } from "./rich-text-component";
+import Image from "next/image";
 
 const SingleBlogPost = ({ data }: { data: IPost }) => {
   const { title, publishedAt, estimatedReadingTime, body } = data;
 
   return (
-    <article className="prose prose-sm lg:prose-base prose-ol:pl-3 prose-ul:pl-3 prose-headings:text-foreground max-w-full text-foreground-secondary">
+    <article className="prose prose-sm prose-h2:mt-5 lg:prose-base prose-ol:pl-3 prose-ul:pl-3 prose-headings:text-foreground max-w-full text-foreground-secondary">
       <p className="space-x-2 text-foreground-secondary">
         <span>{getDate(publishedAt)}</span>
         <span className="text-lg text-primary">•</span>
@@ -21,6 +22,14 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
       >
         {title}
       </h1>
+
+      <Image
+        src="/img/project.png"
+        alt="Picture of the author"
+        className="h-56 object-cover object-center"
+        width={1920}
+        height={1080}
+      />
 
       <PortableText value={body} components={RichTextComponent} />
     </article>

@@ -7,6 +7,8 @@ import { IPost } from "@/types";
 
 const Header = ({ posts }: { posts: IPost[] }) => {
   const { headerRef } = useGlobalContext();
+  // todays date
+  const date = new Date();
 
   return (
     <header ref={headerRef} className="relative">

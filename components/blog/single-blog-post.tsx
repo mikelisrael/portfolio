@@ -4,20 +4,27 @@ import { PortableText } from "@portabletext/react";
 import { RichTextComponent } from "./rich-text-component";
 import Image from "next/image";
 import { blurUpImage, urlForImage } from "@/sanity/lib/image";
+import { Badge } from "../ui/badge";
 
 const SingleBlogPost = ({ data }: { data: IPost }) => {
-  const { title, publishedAt, estimatedReadingTime, body, mainImage, author } =
-    data;
+  const {
+    title,
+    publishedAt,
+    estimatedReadingTime,
+    body,
+    mainImage,
+    author,
+    categories,
+  } = data;
 
   return (
-    <article className="prose prose-sm prose-h2:mt-5 lg:prose-base prose-ol:pl-3 prose-ul:pl-3 prose-headings:text-foreground prose-h1:mb-5 max-w-full text-foreground-secondary">
+    <article className="prose prose-sm max-w-full text-foreground-secondary lg:prose-base prose-headings:text-foreground prose-h1:mb-5 prose-h2:mt-5 prose-blockquote:text-foreground-secondary prose-strong:font-black prose-strong:text-foreground-secondary prose-ol:pl-3 prose-ul:pl-3">
       <p className="space-x-2 text-foreground-secondary">
         <span>{getDate(publishedAt)}</span>
         <span className="text-lg text-primary">•</span>
         <span>📖 {estimatedReadingTime} min read</span>
       </p>
 
-      {/* duration-500 animate-in fade-in slide-in-from-right-48  */}
       <h1
         aria-label="blog header"
         className="text-3xl font-semibold md:text-5xl"
@@ -31,7 +38,7 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
           height={100}
           src={urlForImage(author.image)}
           alt={author.name}
-          className="!my-0 size-10 rounded-full bg-red-500 object-cover !py-0"
+          className="!my-0 size-10 rounded-full bg-background-secondary object-cover !py-0"
         />
 
         <span>{author.name}</span>
@@ -57,6 +64,14 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
       )}
 
       <PortableText value={body} components={RichTextComponent} />
+
+      <div className="mt-12 flex flex-wrap gap-2 md:mt-16">
+        {categories.map((category, idx) => (
+          <Badge key={idx} className="bg-background-secondary">
+            {category.title}
+          </Badge>
+        ))}
+      </div>
     </article>
   );
 };

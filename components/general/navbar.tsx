@@ -55,7 +55,7 @@ const Navbar = () => {
       // If it's not the first page load, move the indicator immediately
       moveIndicator();
     }
-  }, [activeTab, isIndicatorMoved]);
+  }, [activeTab, isIndicatorMoved, moveIndicator]);
 
   // Set active tab on scroll
   useEffect(() => {

@@ -1,12 +1,12 @@
 import Footer from "@/components/general/footer/footer";
 import Navbar from "@/components/general/navbar";
-import { AppProvider } from "@/components/providers/context";
-import type { Metadata } from "next";
-import { Comfortaa } from "next/font/google";
-import "./globals.css";
+import Providers from "@/components/providers";
 import { Toaster } from "@/components/ui/sonner";
 import { metaKeywords } from "@/lib/metaKeywords";
 import { Analytics } from "@vercel/analytics/react";
+import type { Metadata } from "next";
+import { Comfortaa } from "next/font/google";
+import "./globals.css";
 
 const comfortaa = Comfortaa({
   subsets: ["cyrillic"],
@@ -68,12 +68,12 @@ export default function RootLayout({
         className={comfortaa.className + "  duration-200 animate-in fade-in"}
       >
         <Analytics />
-        <AppProvider>
+        <Providers>
           <Navbar />
           {children}
           <Footer />
           <Toaster richColors position="top-center" />
-        </AppProvider>
+        </Providers>
       </body>
     </html>
   );

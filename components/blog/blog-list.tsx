@@ -1,26 +1,38 @@
-import React from "react";
-import { blogs } from "./blogs";
+import { getDate } from "@/lib/utils";
 import moment from "moment";
-import { getReadingDuration } from "@/lib/utils";
-import { AnimatedLeftComponent } from "../general/animated-components";
+import React from "react";
+import { IPost } from "@/types";
 import Link from "next/link";
+import { AnimatedLeftComponent } from "../general/animated-components";
 
-const BlogList = () => {
+const BlogList = ({ posts }: { posts: IPost[] }) => {
   return (
     <ul className="space-y-10 py-16 md:space-y-14">
-      {blogs
-        .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      {posts
+        .sort(
+          (a, b) =>
+            new Date(b._updatedAt).getTime() - new Date(a._updatedAt).getTime(),
+        )
         .map((blog, index) => {
+          const {
+            categories,
+            title,
+            slug,
+            publishedAt,
+            plainText,
+            estimatedReadingTime,
+          } = blog;
+
           return (
             <li key={index}>
               <AnimatedLeftComponent className="mb-2 flex items-center gap-x-1 md:gap-x-2 ">
-                {blog.category.map((category, index) => (
+                {categories.map((category, index) => (
                   <React.Fragment key={index}>
                     <span className="shrink-0 text-right text-xs uppercase text-foreground-secondary">
-                      {category}
+                      {category.title}
                     </span>
 
-                    {index < blog.category.length - 1 && (
+                    {index < blog.categories.length - 1 && (
                       <span className="text-foreground-secondary">•</span>
                     )}
                   </React.Fragment>
@@ -28,23 +40,24 @@ const BlogList = () => {
               </AnimatedLeftComponent>
 
               <AnimatedLeftComponent>
-                <Link href={`/blog/${blog.slug}`}>
-                  <h3 className="text-lg font-semibold md:text-2xl">
-                    {blog.title}
-                  </h3>
+                <Link
+                  href={`/blog/${slug.current}`}
+                  className="hover:underline"
+                >
+                  <h3 className="text-lg font-semibold md:text-2xl">{title}</h3>
                 </Link>
               </AnimatedLeftComponent>
 
               <AnimatedLeftComponent>
                 <p className="mt-1 line-clamp-2 text-foreground-secondary">
-                  {blog.content}
+                  {plainText}
                 </p>
               </AnimatedLeftComponent>
 
               <AnimatedLeftComponent className="mt-4 flex items-center gap-x-1 text-xs text-foreground-secondary md:gap-x-2 md:text-sm">
-                <span>{moment(blog.date).format("DD MMMM, YYYY")}</span>
-                <span className="text-lg">•</span>
-                <span>📖 {getReadingDuration(blog.content)}</span>
+                <span>{getDate(publishedAt)}</span>
+                <span className="text-lg text-primary">•</span>
+                <span>📖 {estimatedReadingTime} min read</span>
               </AnimatedLeftComponent>
             </li>
           );

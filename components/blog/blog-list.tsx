@@ -1,8 +1,7 @@
 import { getDate } from "@/lib/utils";
-import moment from "moment";
-import React from "react";
 import { IPost } from "@/types";
 import Link from "next/link";
+import React from "react";
 import { AnimatedLeftComponent } from "../general/animated-components";
 
 const BlogList = ({ posts }: { posts: IPost[] }) => {

@@ -3,6 +3,7 @@
 import { urlForImage } from "@/sanity/lib/image";
 import { ITool } from "@/types";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 type Props = {
   tools: ITool[];
@@ -32,9 +33,11 @@ function TechnologiesClient({ tools }: Props) {
             viewport={{ once: true }}
             custom={idx}
           >
-            <img
+            <Image
               src={urlForImage(tool.toolImage)}
               alt={tool.name}
+              width={100}
+              height={100}
               className="size-10 object-contain md:size-12"
             />
             <span className="mt-2">{tool.name}</span>

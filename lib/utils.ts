@@ -1,6 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import readingDuration from "reading-duration";
+import moment from "moment";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -20,11 +20,6 @@ export const trimData = (data: any) => {
   return trimmedData;
 };
 
-export const getReadingDuration = (content: string) => {
-  const duration = readingDuration(content, {
-    wordsPerMinute: 100,
-    emoji: false,
-  });
-
-  return duration;
+export const getDate = (date: string | undefined) => {
+  return moment(date).format("Do MMMM, YYYY");
 };

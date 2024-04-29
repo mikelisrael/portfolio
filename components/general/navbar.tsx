@@ -30,9 +30,9 @@ const Navbar = () => {
   } = useGlobalContext();
   const [isIndicatorMoved, setIsIndicatorMoved] = useState(false);
   // State to track the active link
-  const [activeTab, setActiveTab] = useState<"contact" | "projects" | "blog">(
-    "contact",
-  );
+  const [activeTab, setActiveTab] = useState<
+    "contact" | "projects" | "blog" | null
+  >("contact");
   const indicatorRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
@@ -91,15 +91,16 @@ const Navbar = () => {
     } else {
       setActiveTab(pathname.slice(1) as "projects" | "blog");
     }
+
+    const errorPage = document.getElementById("404Page");
+    if (errorPage) {
+      setActiveTab(null);
+    }
   }, [pathname]);
 
   const handleClickedTab = (tab: "contact" | "projects" | "blog") => {
     setActiveTab(tab);
   };
-
-  
-  // TODO: check is404 by selecting an html element that is only present on 404 pages
-  const is404 = !linkList.some(({ path }) => activeTab.includes(path));
 
   // Hide the navbar on certain pages
   if (isFooterAndNavHidden) return null;
@@ -168,7 +169,7 @@ const Navbar = () => {
           className={cn(
             {
               "opacity-100": isIndicatorMoved,
-              "opacity-0": !isIndicatorMoved || is404,
+              "opacity-0": !isIndicatorMoved || !activeTab,
             },
             "absolute bottom-0 h-2 w-2 rounded-full bg-primary transition-all delay-200 md:-bottom-2",
           )}

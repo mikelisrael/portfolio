@@ -12,7 +12,7 @@ export default function BlogLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="universal_x !max-w-3xl overflow-hidden pt-10">
+    <div className="universal_x !max-w-3xl overflow-hidden pb-32 pt-10">
       {children}
     </div>
   );

@@ -67,7 +67,8 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={
-          comfortaa.variable + " font-sans duration-200 animate-in fade-in"
+          comfortaa.variable +
+          " font-sans antialiased duration-200 animate-in fade-in"
         }
       >
         <Analytics />

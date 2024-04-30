@@ -96,6 +96,8 @@ const Navbar = () => {
     if (errorPage) {
       setActiveTab(null);
     }
+
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   const handleClickedTab = (tab: "contact" | "projects" | "blog") => {

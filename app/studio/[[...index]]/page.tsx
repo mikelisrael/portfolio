@@ -15,7 +15,7 @@ export default function IndexPage() {
       // The webpackIgnore tells webpack to not attempt bundling this dynamic import,
       // and instead let it run natively in the browser at runtime
       void import(
-        /* webpackIgnore: true */ "https://themer.sanity.build/api/hues?primary=ffc25c;lightest:ebebec;darkest:333646"
+        /* webpackIgnore: true */ "https://themer.sanity.build/api/hues?preset=pixel-art&default=333646&primary=ffc25b&transparent=646672;darkest:333646&positive=lightest:fcfcfd;darkest:0d0e15&caution=fbd024;100;lightest:fcfcfd;darkest:0d0e15&critical=lightest:fcfcfd;darkest:0d0e15&lightest=eaeaeb&darkest=242633"
       ).then(({ theme }) => setConfig((config) => ({ ...config, theme }))),
     [],
   );

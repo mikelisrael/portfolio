@@ -111,9 +111,13 @@ img {
   grid-row: 1/-1;
 }
 
-
 ol li,
 ul li {
   list-style-position: inside;
   position: relative;
+}
+
+/* sanity studio font override */
+div[data-ui="ToolScreen"] * {
+  @apply font-sans;
 }

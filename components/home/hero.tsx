@@ -93,7 +93,7 @@ const Hero: React.FC<IPageInfo> = ({
 
       <section
         role="complementary"
-        className="flex justify-start pt-10 md:justify-end"
+        className="flex h-max justify-start pt-10 md:justify-end"
         style={{ transform: `translateY(-${scrollPosition * 0.3}px)` }} // parallax scroll
       >
         <div className="backdrop-blur sm:max-w-sm md:px-2">

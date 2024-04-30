@@ -39,9 +39,10 @@ export async function generateMetadata(
   return {
     title: res.title,
     description: `${res.plainText.slice(0, 100)}...`,
-    // openGraph: {
-    //   images: ["/some-specific-page-image.jpg", ...previousImages],
-    // },
+    openGraph: {
+      //   images: ["/some-specific-page-image.jpg", ...previousImages],
+      description: `${res.plainText.slice(0, 100)}...`,
+    },
   };
 }
 

@@ -28,24 +28,7 @@ export default async function Image({
   //   ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
-    (
-      <div
-        style={{
-          fontSize: 128,
-          background: "white",
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "0.75rem",
-          padding: "2.5rem",
-        }}
-      >
-        {res.title}
-      </div>
-    ),
+    <OpenGraphImageComponent title={res.title} />,
     // ImageResponse options
     {
       // For convenience, we can re-use the exported opengraph-image

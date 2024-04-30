@@ -1,6 +1,8 @@
+import GoBackButton from "@/components/blog/go-back-button";
 import ImportPreviewBlog from "@/components/blog/import-preview-Blog";
 import SingleBlogPost from "@/components/blog/single-blog-post";
 import HeaderRef from "@/components/home/header-ref";
+import { Button } from "@/components/ui/button";
 import { client } from "@/sanity/lib/client";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { IPost } from "@/types";
@@ -8,6 +10,7 @@ import { groq } from "next-sanity";
 import { LiveQuery } from "next-sanity/preview/live-query";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
+import { IoArrowBack } from "react-icons/io5";
 
 // TODO: Create open-graph image for slugs
 
@@ -37,6 +40,7 @@ const BlogPost = async ({ params: { slug } }: { params: { slug: string } }) => {
   return (
     <>
       <HeaderRef />
+      <GoBackButton />
       <LiveQuery
         enabled={draftMode().isEnabled}
         query={query}

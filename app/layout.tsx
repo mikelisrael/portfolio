@@ -11,6 +11,7 @@ import "./globals.css";
 const comfortaa = Comfortaa({
   subsets: ["cyrillic"],
   weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-sans",
 });
 
 export const metadata: Metadata = {
@@ -65,7 +66,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={comfortaa.className + "  duration-200 animate-in fade-in"}
+        className={
+          comfortaa.variable + " font-sans duration-200 animate-in fade-in"
+        }
       >
         <Analytics />
         <Providers>

@@ -15,13 +15,17 @@ const comfortaa = Comfortaa({
 });
 
 export const metadata: Metadata = {
-  title: "Michael Israel",
+  title: {
+    template: "%s • Michael Israel",
+    default: "Michael Israel", // a default is required when creating a template
+  },
   description: "",
   icons: {
     icon: ["/favicons/favicon.ico"],
     apple: ["/favicons/apple-touch-icon.png"],
     shortcut: ["/favicons/apple-touch-icon.png"],
   },
+  manifest: "/favicons/site.webmanifest",
   // =========== OPEN GRAPH ===========
   metadataBase: new URL("https://mikelisrael.vercel.app"),
   // openGraph: {

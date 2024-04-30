@@ -28,7 +28,9 @@ export async function generateMetadata(
   { params: { slug } }: Props,
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
-  const titleQuery = groq`*[_type == "post" && slug.current == $slug][0]{title}`;
+  const titleQuery = groq`*[_type == "post" && slug.current == $slug][0]{
+    title, 'plainText': pt::text(body),
+    }`;
   const res: IPost = await client.fetch(titleQuery, { slug });
 
   // optionally access and extend (rather than replace) parent metadata
@@ -36,6 +38,7 @@ export async function generateMetadata(
 
   return {
     title: res.title,
+    description: `${res.plainText.slice(0, 100)}...`,
     // openGraph: {
     //   images: ["/some-specific-page-image.jpg", ...previousImages],
     // },

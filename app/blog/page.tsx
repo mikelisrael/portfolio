@@ -16,7 +16,7 @@ const Blog = async () => {
   const posts: IPost[] = await sanityFetch({ query });
 
   return (
-    <main>
+    <main className="overflow-hidden">
       <Header posts={posts} />
       <BlogList posts={posts} />
     </main>

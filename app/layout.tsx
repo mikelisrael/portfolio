@@ -17,20 +17,11 @@ const comfortaa = Comfortaa({
 export const metadata: Metadata = {
   title: "Michael Israel",
   description: "",
-  // icons: {
-  //   icon: [
-  //     {
-  //       url: "/logos/tabs-text-teal.png",
-  //       media: "(prefers-color-scheme: light)",
-  //     },
-  //     {
-  //       url: "/logos/tabs-text-white.png",
-  //       media: "(prefers-color-scheme: dark)",
-  //     },
-  //   ],
-  //   apple: "/logos/filled_logo_teal.png",
-  //   shortcut: "/logos/filled_logo_teal.png",
-  // },
+  icons: {
+    icon: ["/favicons/favicon.ico"],
+    apple: ["/favicons/apple-touch-icon.png"],
+    shortcut: ["/favicons/apple-touch-icon.png"],
+  },
   // =========== OPEN GRAPH ===========
   metadataBase: new URL("https://mikelisrael.vercel.app"),
   // openGraph: {

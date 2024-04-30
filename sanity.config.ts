@@ -5,12 +5,15 @@
 import { visionTool } from "@sanity/vision";
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
+import Logo from "./components/studio/logo";
+import StudioNavbar from "./components/studio/studio-navbar";
 
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
 import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schema";
 
 export default defineConfig({
+  icon: Logo,
   basePath: "/studio",
   projectId,
   dataset,
@@ -22,4 +25,9 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({ defaultApiVersion: apiVersion }),
   ],
+  studio: {
+    components: {
+      navbar: StudioNavbar,
+    },
+  },
 });

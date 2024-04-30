@@ -8,7 +8,7 @@ function OpenGraphImageComponent({ title }: Props) {
       style={{
         width: "100%",
         height: "100%",
-        fontSize: 128,
+        fontSize: 140,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -20,7 +20,7 @@ function OpenGraphImageComponent({ title }: Props) {
       }}
     >
       <div
-        className="relative size-20"
+        // className="relative size-20"
         style={{
           width: "80px",
           height: "80px",

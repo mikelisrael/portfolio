@@ -15,9 +15,9 @@ const NotFound = () => {
         <div className="space-y-4 py-10 text-foreground-secondary">
           {" "}
           <p>
-            I'm afraid you have found a page that doesn't exist on my website.
-            That can happen when you follow a link to a deleted page or if the
-            link was mistyped.
+            I&rsquo;m afraid you have found a page that doesn&rsquo;t exist on
+            my website. That can happen when you follow a link to a deleted page
+            or if the link was mistyped.
           </p>
           <p>Sorry about that. Take a deep breath and...</p>
         </div>
@@ -27,7 +27,8 @@ const NotFound = () => {
         </Link>
 
         <p className="mt-10 text-xs text-foreground-secondary/30">
-          PS, can't think of a more creative 404 at the moment. I'll work on it.
+          PS, can&rsquo;t think of a more creative 404 at the moment. I&rsquo;ll
+          work on it.
         </p>
       </div>
     </div>

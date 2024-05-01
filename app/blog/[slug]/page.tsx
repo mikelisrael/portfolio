@@ -33,18 +33,17 @@ export async function generateMetadata(
     title, 'plainText': pt::text(body),
     }`;
   const res: IPost = await client.fetch(titleQuery, { slug });
-
+  const description = `${res.plainText.slice(0, 100)}...`;
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images || [];
-
   const currentImage = urlForImage(res.mainImage) || "";
 
   return {
     title: res.title,
-    description: `${res.plainText.slice(0, 100)}...`,
+    description,
     openGraph: {
       images: [currentImage, ...previousImages],
-      description: `${res.plainText.slice(0, 100)}...`,
+      description,
     },
   };
 }

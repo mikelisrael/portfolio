@@ -13,7 +13,7 @@ const query = groq`*[_type == "post"]{
 }`;
 
 const Blog = async () => {
-  const posts: IPost[] = await sanityFetch({ query, tags: ["post", "author"]);
+  const posts: IPost[] = await sanityFetch({ query, tags: ["post", "author"]});
 
   return (
     <main className="overflow-hidden">

@@ -23,9 +23,9 @@ export default async function Image({
   const res: IPost = await client.fetch(titleQuery, { slug });
 
   // Font
-  //   const interSemiBold = fetch(
-  //     new URL("./Inter-SemiBold.ttf", import.meta.url),
-  //   ).then((res) => res.arrayBuffer());
+  const comfortaaSemiBold = fetch(
+    new URL("../../../public/font/Comfortaa-SemiBold.ttf", import.meta.url),
+  ).then((res) => res.arrayBuffer());
 
   return new ImageResponse(
     <OpenGraphImageComponent title={res.title} />,
@@ -34,14 +34,13 @@ export default async function Image({
       // For convenience, we can re-use the exported opengraph-image
       // size config to also set the ImageResponse's width and height.
       ...size,
-      //   fonts: [
-      //     {
-      //       name: "Inter",
-      //       data: await interSemiBold,
-      //       style: "normal",
-      //       weight: 400,
-      //     },
-      //   ],
+      fonts: [
+        {
+          name: "Comfortaa",
+          data: await comfortaaSemiBold,
+          style: "normal",
+        },
+      ],
     },
   );
 }

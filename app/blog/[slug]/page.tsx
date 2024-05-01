@@ -44,13 +44,13 @@ export async function generateMetadata(
     openGraph: {
       images: [
         currentImage
-       {
-       type: "image/png",
-      width: 1200,
-      height: 630,
-       url: `/opengraph/${slug}`
-     }
-      , 
+      // {
+      // type: "image/png",
+   //   width: 1200,
+    //  height: 630,
+   //    url: `/opengraph/${slug}`
+     //}
+        ,
     ...previousImages],
       description,
     },

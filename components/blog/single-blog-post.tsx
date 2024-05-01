@@ -29,7 +29,7 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
         aria-label="blog header"
         className="text-3xl font-semibold md:text-5xl"
       >
-        {title}.
+        {title}
       </h1>
 
       <div className="flex items-center gap-3">

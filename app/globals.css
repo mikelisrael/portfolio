@@ -113,7 +113,7 @@ img {
 
 ol li,
 ul li {
-  list-style-position: inside;
+  list-style-position: outside;
   position: relative;
 }
 

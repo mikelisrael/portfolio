@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s • Michael Israel",
     default: "Michael Israel", // a default is required when creating a template
   },
-  description: "",
+  description: "The Frontend developer for startups and established projects",
   icons: {
     icon: ["/favicons/favicon.ico"],
     apple: ["/favicons/apple-touch-icon.png"],
@@ -28,24 +28,22 @@ export const metadata: Metadata = {
   manifest: "/favicons/site.webmanifest",
   // =========== OPEN GRAPH ===========
   metadataBase: new URL("https://mikelisrael.vercel.app"),
-  // openGraph: {
-  //   title:
-  //     "",
-  //   description:
-  //     "",
-  //   url: "https://mikelisrael.vercel.app",
-  //   siteName: "Mikelisrael portfolio",
-  //   images: [
-  //     {
-  //       url: "/OG.png",
-  //       width: 1200,
-  //       height: 630,
-  //       alt: "Mikelisrael openGraph image",
-  //     },
-  //   ],
-  //   locale: "en_US",
-  //   type: "website",
-  // },
+  openGraph: {
+    title: "Michael Israel",
+    description: "The Frontend developer for startups and established projects",
+    url: "https://mikelisrael.vercel.app",
+    siteName: "Mikelisrael portfolio",
+    images: [
+      {
+        url: "/OG.png",
+        width: 1200,
+        height: 630,
+        alt: "Mikelisrael openGraph image",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
   // =========== SEO ===========
   keywords: metaKeywords,
   robots: "follow, index",

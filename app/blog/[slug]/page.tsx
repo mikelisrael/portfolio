@@ -30,23 +30,27 @@ export async function generateMetadata(
   parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const titleQuery = groq`*[_type == "post" && slug.current == $slug][0]{
-    title, 'plainText': pt::text(body),
+    title, 'plainText': pt::text(body), mainImage
     }`;
   const res: IPost = await client.fetch(titleQuery, { slug });
   const description = `${res.plainText.slice(0, 100)}...`;
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images || [];
-
+  const currentImage = urlForImage(res.mainImage) || "";
+  
   return {
     title: res.title,
     description,
     openGraph: {
-      images: [{
-          type: "image/png",
-          width: 1200,
-          height: 630,
-          url: `/opengraph/${slug}`
-      }, ...previousImages],
+      images: [
+        currentImage
+    //    {
+     //     type: "image/png",
+       //   width: 1200,
+      //    height: 630,
+     //     url: `/opengraph/${slug}`
+      //}
+        , ...previousImages],
       description,
     },
   };

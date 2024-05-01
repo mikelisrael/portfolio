@@ -65,13 +65,13 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
 
       <PortableText value={body} components={RichTextComponent} />
 
-      <div className="mt-12 flex flex-wrap gap-2 md:mt-16">
+     {categories &&  (<div className="mt-12 flex flex-wrap gap-2 md:mt-16">
         {categories.map((category, idx) => (
           <Badge key={idx} className="bg-background-secondary">
             {category.title}
           </Badge>
         ))}
-      </div>
+      </div> )}
     </article>
   );
 };

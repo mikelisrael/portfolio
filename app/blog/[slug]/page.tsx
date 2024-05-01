@@ -42,15 +42,16 @@ export async function generateMetadata(
     title: res.title,
     description,
     openGraph: {
-      images: [
+      //images: [
       //  currentImage
-        {
-         type: "image/png",
-         width: 1200,
-         height: 630,
-         url: `/opengraph/${slug}`
-        }
-        , ...previousImages],
+       // {
+      //  type: "image/png",
+      //  width: 1200,
+      //  height: 630,
+      //  url: `/opengraph/${slug}`
+     //  }
+      //  , 
+    //...previousImages],
       description,
     },
   };

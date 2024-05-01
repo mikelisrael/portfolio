@@ -4,6 +4,7 @@ import SingleBlogPost from "@/components/blog/single-blog-post";
 import HeaderRef from "@/components/home/header-ref";
 import { client } from "@/sanity/lib/client";
 import { sanityFetch } from "@/sanity/lib/fetch";
+import { urlForImage } from "@/sanity/lib/image";
 import { IPost } from "@/types";
 import { Metadata, ResolvingMetadata } from "next";
 import { groq } from "next-sanity";
@@ -34,15 +35,17 @@ export async function generateMetadata(
   const res: IPost = await client.fetch(titleQuery, { slug });
 
   // optionally access and extend (rather than replace) parent metadata
-  // const previousImages = (await parent).openGraph?.images || [];
+  const previousImages = (await parent).openGraph?.images || [];
+
+  const currentImage = urlForImage(res.mainImage) || "";
 
   return {
     title: res.title,
     description: `${res.plainText.slice(0, 100)}...`,
-    // openGraph: {
-    //   //   images: ["/some-specific-page-image.jpg", ...previousImages],
-    //   description: `${res.plainText.slice(0, 100)}...`,
-    // },
+    openGraph: {
+      images: [currentImage, ...previousImages],
+      description: `${res.plainText.slice(0, 100)}...`,
+    },
   };
 }
 

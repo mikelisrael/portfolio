@@ -37,21 +37,26 @@ export async function generateMetadata(
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images || [];
   const currentImage = urlForImage(res.mainImage) || "";
-  
+
   return {
     title: res.title,
     description,
     openGraph: {
       images: [
-        currentImage
-      // {
-      // type: "image/png",
-   //   width: 1200,
-    //  height: 630,
-   //    url: `/opengraph/${slug}`
-     //}
-        ,
-    ...previousImages],
+        {
+          type: "image/png",
+          width: 1200,
+          height: 630,
+          url: currentImage,
+        },
+        // {
+        // type: "image/png",
+        //   width: 1200,
+        //  height: 630,
+        //    url: `/opengraph/${slug}`
+        //}
+        ...previousImages,
+      ],
       description,
     },
   };

@@ -18,7 +18,7 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
   } = data;
 
   return (
-    <article className="prose prose-sm max-w-full text-foreground-secondary lg:prose-base prose-headings:text-foreground prose-h1:mb-5 prose-h2:mt-5 prose-blockquote:text-foreground-secondary prose-blockquote:border-foreground-secondary prose-strong:font-black prose-strong:text-foreground/70 prose-ol:pl-3 prose-ul:pl-3">
+    <article className="prose prose-sm max-w-full text-foreground-secondary lg:prose-base prose-headings:text-foreground prose-h1:mb-5 prose-h2:mt-5 prose-blockquote:border-foreground-secondary prose-blockquote:text-foreground-secondary prose-strong:font-black prose-strong:text-foreground/70 prose-ol:pl-3 prose-ul:pl-3">
       <p className="flex items-center gap-x-2 text-foreground-secondary">
         <span>{getDate(publishedAt)}</span>
         <span className="text-lg text-primary">•</span>
@@ -65,13 +65,15 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
 
       <PortableText value={body} components={RichTextComponent} />
 
-     {categories &&  (<div className="mt-12 flex flex-wrap gap-2 md:mt-16">
-        {categories.map((category, idx) => (
-          <Badge key={idx} className="bg-background-secondary">
-            {category.title}
-          </Badge>
-        ))}
-      </div> )}
+      {categories && (
+        <div className="mt-12 flex flex-wrap gap-2 md:mt-16">
+          {categories.map((category, idx) => (
+            <Badge key={idx} className="bg-background-secondary">
+              {category.title}
+            </Badge>
+          ))}
+        </div>
+      )}
     </article>
   );
 };

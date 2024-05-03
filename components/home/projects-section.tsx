@@ -73,7 +73,7 @@ const Projects: React.FC<IPageInfo> = ({
                   <h3 className="text-2xl font-medium group-hover:text-primary group-focus-visible:text-primary lg:text-3xl">
                     {project.name}
                   </h3>
-                  <Badge className="shrink-0 bg-background text-right text-xs capitalize md:text-sm">
+                  <Badge className="z-[5] shrink-0 bg-background text-right text-xs capitalize md:text-sm">
                     {project.subtitle}
                   </Badge>
                 </header>

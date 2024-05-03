@@ -56,8 +56,7 @@ const BlogSection = ({ posts }: Props) => {
               >
                 <Link
                   href={`/blog/${blog.slug}`}
-                  // TODO: check the grid 110 col in xs -> sm
-                  className="group grid grid-cols-[105px,1fr,auto]  items-center gap-5 py-5 md:grid-cols-[110px,1fr,auto] md:gap-5 lg:gap-10 lg:py-10 xl:gap-20"
+                  className="group grid grid-cols-[auto,1fr,auto]  items-center gap-5 py-5 md:gap-5 lg:gap-10 lg:py-10 xl:gap-20"
                 >
                   <span className="space-x-0.5 text-xs text-foreground-secondary md:space-x-2 md:text-sm lg:space-x-1">
                     <span>{returnDate(blog.publishedAt)}</span>

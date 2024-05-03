@@ -63,12 +63,17 @@ export interface IPageInfo extends Base {
   testimonials: ITestimonials[];
   cta: string;
   projects: IProject[];
+  latestPosts: {
+    slug: string;
+    title: string;
+    publishedAt: string;
+  }[];
 }
 
 export interface IPost extends Base {
   title: string;
   slug: { current: string };
-  author: { name: string, image: sanityImage};
+  author: { name: string; image: sanityImage };
   mainImage: sanityImage;
   categories: { title: string }[];
   publishedAt: string;

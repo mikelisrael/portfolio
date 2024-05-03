@@ -15,13 +15,19 @@ const query = groq`*[_type == "pageInfo"][0]{
   ...,
   socials[]->,
   testimonials[]->,
-  projects[]->
+  projects[]->,
+  "latestPosts":
+    *[_type == "post"]|order(publishedAt desc)[0..2]{ 
+      "slug": slug.current,
+      title,
+      publishedAt,
+    },
 }`;
 
 const Home = async () => {
   const pageInfo: IPageInfo = await sanityFetch({
     query,
-    tags: ["pageInfo", "testimonial"], // will revalidate for page info changes
+    tags: ["pageInfo", "testimonial"],
   });
 
   return (
@@ -31,7 +37,7 @@ const Home = async () => {
       <Services />
       <Technologies />
       <Projects {...pageInfo} />
-      <BlogSection />
+      <BlogSection posts={pageInfo.latestPosts} />
       <Testimonials {...pageInfo} />
       <FormSection email={pageInfo.email} cta={pageInfo.cta} />
       <ThankYou />

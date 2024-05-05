@@ -4,7 +4,7 @@ import FormSection from "@/components/home/contact-form/form-section";
 import Hero from "@/components/home/hero";
 import Projects from "@/components/home/projects-section";
 import Services from "@/components/home/services";
-import Technologies from "@/components/home/technologies/technologies";
+import Technologies from "@/components/home/technologies";
 import Testimonials from "@/components/home/testimonials";
 import ThankYou from "@/components/home/thank-you";
 import { sanityFetch } from "@/sanity/lib/fetch";

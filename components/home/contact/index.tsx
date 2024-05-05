@@ -1,13 +1,10 @@
-"use client";
-
 import { IPageInfo } from "@/types";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import CountUp from "react-countup";
+import React from "react";
 import { FaArrowRight } from "react-icons/fa";
-import { useInView } from "react-intersection-observer";
-import { AnimatedUpComponent } from "../general/animated-components";
-import ContactRef from "../general/section-refs/contact-ref";
+import { AnimatedUpComponent } from "../../general/animated-components";
+import ContactRef from "../../general/section-refs/contact-ref";
+import YearsAndClients from "./years-and-clients";
 
 const Contact: React.FC<IPageInfo> = ({
   yearsOfExperience,
@@ -17,25 +14,6 @@ const Contact: React.FC<IPageInfo> = ({
   freeTalk,
   freeTalkHeading,
 }) => {
-  const { ref: yearsRef, inView: yearsInView } = useInView({
-    threshold: 0.5,
-  });
-  const { ref: clientsRef, inView: clientsInView } = useInView({
-    threshold: 0.5,
-  });
-  const [yearsCounted, setYearsCounted] = useState(false);
-  const [clientsCounted, setClientsCounted] = useState(false);
-
-  useEffect(() => {
-    if (yearsInView && !yearsCounted) {
-      setYearsCounted(true);
-    }
-
-    if (clientsInView && !clientsCounted) {
-      setClientsCounted(true);
-    }
-  }, [yearsInView, yearsCounted, clientsInView, clientsCounted]);
-
   return (
     <ContactRef
       id="contact"
@@ -99,35 +77,10 @@ const Contact: React.FC<IPageInfo> = ({
           </div>
 
           {/* second element*/}
-          <div className="flex gap-10 lg:gap-20">
-            <AnimatedUpComponent>
-              <div className="flex h-full items-end gap-3">
-                <h4
-                  className="text-5xl font-semibold text-primary lg:text-7xl"
-                  ref={yearsRef}
-                >
-                  {yearsCounted ? <CountUp end={yearsOfExperience} /> : 0}
-                </h4>
-                <span>
-                  Years of <br /> Experience.
-                </span>
-              </div>
-            </AnimatedUpComponent>
-
-            <AnimatedUpComponent delay={0.3}>
-              <div className="flex h-full items-end gap-3">
-                <h4
-                  className="text-5xl font-semibold text-primary lg:text-7xl"
-                  ref={clientsRef}
-                >
-                  {clientsCounted ? <CountUp end={satisfiedClients} /> : 0}
-                </h4>
-                <span>
-                  Satisfied <br /> Clients.
-                </span>
-              </div>
-            </AnimatedUpComponent>
-          </div>
+          <YearsAndClients
+            satisfiedClients={satisfiedClients}
+            yearsOfExperience={yearsOfExperience}
+          />
         </section>
       </div>
     </ContactRef>

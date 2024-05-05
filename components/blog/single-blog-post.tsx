@@ -3,9 +3,9 @@ import { blurUpImage, urlForImage } from "@/sanity/lib/image";
 import { IPost } from "@/types";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import HeaderRef from "../general/section-refs/header-ref";
 import { Badge } from "../ui/badge";
 import { RichTextComponent } from "./rich-text-component";
-import  HeaderRef  from "../general/section-refs/header-ref";
 
 const SingleBlogPost = ({ data }: { data: IPost }) => {
   const {

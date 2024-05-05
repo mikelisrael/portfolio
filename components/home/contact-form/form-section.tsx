@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 import { AnimatedUpComponent } from "../../general/animated-components";
-import ContactForm from "./contact-form";
+import ContactForm from ".";
 
 const FormSection = ({ email, cta }: { email: string; cta: string }) => {
   return (

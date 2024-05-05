@@ -1,16 +1,16 @@
-import HeaderRef from "@/components/home/header-ref";
+import HeaderRef from "@/components/general/section-refs/header-ref";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 
 const NotFound = () => {
   return (
     <div className="universal_x py-20">
-      <HeaderRef />
-
       <div className="max-w-md">
-        <h1 id="404Page" className="w-full text-7xl font-bold">
-          404.
-        </h1>
+        <HeaderRef>
+          <h1 id="404Page" className="w-full text-7xl font-bold">
+            404.
+          </h1>
+        </HeaderRef>
 
         <div className="space-y-4 py-10 text-foreground-secondary">
           {" "}

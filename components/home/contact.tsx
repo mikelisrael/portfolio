@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import { FaArrowRight } from "react-icons/fa";
-import CountUp from "react-countup";
+import { IPageInfo } from "@/types";
 import Link from "next/link";
+import React, { useEffect, useState } from "react";
+import CountUp from "react-countup";
+import { FaArrowRight } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
 import { AnimatedUpComponent } from "../general/animated-components";
-import { useGlobalContext } from "../providers/context";
-import { IPageInfo } from "@/types";
+import ContactRef from "../general/section-refs/contact-ref";
 
 const Contact: React.FC<IPageInfo> = ({
   yearsOfExperience,
@@ -17,7 +17,6 @@ const Contact: React.FC<IPageInfo> = ({
   freeTalk,
   freeTalkHeading,
 }) => {
-  const { contactRef } = useGlobalContext();
   const { ref: yearsRef, inView: yearsInView } = useInView({
     threshold: 0.5,
   });
@@ -38,8 +37,7 @@ const Contact: React.FC<IPageInfo> = ({
   }, [yearsInView, yearsCounted, clientsInView, clientsCounted]);
 
   return (
-    <div
-      ref={contactRef}
+    <ContactRef
       id="contact"
       className="scroll-m-20 bg-background-secondary pb-60 pt-20 md:pt-40"
     >
@@ -132,7 +130,7 @@ const Contact: React.FC<IPageInfo> = ({
           </div>
         </section>
       </div>
-    </div>
+    </ContactRef>
   );
 };
 

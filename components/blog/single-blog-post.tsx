@@ -5,6 +5,7 @@ import { PortableText } from "@portabletext/react";
 import Image from "next/image";
 import { Badge } from "../ui/badge";
 import { RichTextComponent } from "./rich-text-component";
+import  HeaderRef  from "../general/section-refs/header-ref";
 
 const SingleBlogPost = ({ data }: { data: IPost }) => {
   const {
@@ -25,24 +26,26 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
         <span>📖 {estimatedReadingTime} min read</span>
       </p>
 
-      <h1
-        aria-label="blog header"
-        className="text-3xl font-semibold md:text-5xl"
-      >
-        {title}
-      </h1>
+      <HeaderRef>
+        <h1
+          aria-label="blog header"
+          className="text-3xl font-semibold md:text-5xl"
+        >
+          {title}
+        </h1>
 
-      <div className="flex items-center gap-3">
-        <Image
-          width={100}
-          height={100}
-          src={urlForImage(author.image)}
-          alt={author.name}
-          className="!my-0 size-10 rounded-full bg-background-secondary object-cover !py-0"
-        />
+        <div className="flex items-center gap-3">
+          <Image
+            width={100}
+            height={100}
+            src={urlForImage(author.image)}
+            alt={author.name}
+            className="!my-0 size-10 rounded-full bg-background-secondary object-cover !py-0"
+          />
 
-        <span>{author.name}</span>
-      </div>
+          <span>{author.name}</span>
+        </div>
+      </HeaderRef>
 
       {mainImage && (
         <div>

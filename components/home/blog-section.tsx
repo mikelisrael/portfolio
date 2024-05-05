@@ -1,13 +1,11 @@
-"use client";
-
+import moment from "moment";
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
 import {
   AnimatedLeftComponent,
   AnimatedUpComponent,
 } from "../general/animated-components";
-import { useGlobalContext } from "../providers/context";
-import moment from "moment";
+import BlogRef from "../general/section-refs/blog-ref";
 
 interface Props {
   posts: {
@@ -20,14 +18,8 @@ interface Props {
 const returnDate = (date: string) => moment(date).format("MMM DD");
 
 const BlogSection = ({ posts }: Props) => {
-  const { blogRef } = useGlobalContext();
-
   return (
-    <section
-      id="blog"
-      ref={blogRef}
-      className="scroll-m-20 bg-background-secondary"
-    >
+    <BlogRef id="blog" className="scroll-m-20 bg-background-secondary">
       <div className="universal_x grid gap-x-10 gap-y-10 py-24 md:grid-cols-[300px,1fr] md:py-32 lg:grid-cols-[350px,1fr] lg:gap-x-28">
         <div>
           <AnimatedUpComponent>
@@ -56,7 +48,7 @@ const BlogSection = ({ posts }: Props) => {
               >
                 <Link
                   href={`/blog/${blog.slug}`}
-                  className="group grid grid-cols-[auto,1fr,auto]  items-center gap-5 py-5 md:gap-5 lg:gap-10 lg:py-10 xl:gap-20"
+                  className="group grid grid-cols-[auto,1fr,auto] items-center gap-5 py-5 md:gap-5 lg:gap-10 lg:py-10 xl:gap-20"
                 >
                   <span className="space-x-0.5 text-xs text-foreground-secondary md:space-x-2 md:text-sm lg:space-x-1">
                     <span>{returnDate(blog.publishedAt)}</span>
@@ -74,7 +66,7 @@ const BlogSection = ({ posts }: Props) => {
             ))}
         </div>
       </div>
-    </section>
+    </BlogRef>
   );
 };
 

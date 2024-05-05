@@ -1,7 +1,6 @@
 import GoBackButton from "@/components/blog/go-back-button";
 import ImportPreviewBlog from "@/components/blog/import-preview-Blog";
 import SingleBlogPost from "@/components/blog/single-blog-post";
-import HeaderRef from "@/components/home/header-ref";
 import { client } from "@/sanity/lib/client";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { urlForImage } from "@/sanity/lib/image";
@@ -11,8 +10,6 @@ import { groq } from "next-sanity";
 import { LiveQuery } from "next-sanity/preview/live-query";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
-
-// TODO: Create open-graph image for slugs
 
 type Props = {
   params: { slug: string };
@@ -49,12 +46,6 @@ export async function generateMetadata(
           height: 630,
           url: currentImage,
         },
-        // {
-        // type: "image/png",
-        //   width: 1200,
-        //  height: 630,
-        //    url: `/opengraph/${slug}`
-        //}
         ...previousImages,
       ],
       description,
@@ -80,7 +71,6 @@ const BlogPost = async ({ params: { slug } }: Props) => {
 
   return (
     <>
-      <HeaderRef />
       <GoBackButton />
       <LiveQuery
         enabled={draftMode().isEnabled}
@@ -96,7 +86,3 @@ const BlogPost = async ({ params: { slug } }: Props) => {
 };
 
 export default BlogPost;
-
-// segment(whole page) revalidate every 10 seconds - not based on search
-export const revalidate = 10; // doesn't seem to do anything...
-//NEXT js team need to fix up fr

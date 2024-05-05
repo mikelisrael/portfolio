@@ -4,8 +4,8 @@ import { blurUpImage, urlForImage } from "@/sanity/lib/image";
 import { IPageInfo } from "@/types";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import HeaderRef from "../general/section-refs/header-ref";
 import Socials from "../general/socials";
-import { useGlobalContext } from "../providers/context";
 
 const Hero: React.FC<IPageInfo> = ({
   name,
@@ -14,7 +14,6 @@ const Hero: React.FC<IPageInfo> = ({
   socials,
   subjectImage,
 }) => {
-  const { headerRef } = useGlobalContext();
   // Add state to track scroll position
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -32,8 +31,7 @@ const Hero: React.FC<IPageInfo> = ({
   const [firstName, lastName] = name.split(" ");
 
   return (
-    <header
-      ref={headerRef}
+    <HeaderRef
       role="banner"
       className="universal_x relative isolate grid py-10 md:grid-cols-2"
       id="home"
@@ -117,7 +115,7 @@ const Hero: React.FC<IPageInfo> = ({
           </p>
         </div>
       </section>
-    </header>
+    </HeaderRef>
   );
 };
 

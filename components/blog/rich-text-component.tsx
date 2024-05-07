@@ -2,7 +2,6 @@ import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
 
-// generate random ID's with crypto
 const randomId = () => {
   return Math.random().toString(36).substring(2, 7);
 };
@@ -24,7 +23,6 @@ export const RichTextComponent = {
     },
   },
   block: {
-    // customizing - might add ID's to the headers
     h1: ({ children }: any) => (
       <h1 className="scroll-m-28" id={randomId()}>
         {children}
@@ -48,8 +46,8 @@ export const RichTextComponent = {
   },
   marks: {
     link: ({ value, children }: any) => {
-      // If the link is internal, we don't want to open it in a new tab
-      const target = (value?.href || "").startsWith("/") ? undefined : "_blank";
+      const isInternal = value?.href?.startsWith("/");
+      const target = isInternal ? undefined : "_blank";
 
       return (
         <Link

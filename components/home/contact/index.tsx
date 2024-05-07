@@ -76,7 +76,6 @@ const Contact: React.FC<IPageInfo> = ({
             </AnimatedUpComponent>
           </div>
 
-          {/* second element*/}
           <YearsAndClients
             satisfiedClients={satisfiedClients}
             yearsOfExperience={yearsOfExperience}

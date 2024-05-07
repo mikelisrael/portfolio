@@ -45,7 +45,6 @@ const FormSection = ({ email, cta }: { email: string; cta: string }) => {
           </h2>
         </AnimatedUpComponent>
 
-        {/* contact formn */}
         <ContactForm />
       </div>
     </section>

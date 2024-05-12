@@ -74,7 +74,6 @@ export default defineType({
       type: "text",
       rows: 3,
     }),
-
     defineField({
       name: "projectInvitationHeading",
       title: "Project Invitation Heading",
@@ -90,6 +89,12 @@ export default defineType({
       title: "Projects",
       type: "array",
       of: [{ type: "reference", to: { type: "project" } }],
+    }),
+    defineField({
+      name: "projectsIntro",
+      title: "Projects intro",
+      type: "text",
+      rows: 3,
     }),
     defineField({
       name: "testimonials",

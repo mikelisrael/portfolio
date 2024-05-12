@@ -63,6 +63,7 @@ export interface IPageInfo extends Base {
   testimonials: ITestimonials[];
   cta: string;
   projects: IProject[];
+  projectsIntro: string;
   latestPosts: {
     slug: string;
     title: string;
@@ -82,3 +83,8 @@ export interface IPost extends Base {
   plainText: string;
   estimatedReadingTime: number;
 }
+
+export type ProjectsData = {
+  projectsIntro: string;
+  projects: IProject[];
+};

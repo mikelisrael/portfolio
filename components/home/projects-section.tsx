@@ -103,12 +103,6 @@ const Projects: React.FC<IPageInfo> = ({
             </AnimatedUpComponent>
           );
         })}
-
-        {/* <div className="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
-        ))}
-      </div> */}
       </section>
       <div ref={projectBottomRef} />
     </>

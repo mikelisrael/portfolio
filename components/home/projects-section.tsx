@@ -2,7 +2,8 @@
 
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { IPageInfo, IProject } from "@/types";
+import { blurUpImage, urlForImage } from "@/sanity/lib/image";
+import { IPageInfo } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -10,7 +11,8 @@ import { FaArrowRight } from "react-icons/fa";
 import { GiEmptyHourglass } from "react-icons/gi";
 import { AnimatedUpComponent } from "../general/animated-components";
 import { useGlobalContext } from "../providers/context";
-import { blurUpImage, urlForImage } from "@/sanity/lib/image";
+
+// TODO: find out why the http is not linking externally
 
 const Projects: React.FC<IPageInfo> = ({
   projectInvitation,
@@ -71,7 +73,7 @@ const Projects: React.FC<IPageInfo> = ({
               >
                 <header className="m-5 flex items-center justify-between gap-5 md:m-10">
                   <h3 className="text-2xl font-medium group-hover:text-primary group-focus-visible:text-primary lg:text-3xl">
-                    {project.name}
+                    {project.name}.
                   </h3>
                   <Badge className="z-[5] shrink-0 bg-background text-right text-xs capitalize md:text-sm">
                     {project.subtitle}
@@ -110,3 +112,5 @@ const Projects: React.FC<IPageInfo> = ({
 };
 
 export default Projects;
+
+

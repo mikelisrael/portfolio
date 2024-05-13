@@ -30,7 +30,7 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
+    --border: 231 7% 42%;
     --input: 231 7% 42%;
     --ring: 222.2 84% 4.9%;
 
@@ -58,6 +58,11 @@
 ::-webkit-scrollbar {
   width: 8px;
 }
+
+.expanded_project::-webkit-scrollbar {
+  width: 3px;
+}
+
 ::-webkit-scrollbar-track {
   @apply bg-transparent;
 }

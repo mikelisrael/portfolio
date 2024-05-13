@@ -27,6 +27,7 @@ export interface IProject {
   isPrivate?: boolean;
   priority: number;
   slug: { current: string };
+  tools: ITool[];
 }
 
 export interface ITool extends Base {

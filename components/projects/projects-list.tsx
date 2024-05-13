@@ -12,6 +12,7 @@ import FocusLock from "react-focus-lock";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { GiEmptyHourglass } from "react-icons/gi";
+import { LuMousePointerClick } from "react-icons/lu";
 import { AnimatedUpComponent } from "../general/animated-components";
 
 const ProjectsList = ({
@@ -51,10 +52,11 @@ const ProjectsList = ({
   }, []);
 
   return (
-    <section className="universal_x scroll-m-20 pb-60 pt-20">
+    <section className="universal_x scroll-m-20 pt-10 md:pt-20">
       <div className="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
         {sortedProjects.map((project, idx) => {
-          const { name, description, image, link, github, isPrivate } = project;
+          const { name, description, image, link, github, isPrivate, tools } =
+            project;
           return (
             <AnimatedUpComponent threshold={0.2} key={idx}>
               <motion.article
@@ -62,7 +64,7 @@ const ProjectsList = ({
                 className="group flex h-full cursor-pointer flex-col gap-1.5"
                 onClick={() => setSelectedProject(project)}
               >
-                <div className="block aspect-[1.5] h-56 overflow-hidden rounded-lg outline outline-1 outline-gray">
+                <div className="relative aspect-[1.5] h-56 overflow-hidden rounded-lg outline outline-1 outline-gray">
                   {image ? (
                     <Image
                       src={urlForImage(image)}
@@ -78,6 +80,30 @@ const ProjectsList = ({
                       <GiEmptyHourglass className="text-3xl text-foreground-secondary" />
                     </div>
                   )}
+
+                  <div className="absolute inset-0 isolate flex flex-col before:absolute before:bottom-0 before:z-[-1] before:h-8 before:w-full before:bg-black/35 before:to-10% before:transition-all before:duration-300 before:group-hover:h-full before:group-hover:bg-black/60">
+                    <div className="flex flex-1 items-center justify-center font-bold text-white opacity-0 transition-all duration-300 group-hover:opacity-100">
+                      Cl
+                      <LuMousePointerClick size={25} className="mb-2" />
+                      ck to view project
+                    </div>
+
+                    {tools && tools.length > 0 && (
+                      <div className="absolute bottom-0 flex w-full justify-end gap-2 px-2 py-1">
+                        {tools.map((tool, idx) => (
+                          <Image
+                            unoptimized
+                            width={tool.name === "Next.js" ? 30 : 20}
+                            height={tool.name === "Next.js" ? 30 : 20}
+                            key={idx}
+                            src={urlForImage(tool.toolImage)}
+                            alt={tool.name}
+                            className="object-contain"
+                          />
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 <h3 className="mt-2 text-sm font-bold md:text-base">{name}.</h3>

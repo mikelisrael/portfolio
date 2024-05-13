@@ -21,7 +21,6 @@ const Projects = async ({
 }: {
   searchParams: { project: string };
 }) => {
-  console.log(searchParams);
   const projectsInfo: ProjectsData = await sanityFetch({
     query: query,
     tags: ["pageInfo", "project"],

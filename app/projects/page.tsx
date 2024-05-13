@@ -16,7 +16,12 @@ const query = groq`{
   "projects": *[_type == "project"]
 }`;
 
-const Projects = async () => {
+const Projects = async ({
+  searchParams,
+}: {
+  searchParams: { project: string };
+}) => {
+  console.log(searchParams);
   const projectsInfo: ProjectsData = await sanityFetch({
     query: query,
     tags: ["pageInfo", "project"],
@@ -25,7 +30,10 @@ const Projects = async () => {
   return (
     <main className="pb-32 pt-10">
       <Header intro={projectsInfo.projectsIntro} />
-      <ProjectsList projects={projectsInfo.projects} />
+      <ProjectsList
+        projects={projectsInfo.projects}
+        search={searchParams.project}
+      />
     </main>
   );
 };

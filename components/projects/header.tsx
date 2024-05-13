@@ -7,10 +7,7 @@ const Header = ({ intro }: { intro: string }) => {
   const { headerRef } = useGlobalContext();
 
   return (
-    <header
-      ref={headerRef}
-      className="universal_x relative pb-10 pt-10 md:pt-0"
-    >
+    <header ref={headerRef} className="universal_x relative">
       <div className="space-y-5">
         <h2
           aria-label="projects header"

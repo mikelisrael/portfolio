@@ -135,12 +135,12 @@ const ProjectsList = ({
               <FocusLock>
                 <motion.div
                   key={name}
-                  className="bg-background-primary fixed inset-0 z-50 flex cursor-pointer items-center justify-center bg-background-secondary/70 backdrop-blur-sm"
+                  className="bg-background-primary fixed inset-0 z-50 flex w-full cursor-pointer items-center justify-center bg-background-secondary/70 backdrop-blur-sm"
                   onClick={() => setSelectedProject(null)}
                 >
                   <motion.div
                     layoutId={name}
-                    className="z-50 aspect-[5/4.5] h-[70%] w-[90%] max-w-lg cursor-default gap-4 rounded-lg bg-background-secondary p-6 shadow-lg outline outline-1 outline-gray"
+                    className="z-50 h-[80%] w-[90%] max-w-lg cursor-default gap-4 rounded-lg bg-background-secondary p-6 shadow-lg outline outline-1 outline-gray"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <motion.h5>{subtitle}</motion.h5>

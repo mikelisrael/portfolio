@@ -9,9 +9,9 @@ const Header = ({ intro }: { intro: string }) => {
   return (
     <header
       ref={headerRef}
-      className="universal_x relative flex items-center justify-center pb-10 pt-10 md:pt-0"
+      className="universal_x relative pb-10 pt-10 md:pt-0"
     >
-      <div className="space-y-5 text-center">
+      <div className="space-y-5">
         <h2
           aria-label="projects header"
           className="mb-1 mt-3 w-full text-3xl font-semibold duration-500 animate-in fade-in slide-in-from-bottom-48 sm:text-5xl"

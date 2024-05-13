@@ -6,7 +6,7 @@ import { IProject } from "@/types";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import FocusLock from "react-focus-lock";
 import { FaExternalLinkAlt } from "react-icons/fa";
@@ -14,12 +14,16 @@ import { FaGithub } from "react-icons/fa6";
 import { GiEmptyHourglass } from "react-icons/gi";
 import { AnimatedUpComponent } from "../general/animated-components";
 
-const ProjectsList = ({ projects }: { projects: IProject[] }) => {
+const ProjectsList = ({
+  projects,
+  search,
+}: {
+  projects: IProject[];
+  search: string;
+}) => {
   const [selectedProject, setSelectedProject] = useState<null | IProject>(null);
   const sortedProjects = [...projects].sort((a, b) => a.priority - b.priority);
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const search = searchParams.get("project");
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -28,7 +32,6 @@ const ProjectsList = ({ projects }: { projects: IProject[] }) => {
 
     if (selectedProject) {
       window.addEventListener("keydown", handleEscape);
-      document.title = selectedProject.name;
       document.body.style.overflow = "hidden";
       router.replace(
         `${window.location.pathname}?project=${selectedProject.slug.current}`,

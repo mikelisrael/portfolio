@@ -10,7 +10,7 @@ import { GiEmptyHourglass } from "react-icons/gi";
 import { LuMousePointerClick } from "react-icons/lu";
 import { AnimatedUpComponent } from "../general/animated-components";
 
-interface IProjectCard  {
+interface IProjectCard {
   project: IProject;
   setSelectedProject: (project: IProject | null) => void;
 }
@@ -25,7 +25,7 @@ const ProjectCard = ({ project, setSelectedProject }: IProjectCard) => {
         className="group flex h-full cursor-pointer flex-col gap-1.5"
         onClick={() => setSelectedProject(project)}
       >
-        <div className="relative aspect-[1.5] h-56 overflow-hidden rounded-lg outline outline-1 outline-gray">
+        <div className="relative aspect-video overflow-hidden rounded-lg outline outline-1 outline-gray">
           {image ? (
             <Image
               src={urlForImage(image)}

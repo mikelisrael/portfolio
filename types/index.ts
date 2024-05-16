@@ -28,6 +28,7 @@ export interface IProject {
   priority: number;
   slug: { current: string };
   tools: ITool[];
+  body: TypedObject[];
 }
 
 export interface ITool extends Base {

@@ -21,9 +21,13 @@ const ProjectCard = ({ project, setSelectedProject }: IProjectCard) => {
   return (
     <AnimatedUpComponent threshold={0.2}>
       <motion.article
+        tabIndex={0}
         layoutId={name}
-        className="group flex h-full cursor-pointer flex-col gap-1.5"
+        className="group flex h-full cursor-pointer flex-col gap-1.5 outline-offset-8"
         onClick={() => setSelectedProject(project)}
+        onKeyPress={(e) => {
+          if (e.key === "Enter") setSelectedProject(project);
+        }}
       >
         <div className="relative aspect-video overflow-hidden rounded-lg outline outline-1 outline-gray">
           {image ? (
@@ -50,18 +54,20 @@ const ProjectCard = ({ project, setSelectedProject }: IProjectCard) => {
             </div>
 
             {tools && tools.length > 0 && (
-              <div className="absolute bottom-0 flex w-full justify-end gap-2 px-2 py-1">
-                {tools.map((tool, idx) => (
-                  <Image
-                    unoptimized
-                    width={tool.name === "Next.js" ? 30 : 20}
-                    height={tool.name === "Next.js" ? 30 : 20}
-                    key={idx}
-                    src={urlForImage(tool.toolImage)}
-                    alt={tool.name}
-                    className="object-contain"
-                  />
-                ))}
+              <div className="absolute bottom-0 flex w-full justify-center gap-2 px-2 py-1">
+                {tools
+                  .sort((a, b) => a.name.localeCompare(b.name))
+                  .map((tool, idx) => (
+                    <Image
+                      unoptimized
+                      width={tool.name === "Next.js" ? 30 : 20}
+                      height={tool.name === "Next.js" ? 30 : 20}
+                      key={idx}
+                      src={urlForImage(tool.toolImage)}
+                      alt={tool.name}
+                      className="object-contain"
+                    />
+                  ))}
               </div>
             )}
           </div>

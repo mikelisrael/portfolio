@@ -74,5 +74,10 @@ export default defineType({
       initialValue: 0,
       validation: (Rule) => Rule.required(),
     }),
+    defineField({
+      name: "body",
+      title: "Body",
+      type: "blockContent",
+    }),
   ],
 });

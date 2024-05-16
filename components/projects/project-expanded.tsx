@@ -43,16 +43,16 @@ const ExpandedProject = ({
             className="expanded_project prose prose-sm relative h-full w-full max-w-full cursor-default gap-4 overflow-y-scroll bg-background-secondary text-foreground-secondary shadow-lg outline outline-1 outline-gray prose-headings:text-foreground prose-h1:mb-5 prose-h2:mt-5 prose-h3:border-b prose-h3:pb-2 prose-blockquote:border-foreground-secondary prose-blockquote:text-foreground-secondary prose-strong:font-black prose-strong:text-foreground prose-ol:pl-3 prose-ul:pl-3 md:h-[90%] md:w-[90%] md:max-w-2xl md:rounded-lg"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="px-6 pt-6">
-              <div className="sticky right-10 top-6 z-10 flex justify-end">
-                <button
-                  className="text-2xl"
-                  onClick={() => setSelectedProject(null)}
-                >
-                  <ImCancelCircle className="text-foreground-secondary" />
-                </button>
-              </div>
+            <div className="sticky right-10 top-6 z-10 flex justify-end px-6">
+              <button
+                className="text-2xl "
+                onClick={() => setSelectedProject(null)}
+              >
+                <ImCancelCircle className="text-foreground-secondary hover:text-primary" />
+              </button>
+            </div>
 
+            <div className="px-6 pt-6">
               <Badge className="shrink-0 bg-background text-right !text-xs capitalize md:text-sm">
                 {subtitle}
               </Badge>

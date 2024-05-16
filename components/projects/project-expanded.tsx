@@ -10,6 +10,7 @@ import { FaGithub } from "react-icons/fa6";
 import { ImCancelCircle } from "react-icons/im";
 import { RichTextComponent } from "../blog/rich-text-component";
 import { Badge } from "../ui/badge";
+import { useEffect } from "react";
 
 const ExpandedProject = ({
   selectedProject,
@@ -20,6 +21,14 @@ const ExpandedProject = ({
 }) => {
   const { name, subtitle, description, image, tools, body, link, github } =
     selectedProject;
+
+  useEffect(() => {
+    // set again after 1s to ensure it's set...
+    // because router action causes a re-render
+    setTimeout(() => {
+      document.title = name + " • Michael Israel";
+    }, 1000);
+  }, [selectedProject]);
 
   return (
     <AnimatePresence>

@@ -57,15 +57,17 @@ const Projects: React.FC<IPageInfo> = ({
         </div>
 
         {projects.map((project, index) => {
+          const { name, image, description, link, subtitle } = project;
           return (
-            <AnimatedUpComponent
-              key={index}
-              threshold={index == 1 ? 0.1 : undefined}
-            >
+            <AnimatedUpComponent key={index} threshold={0.2}>
               <Link
-                href={project.link ?? project.github ?? "/projects"}
+                href={link ?? "/projects"}
                 rel="noopener noreferrer"
-                target="_blank"
+                target={
+                  link && link.startsWith("http") && !link.startsWith("https")
+                    ? "_self"
+                    : "_blank"
+                }
                 className={cn(
                   "group block h-full w-full justify-self-end overflow-hidden bg-background-secondary outline-2 transition-all duration-300 hover:outline hover:outline-gray",
                   index == 1 && "md:-translate-y-40 lg:-translate-y-80",
@@ -73,24 +75,24 @@ const Projects: React.FC<IPageInfo> = ({
               >
                 <header className="m-5 flex items-center justify-between gap-5 md:m-10">
                   <h3 className="text-2xl font-medium group-hover:text-primary group-focus-visible:text-primary lg:text-3xl">
-                    {project.name}.
+                    {name}.
                   </h3>
                   <Badge className="z-[5] shrink-0 bg-background text-right text-xs capitalize md:text-sm">
-                    {project.subtitle}
+                    {subtitle}
                   </Badge>
                 </header>
 
                 <p className="mx-5 origin-top-left scale-0 overflow-hidden text-sm text-foreground-secondary transition-transform delay-200 duration-300 group-hover:scale-100 md:mx-10">
-                  {project.description}
+                  {description}
                 </p>
 
                 <div className="relative mt-10 h-[300px] sm:h-[400px] md:mt-24 md:aspect-[5/4] md:h-auto">
-                  {project.image ? (
+                  {image ? (
                     <Image
-                      src={urlForImage(project.image)}
+                      src={urlForImage(image)}
                       placeholder="blur"
-                      blurDataURL={blurUpImage(project.image)}
-                      alt={project.name}
+                      blurDataURL={blurUpImage(image)}
+                      alt={name}
                       width={1920}
                       height={1080}
                       className="absolute inset-0 h-full w-full -rotate-12 scale-125 object-cover transition-all duration-300 group-hover:rotate-0 group-hover:object-left"
@@ -112,5 +114,3 @@ const Projects: React.FC<IPageInfo> = ({
 };
 
 export default Projects;
-
-

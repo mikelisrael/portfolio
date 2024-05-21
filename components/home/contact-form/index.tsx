@@ -16,7 +16,7 @@ import { cn, emailJSConfig } from "@/lib/utils";
 import emailjs from "@emailjs/browser";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AnimatePresence, motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useReducer, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { FaPaperPlane } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
@@ -45,38 +45,42 @@ const formSchema = z.object({
 
 type FormValue = z.infer<typeof formSchema>;
 
-const ContactForm = () => {
-  const formRef = useRef<HTMLFormElement>(null);
-  const [loadState, setLoadState] = useState({
-    isSubmitting: false,
-    submitted: false,
-  });
-  const { isSubmitting, submitted } = loadState;
-  const defaultValues = {
+const initialState = {
+  isSubmitting: false,
+  submitted: false,
+  defaultValues: {
     email: "",
     message: "",
     name: "",
-  };
+  },
+};
+
+type actionType = { type: "SUBMIT" | "SUBMITTED" | "RESET" };
+
+function reducer(state: typeof initialState, action: actionType) {
+  switch (action.type) {
+    case "SUBMIT":
+      return { ...state, isSubmitting: true, submitted: false };
+    case "SUBMITTED":
+      return { ...state, isSubmitting: false, submitted: true };
+    case "RESET":
+      return initialState;
+    default:
+      throw new Error();
+  }
+}
+
+const ContactForm = () => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const { isSubmitting, submitted, defaultValues } = state;
   const form = useForm<FormValue>({
     resolver: zodResolver(formSchema),
     defaultValues,
   });
 
-  const changeLoadState = (isSubmitting: boolean, submitted: boolean) => {
-    setLoadState({ isSubmitting, submitted });
-    // after 5 seconds, if submitted, reset to initial state
-    if (submitted) {
-      setTimeout(() => {
-        setLoadState({
-          isSubmitting: false,
-          submitted: false,
-        });
-      }, 5000);
-    }
-  };
-
   const onSubmit = async (data: FormValue) => {
-    changeLoadState(true, false); // start loading
+    dispatch({ type: "SUBMIT" }); // start loading
     const { serviceID, templateID, publicKey } = emailJSConfig;
 
     emailjs
@@ -84,7 +88,7 @@ const ContactForm = () => {
       .sendForm(serviceID, templateID, formRef.current, publicKey)
       .then((value) => {
         form.reset();
-        changeLoadState(false, true); // stop loading, submitted
+        dispatch({ type: "SUBMITTED" }); // stop loading, submitted
         toast.success("Message sent successfully", {
           description: "Hang tight! I will definitely get back to you!",
         });
@@ -94,7 +98,12 @@ const ContactForm = () => {
           description: "Please try again later",
         });
       })
-      .finally(() => changeLoadState(false, true)); // stop loading, submitted
+      .finally(() => {
+        dispatch({ type: "SUBMITTED" }); // stop loading, submitted
+        setTimeout(() => {
+          dispatch({ type: "RESET" }); // reset state after 5 seconds
+        }, 5000);
+      });
   };
 
   const isFilled = Object.keys(form.formState.dirtyFields).length === 3;

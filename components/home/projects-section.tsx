@@ -12,8 +12,6 @@ import { GiEmptyHourglass } from "react-icons/gi";
 import { AnimatedUpComponent } from "../general/animated-components";
 import { useGlobalContext } from "../providers/context";
 
-// TODO: find out why the http is not linking externally
-
 const Projects: React.FC<IPageInfo> = ({
   projectInvitation,
   projectInvitationHeading,

@@ -7,6 +7,7 @@ import BlurImage from "../shared/blur-image";
 import HeaderRef from "../shared/section-refs/header-ref";
 import Socials from "../shared/socials";
 import { Spotlight } from "./spotlight";
+import useIsDesktop from "@/hooks/useIsDesktop";
 
 const Hero: React.FC<IPageInfo> = ({
   name,
@@ -16,6 +17,7 @@ const Hero: React.FC<IPageInfo> = ({
   subjectImage,
 }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const isDesktop = useIsDesktop();
 
   useEffect(() => {
     const handleScroll: EventListener = () => {
@@ -55,7 +57,7 @@ const Hero: React.FC<IPageInfo> = ({
             className="w-full"
             aria-label="Michael Israel"
             style={{
-              transform: `translateX(${window.innerWidth <= 768 ? "16rem" : "0"}) scaleX(${window.innerWidth <= 768 ? "-1" : "1"}) translateY(${scrollPosition * 0.5}px)`,
+              transform: `translateX(${!isDesktop ? "16rem" : "0"}) scaleX(${!isDesktop ? "-1" : "1"}) translateY(${scrollPosition * 0.5}px)`,
             }}
           />
         </div>

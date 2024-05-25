@@ -7,7 +7,6 @@ import BlurImage from "../shared/blur-image";
 import HeaderRef from "../shared/section-refs/header-ref";
 import Socials from "../shared/socials";
 import { Spotlight } from "./spotlight";
-import useIsDesktop from "@/hooks/useIsDesktop";
 
 const Hero: React.FC<IPageInfo> = ({
   name,

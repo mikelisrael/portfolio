@@ -66,6 +66,14 @@ export interface IPageInfo extends Base {
   testimonials: ITestimonials[];
   cta: string;
   projects: IProject[];
+  resume: {
+    title: string;
+    file: {
+      asset: {
+        url: string;
+      };
+    };
+  };
   projectsIntro: string;
   latestPosts: {
     slug: string;
@@ -90,4 +98,5 @@ export interface IPost extends Base {
 export type ProjectsData = {
   projectsIntro: string;
   projects: IProject[];
+  resumeURL: string
 };

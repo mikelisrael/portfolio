@@ -1,20 +1,20 @@
-"use client";
-
 import { useState, useEffect } from "react";
 
 const useIsDesktop = () => {
-  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 768);
+  const [isDesktop, setIsDesktop] = useState(true);
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsDesktop(window.innerWidth > 768);
-    };
+    if (typeof window !== "undefined") {
+      const handleResize = () => {
+        setIsDesktop(window.innerWidth > 768);
+      };
 
-    window.addEventListener("resize", handleResize);
+      window.addEventListener("resize", handleResize);
 
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }
   }, []);
 
   return isDesktop;

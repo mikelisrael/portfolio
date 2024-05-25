@@ -1,9 +1,9 @@
 import { getDate } from "@/lib/utils";
-import { blurUpImage, urlForImage } from "@/sanity/lib/image";
+import { urlForImage } from "@/sanity/lib/image";
 import { IPost } from "@/types";
 import { PortableText } from "@portabletext/react";
-import Image from "next/image";
-import HeaderRef from "../general/section-refs/header-ref";
+import BlurImage from "../shared/blur-image";
+import HeaderRef from "../shared/section-refs/header-ref";
 import { Badge } from "../ui/badge";
 import { RichTextComponent } from "./rich-text-component";
 
@@ -35,12 +35,13 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
         </h1>
 
         <div className="flex items-center gap-3">
-          <Image
+          <BlurImage
             width={100}
             height={100}
             src={urlForImage(author.image)}
             alt={author.name}
             className="!my-0 size-10 rounded-full bg-background-secondary object-cover !py-0"
+            unoptimized
           />
 
           <span>{author.name}</span>
@@ -49,14 +50,13 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
 
       {mainImage && (
         <div>
-          <Image
+          <BlurImage
             src={urlForImage(mainImage)}
-            placeholder="blur"
-            blurDataURL={blurUpImage(mainImage)}
             alt={mainImage.alt || title}
             className="h-56 object-cover object-center"
             width={1920}
             height={1080}
+            unoptimized
           />
           {mainImage.caption && (
             <h6 className="-translate-y-2 text-center text-xs !text-foreground-secondary/60">

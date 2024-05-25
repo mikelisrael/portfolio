@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import { blurUpImage, urlForImage } from "@/sanity/lib/image";
+import { urlForImage } from "@/sanity/lib/image";
 import { IProject } from "@/types";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -8,7 +8,8 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { GiEmptyHourglass } from "react-icons/gi";
 import { LuMousePointerClick } from "react-icons/lu";
-import { AnimatedUpComponent } from "../general/animated-components";
+import { AnimatedUpComponent } from "../shared/animated-components";
+import BlurImage from "../shared/blur-image";
 
 interface IProjectCard {
   project: IProject;
@@ -31,14 +32,13 @@ const ProjectCard = ({ project, setSelectedProject }: IProjectCard) => {
       >
         <div className="relative aspect-video overflow-hidden rounded-lg outline outline-1 outline-gray">
           {image ? (
-            <Image
+            <BlurImage
               src={urlForImage(image)}
-              placeholder="blur"
-              blurDataURL={blurUpImage(image)}
               alt={name}
               width={500}
               height={500}
               className="h-full w-full object-cover transition-all duration-200 ease-in-out group-focus-within:scale-125 group-hover:scale-125 group-focus:scale-125"
+              unoptimized
             />
           ) : (
             <div className="flex size-full items-center justify-center bg-background-secondary">

@@ -4,8 +4,8 @@ import { FaArrowRight } from "react-icons/fa";
 import {
   AnimatedLeftComponent,
   AnimatedUpComponent,
-} from "../general/animated-components";
-import BlogRef from "../general/section-refs/blog-ref";
+} from "../shared/animated-components";
+import BlogRef from "../shared/section-refs/blog-ref";
 
 interface Props {
   posts: {

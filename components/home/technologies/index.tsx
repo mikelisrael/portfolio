@@ -1,7 +1,7 @@
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { ITool } from "@/types";
 import { groq } from "next-sanity";
-import { AnimatedUpComponent } from "../../general/animated-components";
+import { AnimatedUpComponent } from "../../shared/animated-components";
 import TechnologiesClient from "./technologies-client";
 
 const query = groq`*[_type == "tool"]`;

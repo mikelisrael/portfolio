@@ -1,6 +1,6 @@
 import { getDate } from "@/lib/utils";
 import { IPost } from "@/types";
-import HeaderRef from "../general/section-refs/header-ref";
+import HeaderRef from "../shared/section-refs/header-ref";
 
 const Header = ({ posts }: { posts: IPost[] }) => {
   return (

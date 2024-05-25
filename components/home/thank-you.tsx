@@ -1,5 +1,5 @@
 import React from "react";
-import { AnimatedUpComponent } from "../general/animated-components";
+import { AnimatedUpComponent } from "../shared/animated-components";
 import Image from "next/image";
 
 const ThankYou = () => {

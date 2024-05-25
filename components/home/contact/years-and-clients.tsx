@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatedUpComponent } from "@/components/general/animated-components";
+import { AnimatedUpComponent } from "@/components/shared/animated-components";
 import React, { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";

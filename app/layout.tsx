@@ -1,6 +1,6 @@
-import Footer from "@/components/general/footer/footer";
-import Navbar from "@/components/general/navbar";
 import Providers from "@/components/providers";
+import Footer from "@/components/shared/footer/footer";
+import Navbar from "@/components/shared/navbar";
 import { Toaster } from "@/components/ui/sonner";
 import { metaKeywords } from "@/lib/metaKeywords";
 import { Analytics } from "@vercel/analytics/react";
@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 import { Comfortaa } from "next/font/google";
 import "./globals.css";
 
-const comfortaa = Comfortaa({
+const comfortaa_v2 = Comfortaa({
   subsets: ["cyrillic"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-sans",
@@ -60,7 +60,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={
-          comfortaa.variable +
+          comfortaa_v2.variable +
           " font-sans antialiased duration-200 animate-in fade-in"
         }
       >

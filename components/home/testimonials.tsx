@@ -1,16 +1,13 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { urlForImage } from "@/sanity/lib/image";
+import { IPageInfo } from "@/types";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { RiDoubleQuotesL } from "react-icons/ri";
-import {
-  AnimatedLeftComponent,
-  AnimatedUpComponent,
-} from "../general/animated-components";
-import Image from "next/image";
-import { IPageInfo } from "@/types";
-import { blurUpImage, urlForImage } from "@/sanity/lib/image";
+import { AnimatedUpComponent } from "../shared/animated-components";
+import BlurImage from "../shared/blur-image";
 
 const SlideInVariants = {
   initial: { opacity: 0, x: 100 },
@@ -35,10 +32,8 @@ const Testimonials: React.FC<IPageInfo> = ({ testimonials }) => {
       <div className="universal_x grid gap-5 sm:grid-cols-[auto_1fr] sm:gap-10 lg:gap-28">
         <AnimatedUpComponent threshold={0.2}>
           {/* Testimonial Image */}
-          <Image
+          <BlurImage
             src={urlForImage(testimonials[activeIndex].photo)}
-            placeholder="blur"
-            blurDataURL={blurUpImage(testimonials[activeIndex].photo)}
             width={600}
             height={900}
             alt={testimonials[activeIndex].name}

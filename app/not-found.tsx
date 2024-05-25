@@ -1,4 +1,4 @@
-import HeaderRef from "@/components/general/section-refs/header-ref";
+import HeaderRef from "@/components/shared/section-refs/header-ref";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 

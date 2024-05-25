@@ -2,8 +2,8 @@ import { IPageInfo } from "@/types";
 import Link from "next/link";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
-import { AnimatedUpComponent } from "../../general/animated-components";
-import ContactRef from "../../general/section-refs/contact-ref";
+import { AnimatedUpComponent } from "../../shared/animated-components";
+import ContactRef from "../../shared/section-refs/contact-ref";
 import YearsAndClients from "./years-and-clients";
 
 const Contact: React.FC<IPageInfo> = ({

@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatedUpComponent } from "@/components/general/animated-components";
+import { AnimatedUpComponent } from "@/components/shared/animated-components";
 import { buttonVariants } from "@/components/ui/button";
 import {
   Form,

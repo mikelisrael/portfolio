@@ -24,6 +24,7 @@ import {
 import { MotionValue, motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
+import { AnimatedUpComponent } from "../shared/animated-components";
 
 export const MacbookScroll = ({
   showGradient,
@@ -60,7 +61,7 @@ export const MacbookScroll = ({
   const translate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
   const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
   const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0]);
   const lidOpacity = useTransform(scrollYProgress, [0.3, 1], [1, 0]);
 
   return (
@@ -68,15 +69,17 @@ export const MacbookScroll = ({
       ref={ref}
       className="-mt-7 flex flex-shrink-0 transform flex-col items-center justify-start py-0 [perspective:800px] md:mt-0 md:pb-32 md:pt-10"
     >
-      <motion.h2
-        style={{
-          translateY: textTransform,
-          opacity: textOpacity,
-        }}
-        className="mb-20 text-center text-xl font-medium sm:text-3xl"
-      >
-        This Macbook is built with Tailwindcss. <br /> No kidding.
-      </motion.h2>
+      <AnimatedUpComponent>
+        <motion.h2
+          style={{
+            translateY: textTransform,
+            opacity: textOpacity,
+          }}
+          className="mb-20 text-center text-xl font-medium sm:text-3xl"
+        >
+          This Macbook is built with Tailwindcss. <br /> No kidding.
+        </motion.h2>
+      </AnimatedUpComponent>
       {/* Lid */}
       <div className="-mt-40 scale-[0.55] sm:-mt-20 sm:scale-75 md:mt-0 md:scale-100">
         <Lid

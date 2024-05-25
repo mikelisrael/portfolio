@@ -2,15 +2,15 @@
 
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
-import { blurUpImage, urlForImage } from "@/sanity/lib/image";
+import { urlForImage } from "@/sanity/lib/image";
 import { IPageInfo } from "@/types";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { GiEmptyHourglass } from "react-icons/gi";
-import { AnimatedUpComponent } from "../general/animated-components";
 import { useGlobalContext } from "../providers/context";
+import { AnimatedUpComponent } from "../shared/animated-components";
+import BlurImage from "../shared/blur-image";
 
 const Projects: React.FC<IPageInfo> = ({
   projectInvitation,
@@ -86,10 +86,8 @@ const Projects: React.FC<IPageInfo> = ({
 
                 <div className="relative mt-10 h-[300px] sm:h-[400px] md:mt-24 md:aspect-[5/4] md:h-auto">
                   {image ? (
-                    <Image
+                    <BlurImage
                       src={urlForImage(image)}
-                      placeholder="blur"
-                      blurDataURL={blurUpImage(image)}
                       alt={name}
                       width={1920}
                       height={1080}

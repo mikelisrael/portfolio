@@ -2,7 +2,7 @@ import { getDate } from "@/lib/utils";
 import { IPost } from "@/types";
 import Link from "next/link";
 import React from "react";
-import { AnimatedLeftComponent } from "../general/animated-components";
+import { AnimatedLeftComponent } from "../shared/animated-components";
 
 const BlogList = ({ posts }: { posts: IPost[] }) => {
   return (
@@ -24,19 +24,21 @@ const BlogList = ({ posts }: { posts: IPost[] }) => {
 
           return (
             <li key={index}>
-              {categories && (<AnimatedLeftComponent className="mb-2 flex items-center gap-x-1 md:gap-x-2 ">
-                {categories.map((category, index) => (
-                  <React.Fragment key={index}>
-                    <span className="shrink-0 text-right text-xs uppercase text-foreground-secondary">
-                      {category.title}
-                    </span>
+              {categories && (
+                <AnimatedLeftComponent className="mb-2 flex items-center gap-x-1 md:gap-x-2 ">
+                  {categories.map((category, index) => (
+                    <React.Fragment key={index}>
+                      <span className="shrink-0 text-right text-xs uppercase text-foreground-secondary">
+                        {category.title}
+                      </span>
 
-                    {index < blog.categories.length - 1 && (
-                      <span className="text-foreground-secondary">•</span>
-                    )}
-                  </React.Fragment>
-                ))}
-              </AnimatedLeftComponent> )}
+                      {index < blog.categories.length - 1 && (
+                        <span className="text-foreground-secondary">•</span>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </AnimatedLeftComponent>
+              )}
 
               <AnimatedLeftComponent>
                 <Link

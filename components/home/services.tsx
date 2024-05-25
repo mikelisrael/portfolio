@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 import { IconType } from "react-icons";
 import { FaLaptop, FaPenNib } from "react-icons/fa6";
 import { MdSecurity } from "react-icons/md";
-import { AnimatedUpComponent } from "../general/animated-components";
+import { AnimatedUpComponent } from "../shared/animated-components";
 import { motion } from "framer-motion";
 
 type Service = {

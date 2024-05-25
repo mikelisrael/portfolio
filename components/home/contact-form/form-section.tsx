@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
-import { AnimatedUpComponent } from "../../general/animated-components";
+import { AnimatedUpComponent } from "../../shared/animated-components";
 import ContactForm from ".";
 
 const FormSection = ({ email, cta }: { email: string; cta: string }) => {

@@ -1,11 +1,11 @@
 "use client";
 
-import { blurUpImage, urlForImage } from "@/sanity/lib/image";
+import { urlForImage } from "@/sanity/lib/image";
 import { IPageInfo } from "@/types";
-import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import HeaderRef from "../general/section-refs/header-ref";
-import Socials from "../general/socials";
+import BlurImage from "../shared/blur-image";
+import HeaderRef from "../shared/section-refs/header-ref";
+import Socials from "../shared/socials";
 
 const Hero: React.FC<IPageInfo> = ({
   name,
@@ -42,16 +42,15 @@ const Hero: React.FC<IPageInfo> = ({
         className="absolute bottom-0 left-auto right-0 -z-10 w-[32rem] overflow-hidden md:left-[15%] md:right-auto lg:left-[20%] xl:w-[36rem]"
       >
         <div className="size-full duration-700 animate-in fade-in slide-in-from-bottom-[30%] slide-in-from-left-[30%]">
-          <Image
+          <BlurImage
             priority
             width={1000}
             height={1000}
             src={urlForImage(subjectImage)}
             alt={subjectImage.alt}
-            placeholder="blur"
-            blurDataURL={blurUpImage(subjectImage)}
             className="w-full translate-x-[16rem] -scale-x-100 md:translate-x-0 md:scale-x-100"
             aria-label="Michael Israel"
+            style={{ transform: `translateY(${scrollPosition * 0.5}px)` }}
           />
         </div>
         {/* block image */}

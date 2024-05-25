@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import BlurImage from "../shared/blur-image";
 import HeaderRef from "../shared/section-refs/header-ref";
 import Socials from "../shared/socials";
+import { Spotlight } from "./spotlight";
 
 const Hero: React.FC<IPageInfo> = ({
   name,
@@ -55,6 +56,11 @@ const Hero: React.FC<IPageInfo> = ({
       className="universal_x relative isolate grid py-10 md:grid-cols-2"
       id="home"
     >
+      <Spotlight
+        className="-top-40 left-0 hidden md:-top-20 md:block"
+        fill="white"
+      />
+
       {/* image */}
       <div
         role="img"

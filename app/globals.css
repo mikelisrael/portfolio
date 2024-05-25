@@ -89,6 +89,7 @@ img {
   background-size: cover;
   shape-margin: 1rem;
   user-select: none;
+  pointer-events: none;
 }
 
 /* style aos animation library */

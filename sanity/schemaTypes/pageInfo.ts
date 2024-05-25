@@ -108,5 +108,13 @@ export default defineType({
       type: "text",
       rows: 3,
     }),
+    defineField({
+      name: "resume",
+      title: "Resume",
+      type: "file",
+      options: {
+        accept: "application/pdf",
+      },
+    }),
   ],
 });

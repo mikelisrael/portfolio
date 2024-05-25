@@ -1,5 +1,8 @@
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
+import addVariablesForColors from "./plugins/add-variables-focus";
+const colors = require("tailwindcss/colors");
+
 
 const config = {
   future: {
@@ -93,7 +96,10 @@ const config = {
     require("tailwindcss-animate"),
     require("tailwind-scrollbar"),
     require("@tailwindcss/typography"),
+    addVariablesForColors,
   ],
 } satisfies Config;
+
+
 
 export default config;

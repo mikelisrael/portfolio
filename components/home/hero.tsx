@@ -45,6 +45,7 @@ const Hero: React.FC<IPageInfo> = ({
       <div
         role="img"
         className="absolute bottom-0 left-auto right-0 -z-10 w-[32rem] overflow-hidden md:left-[15%] md:right-auto lg:left-[20%] xl:w-[36rem]"
+        style={{ transform: `translateY(${scrollPosition * 0.3}px)` }}
       >
         <div className="size-full duration-700 animate-in fade-in slide-in-from-bottom-[30%] slide-in-from-left-[30%]">
           <BlurImage
@@ -53,11 +54,8 @@ const Hero: React.FC<IPageInfo> = ({
             height={1000}
             src={urlForImage(subjectImage)}
             alt={subjectImage.alt}
-            className="w-full"
             aria-label="Michael Israel"
-            style={{
-              transform: `translateX(${window.innerWidth <= 768 ? "16rem" : "0"}) scaleX(${window.innerWidth <= 768 ? "-1" : "1"}) translateY(${scrollPosition * 0.5}px)`,
-            }}
+            className="w-full translate-x-[16rem] -scale-x-100 md:translate-x-0 md:scale-x-100"
           />
         </div>
         {/* block image */}

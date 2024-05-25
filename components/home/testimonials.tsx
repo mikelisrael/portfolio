@@ -48,24 +48,29 @@ const Testimonials: React.FC<IPageInfo> = ({ testimonials }) => {
               <RiDoubleQuotesL className="text-5xl text-foreground-secondary/50" />
             </AnimatedUpComponent>
 
-            <AnimatedUpComponent>
-              <p className="mt-3 font-medium sm:text-base md:text-lg lg:text-xl">
-                {testimonials[activeIndex].quote}
-              </p>
+            <AnimatedUpComponent
+              as="p"
+              className="mt-3 font-medium sm:text-base md:text-lg lg:text-xl"
+            >
+              {testimonials[activeIndex].quote}
             </AnimatedUpComponent>
 
             {/* Testimonial author */}
-            <AnimatedUpComponent threshold={0.1}>
-              <h6 className="mt-5 text-sm font-semibold md:mt-10 md:text-lg">
-                {testimonials[activeIndex].name}
-              </h6>
+            <AnimatedUpComponent
+              threshold={0.1}
+              as="h6"
+              className="mt-5 text-sm font-semibold md:mt-10 md:text-lg"
+            >
+              {testimonials[activeIndex].name}
             </AnimatedUpComponent>
 
             {/* Testimonial position */}
-            <AnimatedUpComponent threshold={0.1}>
-              <span className="text-xs text-foreground-secondary md:text-sm">
-                {testimonials[activeIndex].position}
-              </span>
+            <AnimatedUpComponent
+              threshold={0.1}
+              as="span"
+              className="text-xs text-foreground-secondary md:text-sm"
+            >
+              {testimonials[activeIndex].position}
             </AnimatedUpComponent>
           </div>
 

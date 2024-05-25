@@ -26,22 +26,25 @@ const Contact: React.FC<IPageInfo> = ({
           className="flex flex-col justify-between gap-y-10 md:min-h-[20rem]"
         >
           <div className="md:max-w-md">
-            <AnimatedUpComponent>
-              <h6 className="text-xs tracking-[0.2em] text-foreground-secondary md:text-sm">
-                - Contact
-              </h6>
+            <AnimatedUpComponent
+              as="h6"
+              className="text-xs tracking-[0.2em] text-foreground-secondary md:text-sm"
+            >
+              - Contact
             </AnimatedUpComponent>
 
-            <AnimatedUpComponent>
-              <h2 className="mb-4 mt-3 text-xl font-medium capitalize sm:text-3xl md:mb-10">
-                any type of query & discussion
-              </h2>
+            <AnimatedUpComponent
+              as="h2"
+              className="mb-4 mt-3 text-xl font-medium capitalize sm:text-3xl md:mb-10"
+            >
+              any type of query & discussion
             </AnimatedUpComponent>
 
-            <AnimatedUpComponent>
-              <p className="text-balance text-foreground-secondary">
-                {contactInfo}
-              </p>
+            <AnimatedUpComponent
+              as="p"
+              className="text-balance text-foreground-secondary"
+            >
+              {contactInfo}
             </AnimatedUpComponent>
           </div>
 
@@ -64,15 +67,17 @@ const Contact: React.FC<IPageInfo> = ({
           className="flex flex-col items-start justify-between gap-y-10 md:min-h-[20rem]"
         >
           <div>
-            <AnimatedUpComponent>
-              <h2 className="mb-4 text-xl font-medium capitalize sm:text-3xl md:mb-10">
-                {freeTalkHeading}
-              </h2>
+            <AnimatedUpComponent
+              as="h2"
+              className="mb-4 text-xl font-medium capitalize sm:text-3xl md:mb-10"
+            >
+              {freeTalkHeading}
             </AnimatedUpComponent>
-            <AnimatedUpComponent>
-              <p className="text-balance text-foreground-secondary">
-                {freeTalk}
-              </p>
+            <AnimatedUpComponent
+              as="p"
+              className="text-balance text-foreground-secondary"
+            >
+              {freeTalk}
             </AnimatedUpComponent>
           </div>
 

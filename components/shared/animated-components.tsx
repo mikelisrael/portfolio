@@ -9,17 +9,21 @@ interface AnimatedComponentProps {
   className?: string;
   threshold?: number;
   x?: number;
+  as?: keyof typeof m;
 }
 
 export const AnimatedUpComponent = ({
+  as = "div",
   children,
   delay,
   threshold,
   className,
 }: AnimatedComponentProps) => {
+  const Tag = m[as];
+
   return (
     <LazyMotion features={domAnimation}>
-      <m.div
+      <Tag
         initial={{ y: 100, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6 + (delay || 0) }}
@@ -27,21 +31,24 @@ export const AnimatedUpComponent = ({
         className={className}
       >
         {children}
-      </m.div>
+      </Tag>
     </LazyMotion>
   );
 };
 
 export const AnimatedLeftComponent = ({
+  as = "div",
   children,
   delay,
   className,
   threshold,
   x,
 }: AnimatedComponentProps) => {
+  const Tag = m[as];
+
   return (
     <LazyMotion features={domAnimation}>
-      <m.div
+      <Tag
         initial={{ x: x || 100, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.6 + (delay || 0) }}
@@ -49,7 +56,7 @@ export const AnimatedLeftComponent = ({
         className={className}
       >
         {children}
-      </m.div>
+      </Tag>
     </LazyMotion>
   );
 };

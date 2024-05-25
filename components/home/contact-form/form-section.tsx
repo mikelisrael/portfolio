@@ -9,17 +9,16 @@ const FormSection = ({ email, cta }: { email: string; cta: string }) => {
   return (
     <section className="universal_x grid gap-x-10 gap-y-10 py-20 md:grid-cols-[40%,1fr] md:py-40 lg:gap-x-28">
       <div>
-        <AnimatedUpComponent delay={0.1}>
-          <h2
-            aria-label="about"
-            className="mb-4 text-balance text-xl font-semibold sm:text-3xl md:mb-7"
-          >
-            Got a project? <br /> Let&rsquo;s Talk.
-          </h2>
+        <AnimatedUpComponent
+          as="h2"
+          delay={0.1}
+          className="mb-4 text-balance text-xl font-semibold sm:text-3xl md:mb-7"
+        >
+          Got a project? <br /> Let&rsquo;s Talk.
         </AnimatedUpComponent>
 
-        <AnimatedUpComponent>
-          <p className="text-foreground-secondary">{cta}</p>
+        <AnimatedUpComponent as="p" className="text-foreground-secondary">
+          {cta}
         </AnimatedUpComponent>
 
         <AnimatedUpComponent className="mt-10 md:mt-16">
@@ -36,13 +35,12 @@ const FormSection = ({ email, cta }: { email: string; cta: string }) => {
       </div>
 
       <div>
-        <AnimatedUpComponent delay={0.1}>
-          <h2
-            aria-label="about"
-            className="mb-10 text-balance text-xl font-semibold sm:text-3xl"
-          >
-            Fill in the details below. <br /> Let&rsquo;s get the ball rolling.
-          </h2>
+        <AnimatedUpComponent
+          as="h2"
+          delay={0.1}
+          className="mb-10 text-balance text-xl font-semibold sm:text-3xl"
+        >
+          Fill in the details below. <br /> Let&rsquo;s get the ball rolling.
         </AnimatedUpComponent>
 
         <ContactForm />

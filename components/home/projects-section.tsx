@@ -27,20 +27,22 @@ const Projects: React.FC<IPageInfo> = ({
       >
         <div>
           <div ref={projectTopRef} />
-          <AnimatedUpComponent>
-            <h6 className="text-xs tracking-[0.2em] text-foreground-secondary md:text-sm">
-              - Portfolio
-            </h6>
+          <AnimatedUpComponent
+            as="h6"
+            className="text-xs tracking-[0.2em] text-foreground-secondary md:text-sm"
+          >
+            - Portfolio
           </AnimatedUpComponent>
 
-          <AnimatedUpComponent>
-            <h2 className="mb-7 mt-3 text-balance text-xl font-semibold capitalize sm:text-3xl">
-              {projectInvitationHeading}
-            </h2>{" "}
+          <AnimatedUpComponent
+            as="h2"
+            className="mb-7 mt-3 text-balance text-xl font-semibold capitalize sm:text-3xl"
+          >
+            {projectInvitationHeading}
           </AnimatedUpComponent>
 
-          <AnimatedUpComponent>
-            <p className="text-foreground-secondary">{projectInvitation}</p>
+          <AnimatedUpComponent as="p" className="text-foreground-secondary">
+            {projectInvitation}
           </AnimatedUpComponent>
 
           <AnimatedUpComponent className="mt-10 md:mt-16">

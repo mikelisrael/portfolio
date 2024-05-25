@@ -32,32 +32,28 @@ function YearsAndClients({ yearsOfExperience, satisfiedClients }: Props) {
 
   return (
     <div className="flex gap-10 lg:gap-20">
-      <AnimatedUpComponent>
-        <div className="flex h-full items-end gap-3">
-          <h4
-            className="text-5xl font-semibold text-primary lg:text-7xl"
-            ref={yearsRef}
-          >
-            {yearsCounted ? <CountUp end={yearsOfExperience} /> : 0}
-          </h4>
-          <span>
-            Years of <br /> Experience.
-          </span>
-        </div>
+      <AnimatedUpComponent className="flex h-full items-end gap-3">
+        <h4
+          className="text-5xl font-semibold text-primary lg:text-7xl"
+          ref={yearsRef}
+        >
+          {yearsCounted ? <CountUp end={yearsOfExperience} /> : 0}
+        </h4>
+        <span>
+          Years of <br /> Experience.
+        </span>
       </AnimatedUpComponent>
 
-      <AnimatedUpComponent delay={0.3}>
-        <div className="flex h-full items-end gap-3">
-          <h4
-            className="text-5xl font-semibold text-primary lg:text-7xl"
-            ref={clientsRef}
-          >
-            {clientsCounted ? <CountUp end={satisfiedClients} /> : 0}
-          </h4>
-          <span>
-            Satisfied <br /> Clients.
-          </span>
-        </div>
+      <AnimatedUpComponent delay={0.3} className="flex h-full items-end gap-3">
+        <h4
+          className="text-5xl font-semibold text-primary lg:text-7xl"
+          ref={clientsRef}
+        >
+          {clientsCounted ? <CountUp end={satisfiedClients} /> : 0}
+        </h4>
+        <span>
+          Satisfied <br /> Clients.
+        </span>
       </AnimatedUpComponent>
     </div>
   );

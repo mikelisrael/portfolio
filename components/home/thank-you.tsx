@@ -8,11 +8,9 @@ const ThankYou = () => {
       <AnimatedUpComponent className="relative size-14 md:size-20">
         <Image src="/logo.png" alt="logo" fill />
       </AnimatedUpComponent>
-      <AnimatedUpComponent>
-        <p>
-          <span className="font-black">Thanks for scrolling. </span>
-          That&rsquo;s all folks!
-        </p>
+      <AnimatedUpComponent as="p">
+        <span className="font-black">Thanks for scrolling. </span>
+        That&rsquo;s all folks!
       </AnimatedUpComponent>
     </div>
   );

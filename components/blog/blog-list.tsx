@@ -49,10 +49,11 @@ const BlogList = ({ posts }: { posts: IPost[] }) => {
                 </Link>
               </AnimatedLeftComponent>
 
-              <AnimatedLeftComponent>
-                <p className="mt-1 line-clamp-2 text-foreground-secondary">
-                  {plainText}
-                </p>
+              <AnimatedLeftComponent
+                as="p"
+                className="mt-1 line-clamp-2 text-foreground-secondary"
+              >
+                {plainText}
               </AnimatedLeftComponent>
 
               <AnimatedLeftComponent className="mt-4 flex items-center gap-x-1 text-xs text-foreground-secondary md:gap-x-2 md:text-sm">

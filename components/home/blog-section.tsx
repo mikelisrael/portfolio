@@ -22,19 +22,19 @@ const BlogSection = ({ posts }: Props) => {
     <BlogRef id="blog" className="scroll-m-20 bg-background-secondary">
       <div className="universal_x grid gap-x-10 gap-y-10 py-24 md:grid-cols-[300px,1fr] md:py-32 lg:grid-cols-[350px,1fr] lg:gap-x-28">
         <div>
-          <AnimatedUpComponent>
-            <h6 className="text-xs tracking-[0.2em] text-foreground-secondary md:text-sm">
-              - Blog
-            </h6>
+          <AnimatedUpComponent
+            as="h6"
+            className="text-xs tracking-[0.2em] text-foreground-secondary md:text-sm"
+          >
+            - Blog
           </AnimatedUpComponent>
 
-          <AnimatedUpComponent delay={0.1}>
-            <h2
-              aria-label="about"
-              className="mb-1 mt-3 text-balance text-xl font-semibold sm:mb-4 sm:text-3xl md:mb-10"
-            >
-              What&rsquo;s New? <br /> My blog and news.
-            </h2>
+          <AnimatedUpComponent
+            as="h2"
+            delay={0.1}
+            className="mb-1 mt-3 text-balance text-xl font-semibold sm:mb-4 sm:text-3xl md:mb-10"
+          >
+            What&rsquo;s New? <br /> My blog and news.
           </AnimatedUpComponent>
         </div>
 

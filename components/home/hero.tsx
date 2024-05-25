@@ -16,6 +16,7 @@ const Hero: React.FC<IPageInfo> = ({
 }) => {
   // Add state to track scroll position
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [transform, setTransform] = useState("");
 
   // Add a scroll event listener to update the scroll position
   useEffect(() => {
@@ -27,6 +28,24 @@ const Hero: React.FC<IPageInfo> = ({
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  useEffect(() => {
+    const updateTransform = () => {
+      const translateX = window.innerWidth <= 768 ? "16rem" : "0";
+      const scaleX = window.innerWidth <= 768 ? "-1" : "1";
+      const translateY = `${scrollPosition * 0.5}px`;
+      setTransform(
+        `translateX(${translateX}) scaleX(${scaleX}) translateY(${translateY})`,
+      );
+    };
+
+    updateTransform();
+    window.addEventListener("resize", updateTransform);
+
+    return () => {
+      window.removeEventListener("resize", updateTransform);
+    };
+  }, [scrollPosition]);
 
   const [firstName, lastName] = name.split(" ");
 
@@ -48,9 +67,9 @@ const Hero: React.FC<IPageInfo> = ({
             height={1000}
             src={urlForImage(subjectImage)}
             alt={subjectImage.alt}
-            className="w-full translate-x-[16rem] -scale-x-100 md:translate-x-0 md:scale-x-100"
+            className="w-full"
             aria-label="Michael Israel"
-            style={{ transform: `translateY(${scrollPosition * 0.5}px)` }}
+            style={{ transform }}
           />
         </div>
         {/* block image */}

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import {
   FacebookIcon,
   FacebookShareButton,
@@ -12,7 +13,12 @@ import {
 } from "react-share";
 
 const SocialShare = () => {
-  const url = window.location.href;
+  const [url, setUrl] = useState("");
+
+  useEffect(() => {
+    const url = window.location.href;
+    setUrl(url);
+  }, []);
 
   return (
     <aside className="lg:right:10 fixed right-4 top-52 flex flex-col gap-2 xl:right-60">

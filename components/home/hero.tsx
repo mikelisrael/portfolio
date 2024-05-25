@@ -46,19 +46,21 @@ const Hero: React.FC<IPageInfo> = ({
         role="img"
         className="absolute bottom-0 left-auto right-0 -z-10 w-[32rem] overflow-hidden md:left-[15%] md:right-auto lg:left-[20%] xl:w-[36rem]"
       >
-        <div
-          className="size-full duration-700 animate-in fade-in slide-in-from-bottom-[30%] slide-in-from-left-[30%]"
-          style={{ transform: `translateY(${scrollPosition * 0.3}px)` }}
-        >
-          <BlurImage
-            priority
-            width={1000}
-            height={1000}
-            src={urlForImage(subjectImage)}
-            alt={subjectImage.alt}
-            aria-label="Michael Israel"
-            className="w-full translate-x-[16rem] -scale-x-100 md:translate-x-0 md:scale-x-100"
-          />
+        <div className="size-full duration-700 animate-in fade-in slide-in-from-bottom-[30%] slide-in-from-left-[30%]">
+          <div
+            className="size-full"
+            style={{ transform: `translateY(${scrollPosition * 0.4}px)` }}
+          >
+            <BlurImage
+              priority
+              width={1000}
+              height={1000}
+              src={urlForImage(subjectImage)}
+              alt={subjectImage.alt}
+              aria-label="Michael Israel"
+              className="w-full translate-x-[16rem] -scale-x-100 md:translate-x-0 md:scale-x-100"
+            />
+          </div>
         </div>
         {/* block image */}
         <div className="absolute inset-0" />

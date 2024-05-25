@@ -73,7 +73,7 @@ const Hero: React.FC<IPageInfo> = ({
             height={1000}
             src={urlForImage(subjectImage)}
             alt={subjectImage.alt}
-            className="w-full duration-200 transition-all"
+            className="w-full"
             aria-label="Michael Israel"
             style={{ transform }}
           />

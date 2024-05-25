@@ -3,8 +3,9 @@
 import { IProject } from "@/types";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import ExpandedProject from "./project-expanded";
 import ProjectCard from "./project-card";
+import dynamic from "next/dynamic";
+const ExpandedProject = dynamic(() => import("./project-expanded"));
 
 const ProjectsList = ({
   projects,
@@ -43,7 +44,7 @@ const ProjectsList = ({
   }, []);
 
   return (
-    <section className="universal_x scroll-m-20 pt-10 md:pt-20">
+    <section className="universal_x scroll-m-20 pt-14 md:pt-20">
       <div className="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-8">
         {sortedProjects.map((project, idx) => {
           return (

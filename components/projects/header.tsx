@@ -1,9 +1,11 @@
 "use client";
 
-import React from "react";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 import { useGlobalContext } from "../providers/context";
+import { buttonVariants } from "../ui/button";
 
-const Header = ({ intro }: { intro: string }) => {
+const Header = ({ intro, resumeURL }: { intro: string; resumeURL: string }) => {
   const { headerRef } = useGlobalContext();
 
   return (
@@ -18,6 +20,17 @@ const Header = ({ intro }: { intro: string }) => {
         <p className="text-foreground-secondary duration-700 animate-in fade-in slide-in-from-bottom-48">
           {intro}
         </p>
+        <Link
+          href={`${resumeURL}?dl=`}
+          className={cn(
+            buttonVariants({ variant: "default" }),
+            "w-44 duration-1000 animate-in fade-in slide-in-from-bottom-48",
+          )}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Download Resume
+        </Link>
       </div>
     </header>
   );

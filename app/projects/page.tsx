@@ -13,6 +13,7 @@ export const metadata: Metadata = {
 
 const query = groq`{
   "projectsIntro": *[_type == "pageInfo"][0].projectsIntro,
+  "resumeURL": *[_type == "pageInfo"][0].resume.asset->url,
   "projects": *[_type == "project"]{..., tools[]->}
 }`;
 
@@ -28,7 +29,10 @@ const Projects = async ({
 
   return (
     <main className="pb-32 pt-5 md:pt-10">
-      <Header intro={projectsInfo.projectsIntro} />
+      <Header
+        intro={projectsInfo.projectsIntro}
+        resumeURL={projectsInfo.resumeURL}
+      />
       <ProjectsList
         projects={projectsInfo.projects}
         search={searchParams.project}

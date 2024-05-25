@@ -11,7 +11,3 @@ const imageBuilder = createImageUrlBuilder({
 export const urlForImage = (source: Image) => {
   return imageBuilder?.image(source).auto("format").fit("max").url();
 };
-
-export const blurUpImage = (source: Image) => {
-  return imageBuilder?.image(source).auto("format").fit("max").blur(100).url();
-};

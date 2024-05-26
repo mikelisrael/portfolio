@@ -20,6 +20,10 @@ const SocialShare = () => {
     setUrl(url);
   }, []);
 
+  if (process.env.NODE_ENV === "development") {
+    return null;
+  }
+
   return (
     <aside className="lg:right:10 fixed right-4 top-52 flex flex-col gap-2 opacity-90 xl:right-60">
       <FacebookShareButton url={url}>

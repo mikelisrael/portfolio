@@ -1,9 +1,15 @@
 import { urlForImage } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 const randomId = () => {
   return Math.random().toString(36).substring(2, 7);
+};
+
+const highlighterCustomStyle = {
+  fontSize: "16px",
 };
 
 export const RichTextComponent = {
@@ -19,6 +25,17 @@ export const RichTextComponent = {
             height={1080}
           />
         </div>
+      );
+    },
+    code: (props: any) => {
+      return (
+        <SyntaxHighlighter
+          language={props.value.language}
+          style={dracula}
+          customStyle={highlighterCustomStyle}
+        >
+          {props.value.code}
+        </SyntaxHighlighter>
       );
     },
   },

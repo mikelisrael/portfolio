@@ -9,7 +9,7 @@ const query = groq`*[_type == "tool"]`;
 const Technologies = async () => {
   const tools: ITool[] = await sanityFetch({
     query,
-    tags: ["tool"], // will revalidate for tool changes
+    tags: ["tool"],
   });
 
   return (

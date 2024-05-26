@@ -34,18 +34,20 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
           {title}
         </h1>
 
-        <div className="flex items-center gap-3">
-          <BlurImage
-            width={100}
-            height={100}
-            src={urlForImage(author.image)}
-            alt={author.name}
-            className="!my-0 size-10 rounded-full bg-background-secondary object-cover !py-0"
-            unoptimized
-          />
+        {author && (
+          <div className="flex items-center gap-3">
+            <BlurImage
+              width={100}
+              height={100}
+              src={urlForImage(author.image)}
+              alt={author.name}
+              className="!my-0 size-10 rounded-full bg-background-secondary object-cover !py-0"
+              unoptimized
+            />
 
-          <span>{author.name}</span>
-        </div>
+            <span>{author.name}</span>
+          </div>
+        )}
       </HeaderRef>
 
       {mainImage && (

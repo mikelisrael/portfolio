@@ -44,6 +44,9 @@ importers:
       '@tailwindcss/typography':
         specifier: ^0.5.13
         version: 0.5.13(tailwindcss@3.4.3)
+      '@types/react-syntax-highlighter':
+        specifier: ^15.5.13
+        version: 15.5.13
       '@vercel/analytics':
         specifier: ^1.2.2
         version: 1.2.2(next@14.1.4(@babel/core@7.24.4)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react@18.2.0)
@@ -101,6 +104,9 @@ importers:
       react-share:
         specifier: ^5.1.0
         version: 5.1.0(react@18.2.0)
+      react-syntax-highlighter:
+        specifier: ^15.5.0
+        version: 15.5.0(react@18.2.0)
       sanity:
         specifier: ^3.42.1
         version: 3.42.1(@types/node@20.12.7)(@types/react@18.2.75)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
@@ -2000,6 +2006,9 @@ packages:
   '@types/react-is@18.2.4':
     resolution: {integrity: sha512-wBc7HgmbCcrvw0fZjxbgz/xrrlZKzEqmABBMeSvpTvdm25u6KI6xdIi9pRE2G0C1Lw5ETFdcn4UbYZ4/rpqUYw==}
 
+  '@types/react-syntax-highlighter@15.5.13':
+    resolution: {integrity: sha512-uLGJ87j6Sz8UaBAooU0T6lWJ0dBmjZgN1PZTrj05TNql2/XpC6+4HhMT5syIdFUUt+FASfCeLLv4kBygNU+8qA==}
+
   '@types/react@18.2.75':
     resolution: {integrity: sha512-+DNnF7yc5y0bHkBTiLKqXFe+L4B3nvOphiMY3tuA5X10esmjqk7smyBZzbGTy2vsiy/Bnzj8yFIBL8xhRacoOg==}
 
@@ -3021,6 +3030,9 @@ packages:
   fastq@1.17.1:
     resolution: {integrity: sha512-sRVD3lWVIXWg6By68ZN7vho9a1pQcN/WBFaAAsDDFzlJjvoGx0P8z7V1t72grFJfJhu3YPZBuu25f7Kaw2jN1w==}
 
+  fault@1.0.4:
+    resolution: {integrity: sha512-CJ0HCB5tL5fYTEA7ToAq5+kTwd++Borf1/bifxd9iT70QcXr4MRrO3Llf8Ifs70q+SJcGHFtnIE/Nw6giCtECA==}
+
   fd-slicer@1.1.0:
     resolution: {integrity: sha512-cE1qsB/VwyQozZ+q1dGxR8LBYNZeofhEdUNGSMbQD3Gw2lAzX9Zb3uIU6Ebc/Fmyjo9AWWfnn0AUCHqtevs/8g==}
 
@@ -3100,6 +3112,10 @@ packages:
   form-data@4.0.0:
     resolution: {integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==}
     engines: {node: '>= 6'}
+
+  format@0.2.2:
+    resolution: {integrity: sha512-wzsgA6WOq+09wrU1tsJ09udeR/YZRaeArL9e1wPbFg3GG2yDnC2ldKpxs4xunpFF9DgqCqOIra3bc1HWrJ37Ww==}
+    engines: {node: '>=0.4.x'}
 
   fraction.js@4.3.7:
     resolution: {integrity: sha512-ZsDfxO51wGAXREY55a7la9LScWpwv9RxIrYABrlvOFBlH/ShPnrtsXeuUIfXKKOVicNxQ+o8JTbJvjS4M89yew==}
@@ -3328,6 +3344,9 @@ packages:
 
   hastscript@6.0.0:
     resolution: {integrity: sha512-nDM6bvd7lIqDUiYEiu5Sl/+6ReP0BMk/2f4U/Rooccxkj0P5nm+acM5PrGJ/t5I8qPGiqZSE6hVAwZEdZIvP4w==}
+
+  highlight.js@10.7.3:
+    resolution: {integrity: sha512-tzcUFauisWKNHaRkN4Wjl/ZA07gENAjFl3J/c480dprkGTg5EQstgaNFqBfUqCq54kZRIEcreTsAgF/m2quD7A==}
 
   history@5.3.0:
     resolution: {integrity: sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ==}
@@ -3779,6 +3798,9 @@ packages:
   loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
+
+  lowlight@1.20.0:
+    resolution: {integrity: sha512-8Ktj+prEb1RoCPkEOrPMYUN/nCggB7qAWe3a7OpMjWQkh3l2RD5wKRQ+o8Q8YuI9RG/xs95waaI/E6ym/7NsTw==}
 
   lru-cache@10.2.0:
     resolution: {integrity: sha512-2bIM8x+VAf6JT4bKAljS1qUWgMsqZRPGJS6FSahIMPVvctcNhyVp7AJu7quxOW9jwkryBReKZY5tY5JYv2n/7Q==}
@@ -4548,6 +4570,11 @@ packages:
 
   react-style-proptype@3.2.2:
     resolution: {integrity: sha512-ywYLSjNkxKHiZOqNlso9PZByNEY+FTyh3C+7uuziK0xFXu9xzdyfHwg4S9iyiRRoPCR4k2LqaBBsWVmSBwCWYQ==}
+
+  react-syntax-highlighter@15.5.0:
+    resolution: {integrity: sha512-+zq2myprEnQmH5yw6Gqc8lD55QHnpKaU8TOcFeC/Lg/MQSs8UknEA0JC4nTZGFAXC2J2Hyj/ijJ7NlabyPi2gg==}
+    peerDependencies:
+      react: '>= 0.14.0'
 
   react@18.2.0:
     resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
@@ -6849,15 +6876,15 @@ snapshots:
 
   '@radix-ui/number@1.0.1':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
 
   '@radix-ui/primitive@1.0.1':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
 
   '@radix-ui/react-arrow@1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -6867,28 +6894,28 @@ snapshots:
 
   '@radix-ui/react-compose-refs@1.0.1(@types/react@18.2.75)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       react: 18.2.0
     optionalDependencies:
       '@types/react': 18.2.75
 
   '@radix-ui/react-context@1.0.1(@types/react@18.2.75)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       react: 18.2.0
     optionalDependencies:
       '@types/react': 18.2.75
 
   '@radix-ui/react-direction@1.0.1(@types/react@18.2.75)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       react: 18.2.0
     optionalDependencies:
       '@types/react': 18.2.75
 
   '@radix-ui/react-dismissable-layer@1.0.5(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       '@radix-ui/primitive': 1.0.1
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.75)(react@18.2.0)
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -6902,7 +6929,7 @@ snapshots:
 
   '@radix-ui/react-id@1.0.1(@types/react@18.2.75)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.2.75)(react@18.2.0)
       react: 18.2.0
     optionalDependencies:
@@ -6920,7 +6947,7 @@ snapshots:
 
   '@radix-ui/react-popper@1.1.3(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       '@floating-ui/react-dom': 2.1.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-arrow': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.75)(react@18.2.0)
@@ -6939,7 +6966,7 @@ snapshots:
 
   '@radix-ui/react-portal@1.0.4(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -6949,7 +6976,7 @@ snapshots:
 
   '@radix-ui/react-presence@1.0.1(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       '@radix-ui/react-compose-refs': 1.0.1(@types/react@18.2.75)(react@18.2.0)
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.2.75)(react@18.2.0)
       react: 18.2.0
@@ -6960,7 +6987,7 @@ snapshots:
 
   '@radix-ui/react-primitive@1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       '@radix-ui/react-slot': 1.0.2(@types/react@18.2.75)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -7017,14 +7044,14 @@ snapshots:
 
   '@radix-ui/react-use-callback-ref@1.0.1(@types/react@18.2.75)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       react: 18.2.0
     optionalDependencies:
       '@types/react': 18.2.75
 
   '@radix-ui/react-use-controllable-state@1.0.1(@types/react@18.2.75)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.2.75)(react@18.2.0)
       react: 18.2.0
     optionalDependencies:
@@ -7032,7 +7059,7 @@ snapshots:
 
   '@radix-ui/react-use-escape-keydown@1.0.3(@types/react@18.2.75)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       '@radix-ui/react-use-callback-ref': 1.0.1(@types/react@18.2.75)(react@18.2.0)
       react: 18.2.0
     optionalDependencies:
@@ -7040,14 +7067,14 @@ snapshots:
 
   '@radix-ui/react-use-layout-effect@1.0.1(@types/react@18.2.75)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       react: 18.2.0
     optionalDependencies:
       '@types/react': 18.2.75
 
   '@radix-ui/react-use-rect@1.0.1(@types/react@18.2.75)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       '@radix-ui/rect': 1.0.1
       react: 18.2.0
     optionalDependencies:
@@ -7055,7 +7082,7 @@ snapshots:
 
   '@radix-ui/react-use-size@1.0.1(@types/react@18.2.75)(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       '@radix-ui/react-use-layout-effect': 1.0.1(@types/react@18.2.75)(react@18.2.0)
       react: 18.2.0
     optionalDependencies:
@@ -7063,7 +7090,7 @@ snapshots:
 
   '@radix-ui/react-visually-hidden@1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       '@radix-ui/react-primitive': 1.0.3(@types/react-dom@18.2.24)(@types/react@18.2.75)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -7073,7 +7100,7 @@ snapshots:
 
   '@radix-ui/rect@1.0.1':
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
 
   '@rexxars/react-json-inspector@8.0.1(react@18.2.0)':
     dependencies:
@@ -7672,6 +7699,10 @@ snapshots:
       '@types/react': 18.2.75
 
   '@types/react-is@18.2.4':
+    dependencies:
+      '@types/react': 18.2.75
+
+  '@types/react-syntax-highlighter@15.5.13':
     dependencies:
       '@types/react': 18.2.75
 
@@ -8413,7 +8444,7 @@ snapshots:
 
   date-fns@2.30.0:
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
 
   date-now@1.0.1: {}
 
@@ -8998,6 +9029,10 @@ snapshots:
     dependencies:
       reusify: 1.0.4
 
+  fault@1.0.4:
+    dependencies:
+      format: 0.2.2
+
   fd-slicer@1.1.0:
     dependencies:
       pend: 1.2.0
@@ -9079,6 +9114,8 @@ snapshots:
       asynckit: 0.4.0
       combined-stream: 1.0.8
       mime-types: 2.1.35
+
+  format@0.2.2: {}
 
   fraction.js@4.3.7: {}
 
@@ -9366,9 +9403,11 @@ snapshots:
       property-information: 5.6.0
       space-separated-tokens: 1.1.5
 
+  highlight.js@10.7.3: {}
+
   history@5.3.0:
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
 
   hosted-git-info@2.8.9: {}
 
@@ -9404,7 +9443,7 @@ snapshots:
 
   i18next@23.11.1:
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
 
   iconv-lite@0.6.3:
     dependencies:
@@ -9776,6 +9815,11 @@ snapshots:
   loose-envify@1.4.0:
     dependencies:
       js-tokens: 4.0.0
+
+  lowlight@1.20.0:
+    dependencies:
+      fault: 1.0.4
+      highlight.js: 10.7.3
 
   lru-cache@10.2.0: {}
 
@@ -10251,7 +10295,7 @@ snapshots:
 
   polished@4.3.1:
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
 
   possible-typed-array-names@1.0.0: {}
 
@@ -10413,7 +10457,7 @@ snapshots:
 
   react-clientside-effect@1.2.6(react@18.2.0):
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       react: 18.2.0
 
   react-copy-to-clipboard@5.1.0(react@18.2.0):
@@ -10453,7 +10497,7 @@ snapshots:
 
   react-i18next@13.5.0(i18next@23.11.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
-      '@babel/runtime': 7.24.4
+      '@babel/runtime': 7.24.5
       html-parse-stringify: 3.0.1
       i18next: 23.11.1
       react: 18.2.0
@@ -10504,6 +10548,15 @@ snapshots:
   react-style-proptype@3.2.2:
     dependencies:
       prop-types: 15.8.1
+
+  react-syntax-highlighter@15.5.0(react@18.2.0):
+    dependencies:
+      '@babel/runtime': 7.24.5
+      highlight.js: 10.7.3
+      lowlight: 1.20.0
+      prismjs: 1.27.0
+      react: 18.2.0
+      refractor: 3.6.0
 
   react@18.2.0:
     dependencies:

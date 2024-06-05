@@ -2,15 +2,15 @@ import { urlForImage } from "@/sanity/lib/image";
 import { IProject } from "@/types";
 import { AnimatePresence, motion } from "framer-motion";
 import { PortableText } from "next-sanity";
-import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 import FocusLock from "react-focus-lock";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { ImCancelCircle } from "react-icons/im";
 import { RichTextComponent } from "../blog/rich-text-component";
+import BlurImage from "../shared/blur-image";
 import { Badge } from "../ui/badge";
-import { useEffect } from "react";
 
 const ExpandedProject = ({
   selectedProject,
@@ -86,7 +86,7 @@ const ExpandedProject = ({
             </div>
 
             <motion.div className="relative">
-              <Image
+              <BlurImage
                 src={urlForImage(image)}
                 alt={name}
                 width={1920}
@@ -99,7 +99,7 @@ const ExpandedProject = ({
                   {tools
                     .sort((a, b) => a.name.localeCompare(b.name))
                     .map((tool, idx) => (
-                      <Image
+                      <BlurImage
                         unoptimized
                         width={tool.name === "Next.js" ? 60 : 50}
                         height={tool.name === "Next.js" ? 60 : 50}

@@ -78,30 +78,12 @@ const ProjectCard = ({ project, setSelectedProject }: IProjectCard) => {
           {description}
         </p>
 
-        <div
-          className={cn("mt-auto flex items-center py-7", {
-            "justify-between": isPrivate,
-            "justify-end": !isPrivate,
-          })}
-        >
-          {isPrivate && (
-            <span className="text-gray-400 bg-background-secondary px-4 py-0.5 text-[10px] tracking-wider">
-              PRIVATE
-            </span>
-          )}
+        <div className="mt-auto flex items-center justify-between py-7">
+          <span className="text-gray-400 bg-background-secondary px-4 py-0.5 text-[10px] tracking-wider">
+            {isPrivate ? "PRIVATE" : "PUBLIC"}
+          </span>
 
           <div className="flex items-center gap-3">
-            {link && (
-              <Link
-                target="_blank"
-                rel="noopener noreferrer"
-                href={link}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <FaExternalLinkAlt className="text-base hover:text-primary lg:text-lg" />
-              </Link>
-            )}
-
             {github && (
               <Link
                 target="_blank"
@@ -110,6 +92,17 @@ const ProjectCard = ({ project, setSelectedProject }: IProjectCard) => {
                 onClick={(e) => e.stopPropagation()}
               >
                 <FaGithub className="text-base hover:text-primary lg:text-lg" />
+              </Link>
+            )}
+
+            {link && (
+              <Link
+                target="_blank"
+                rel="noopener noreferrer"
+                href={link}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <FaExternalLinkAlt className="text-base hover:text-primary lg:text-lg" />
               </Link>
             )}
           </div>

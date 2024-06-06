@@ -79,7 +79,7 @@ const ProjectCard = ({ project, setSelectedProject }: IProjectCard) => {
         </p>
 
         <div className="mt-auto flex items-center justify-between py-7">
-          <span className="text-gray-400 bg-background-secondary px-4 py-0.5 text-[10px] tracking-wider">
+          <span className="text-gray-400 w-[77px] bg-background-secondary py-0.5 text-center text-[10px] tracking-wider">
             {isPrivate ? "PRIVATE" : "PUBLIC"}
           </span>
 

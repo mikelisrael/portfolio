@@ -59,17 +59,6 @@ const ExpandedProject = ({
               <div className="flex">
                 <h2>{name}</h2>
                 <div className="ml-3 flex items-center gap-3">
-                  {link && (
-                    <Link
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      href={link}
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <FaExternalLinkAlt className="text-base text-foreground-secondary hover:text-primary lg:text-lg" />
-                    </Link>
-                  )}
-
                   {github && (
                     <Link
                       target="_blank"
@@ -78,6 +67,23 @@ const ExpandedProject = ({
                       onClick={(e) => e.stopPropagation()}
                     >
                       <FaGithub className="text-base text-foreground-secondary hover:text-primary lg:text-lg" />
+                    </Link>
+                  )}
+
+                  {link && (
+                    <Link
+                      target={
+                        link &&
+                        link.startsWith("http") &&
+                        !link.startsWith("https")
+                          ? "_self"
+                          : "_blank"
+                      }
+                      rel="noopener noreferrer"
+                      href={link}
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <FaExternalLinkAlt className="text-base text-foreground-secondary hover:text-primary lg:text-lg" />
                     </Link>
                   )}
                 </div>

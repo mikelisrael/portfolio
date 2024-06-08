@@ -97,7 +97,11 @@ const ProjectCard = ({ project, setSelectedProject }: IProjectCard) => {
 
             {link && (
               <Link
-                target="_blank"
+                target={
+                  link && link.startsWith("http") && !link.startsWith("https")
+                    ? "_self"
+                    : "_blank"
+                }
                 rel="noopener noreferrer"
                 href={link}
                 onClick={(e) => e.stopPropagation()}

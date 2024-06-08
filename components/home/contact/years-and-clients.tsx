@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatedUpComponent } from "@/components/shared/animated-components";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 
@@ -34,10 +34,17 @@ function YearsAndClients({ yearsOfExperience, satisfiedClients }: Props) {
     <div className="flex gap-10 lg:gap-20">
       <AnimatedUpComponent className="flex h-full items-end gap-3">
         <h4
-          className="text-5xl font-semibold text-primary lg:text-7xl"
+          className="space-x-1 align-super text-5xl font-semibold text-primary lg:text-7xl"
           ref={yearsRef}
         >
-          {yearsCounted ? <CountUp end={yearsOfExperience} /> : 0}
+          {yearsCounted ? (
+            <>
+              <CountUp end={yearsOfExperience} />
+              <sup className="text-4xl">+</sup>
+            </>
+          ) : (
+            0
+          )}
         </h4>
         <span>
           Years of <br /> Experience.

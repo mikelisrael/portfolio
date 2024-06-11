@@ -131,7 +131,14 @@ const Navbar = () => {
             !headerInView && "size-10",
           )}
         >
-          <Image src="/logo.png" alt="logo" fill />
+          <Image
+            src="/logo.png"
+            alt="logo"
+            fill
+            sizes="(max-width: 768px) 64px,
+              (max-width: 1200px) 64px,
+              64px"
+          />
         </motion.div>
       </Link>
 

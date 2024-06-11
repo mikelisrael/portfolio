@@ -1,7 +1,6 @@
 import GoBackButton from "@/components/blog/go-back-button";
 import ImportPreviewBlog from "@/components/blog/import-preview-Blog";
 import SingleBlogPost from "@/components/blog/single-blog-post";
-import SocialShare from "@/components/blog/social-share";
 import { client } from "@/sanity/lib/client";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { urlForImage } from "@/sanity/lib/image";
@@ -83,7 +82,6 @@ const BlogPost = async ({ params: { slug } }: Props) => {
       >
         <SingleBlogPost data={data} />
       </LiveQuery>
-      <SocialShare />
     </>
   );
 };

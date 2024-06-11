@@ -6,6 +6,7 @@ import BlurImage from "../shared/blur-image";
 import HeaderRef from "../shared/section-refs/header-ref";
 import { Badge } from "../ui/badge";
 import { RichTextComponent } from "./rich-text-component";
+import SocialShare from "./social-share";
 
 const SingleBlogPost = ({ data }: { data: IPost }) => {
   const {
@@ -34,6 +35,8 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
           {title}
         </h1>
 
+        <SocialShare />
+        
         {author && (
           <div className="flex items-center gap-3">
             <BlurImage
@@ -42,6 +45,7 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
               src={urlForImage(author.image)}
               alt={author.name}
               className="!my-0 size-10 rounded-full bg-background-secondary object-cover !py-0"
+              priority
               unoptimized
             />
 

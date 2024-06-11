@@ -53,6 +53,8 @@
   outline-color: transparent;
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
+  scrollbar-color: hsl(var(--primary)) transparent;
+  scrollbar-width: thin;
 }
 
 ::-webkit-scrollbar {
@@ -66,6 +68,7 @@
 ::-webkit-scrollbar-track {
   @apply bg-transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   @apply rounded-s-full bg-primary;
 }

@@ -99,6 +99,7 @@ const ContactForm = () => {
         }, 5000);
       })
       .catch((error) => {
+        dispatch({ type: "ERROR" });
         toast.error("Failed to send message", {
           description: "Please try again later",
         });

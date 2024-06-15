@@ -55,7 +55,7 @@ const initialState = {
   },
 };
 
-type actionType = { type: "SUBMIT" | "SUBMITTED" | "RESET" };
+type actionType = { type: "SUBMIT" | "SUBMITTED" | "RESET" | "ERROR" };
 
 function reducer(state: typeof initialState, action: actionType) {
   switch (action.type) {
@@ -63,6 +63,8 @@ function reducer(state: typeof initialState, action: actionType) {
       return { ...state, isSubmitting: true, submitted: false };
     case "SUBMITTED":
       return { ...state, isSubmitting: false, submitted: true };
+    case "ERROR":
+      return { ...state, isSubmitting: false, submitted: false };
     case "RESET":
       return initialState;
     default:
@@ -80,7 +82,7 @@ const ContactForm = () => {
   });
 
   const onSubmit = async (data: FormValue) => {
-    dispatch({ type: "SUBMIT" }); // start loading
+    dispatch({ type: "SUBMIT" });
     const { serviceID, templateID, publicKey } = emailJSConfig;
 
     emailjs
@@ -88,21 +90,18 @@ const ContactForm = () => {
       .sendForm(serviceID, templateID, formRef.current, publicKey)
       .then((value) => {
         form.reset();
-        dispatch({ type: "SUBMITTED" }); // stop loading, submitted
+        dispatch({ type: "SUBMITTED" });
         toast.success("Message sent successfully", {
           description: "Hang tight! I will definitely get back to you!",
         });
+        setTimeout(() => {
+          dispatch({ type: "RESET" });
+        }, 5000);
       })
       .catch((error) => {
         toast.error("Failed to send message", {
           description: "Please try again later",
         });
-      })
-      .finally(() => {
-        dispatch({ type: "SUBMITTED" }); // stop loading, submitted
-        setTimeout(() => {
-          dispatch({ type: "RESET" }); // reset state after 5 seconds
-        }, 5000);
       });
   };
 

@@ -7,7 +7,6 @@ import ContactRef from "../../shared/section-refs/contact-ref";
 import YearsAndClients from "./years-and-clients";
 
 const Contact: React.FC<IPageInfo> = ({
-  yearsOfExperience,
   satisfiedClients,
   email,
   contactInfo,
@@ -81,10 +80,7 @@ const Contact: React.FC<IPageInfo> = ({
             </AnimatedUpComponent>
           </div>
 
-          <YearsAndClients
-            satisfiedClients={satisfiedClients}
-            yearsOfExperience={yearsOfExperience}
-          />
+          <YearsAndClients satisfiedClients={satisfiedClients} />
         </section>
       </div>
     </ContactRef>

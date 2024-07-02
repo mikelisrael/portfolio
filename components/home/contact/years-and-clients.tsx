@@ -6,11 +6,10 @@ import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 
 type Props = {
-  yearsOfExperience: number;
   satisfiedClients: number;
 };
 
-function YearsAndClients({ yearsOfExperience, satisfiedClients }: Props) {
+function YearsAndClients({ satisfiedClients }: Props) {
   const { ref: yearsRef, inView: yearsInView } = useInView({
     threshold: 0.5,
   });
@@ -19,6 +18,13 @@ function YearsAndClients({ yearsOfExperience, satisfiedClients }: Props) {
   });
   const [yearsCounted, setYearsCounted] = useState(false);
   const [clientsCounted, setClientsCounted] = useState(false);
+
+  const yearsCalculator = () => {
+    const startYear = 2018;
+    const currentYear = new Date().getFullYear();
+    const yearsOfExperience = currentYear - startYear;
+    return yearsOfExperience;
+  };
 
   useEffect(() => {
     if (yearsInView && !yearsCounted) {
@@ -39,7 +45,7 @@ function YearsAndClients({ yearsOfExperience, satisfiedClients }: Props) {
         >
           {yearsCounted ? (
             <>
-              <CountUp end={yearsOfExperience} />
+              <CountUp end={yearsCalculator()} />
               <sup className="text-4xl">+</sup>
             </>
           ) : (

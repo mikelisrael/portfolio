@@ -55,7 +55,6 @@ export interface IPageInfo extends Base {
   introduction: string;
   subjectImage: sanityImage;
   socials: ISocial[];
-  yearsOfExperience: number;
   satisfiedClients: number;
   email: string;
   contactInfo: string;

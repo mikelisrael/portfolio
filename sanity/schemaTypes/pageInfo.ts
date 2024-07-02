@@ -43,11 +43,6 @@ export default defineType({
       of: [{ type: "reference", to: { type: "social" } }],
     }),
     defineField({
-      name: "yearsOfExperience",
-      title: "Years of Experience",
-      type: "number",
-    }),
-    defineField({
       name: "satisfiedClients",
       title: "Satisfied Clients",
       type: "number",

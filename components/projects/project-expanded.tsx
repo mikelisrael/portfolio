@@ -107,12 +107,13 @@ const ExpandedProject = ({
                     .map((tool, idx) => (
                       <BlurImage
                         unoptimized
-                        width={tool.name === "Next.js" ? 60 : 50}
-                        height={tool.name === "Next.js" ? 60 : 50}
+                        width={tool.name === "Next.js" ? 50 : 40}
+                        height={tool.name === "Next.js" ? 50 : 40}
                         key={idx}
                         src={urlForImage(tool.toolImage)}
                         alt={tool.name}
                         className="!m-0 object-contain"
+                        title={tool.name}
                       />
                     ))}
                 </div>

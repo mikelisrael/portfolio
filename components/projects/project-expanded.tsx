@@ -28,6 +28,16 @@ const ExpandedProject = ({
     setTimeout(() => {
       document.title = name + " • Michael Israel";
     }, 1000);
+
+    const handlePopState = () => {
+      setSelectedProject(null);
+    };
+
+    window.addEventListener("popstate", handlePopState);
+
+    return () => {
+      window.removeEventListener("popstate", handlePopState);
+    };
   }, [selectedProject]);
 
   return (

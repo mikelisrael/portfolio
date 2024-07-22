@@ -26,7 +26,7 @@ const ProjectsList = ({
     if (selectedProject) {
       window.addEventListener("keydown", handleEscape);
       document.body.style.overflow = "hidden";
-      router.replace(
+      router.push(
         `${window.location.pathname}?project=${selectedProject.slug.current}`,
         { scroll: false },
       );

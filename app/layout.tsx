@@ -28,10 +28,13 @@ export const metadata: Metadata = {
   manifest: "/favicons/site.webmanifest",
   // =========== OPEN GRAPH ===========
   metadataBase: new URL("https://mikelisrael.vercel.app"),
+  twitter: {
+    card: "summary_large_image",
+  },
   openGraph: {
     title: "Michael Israel",
     description: "The Frontend developer for startups and established projects",
-    url: "https://mikelisrael.vercel.app",
+    url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
     siteName: "Mikelisrael portfolio",
     images: [
       {
@@ -46,8 +49,10 @@ export const metadata: Metadata = {
   },
   // =========== SEO ===========
   keywords: metaKeywords,
-  robots: "follow, index",
-  authors: [{ name: "Michael Israel", url: "https://mikelisrael-vercel.app" }],
+  robots: { index: true, follow: true },
+  authors: [
+    { name: "Michael Israel", url: `${process.env.NEXT_PUBLIC_BASE_URL}` },
+  ],
   creator: "Michael Israel",
 };
 

@@ -17,7 +17,7 @@ const comfortaa_v2 = Comfortaa({
 export const metadata: Metadata = {
   title: {
     template: "%s • Michael Israel",
-    default: "Michael Israel", // a default is required when creating a template
+    default: "Michael Israel",
   },
   description: "The Frontend developer for startups and established projects",
   icons: {

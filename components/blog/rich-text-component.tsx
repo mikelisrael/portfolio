@@ -8,10 +8,6 @@ const randomId = () => {
   return Math.random().toString(36).substring(2, 7);
 };
 
-const highlighterCustomStyle = {
-  fontSize: "16px",
-};
-
 export const RichTextComponent = {
   types: {
     image: ({ value }: any) => {
@@ -29,13 +25,16 @@ export const RichTextComponent = {
     },
     code: (props: any) => {
       return (
-        <SyntaxHighlighter
-          language={props.value.language}
-          style={dracula}
-          customStyle={highlighterCustomStyle}
-        >
-          {props.value.code}
-        </SyntaxHighlighter>
+        <div className="relative grid w-full grid-cols-1">
+          <SyntaxHighlighter
+            language={props.value.language}
+            style={dracula}
+            // customStyle={highlighterCustomStyle}
+            className="grid-cols-1 text-sm md:text-base"
+          >
+            {props.value.code}
+          </SyntaxHighlighter>
+        </div>
       );
     },
   },

@@ -56,7 +56,7 @@ const BlogSection = ({ posts }: Props) => {
                     <span>Blog</span>
                   </span>
 
-                  <h4 className="text-sm font-bold sm:text-base md:text-xl">
+                  <h4 className="text-sm line-clamp-2 font-bold sm:text-base md:text-xl">
                     {blog.title}
                   </h4>
 

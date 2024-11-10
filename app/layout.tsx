@@ -62,12 +62,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" 
+        suppressHydrationWarning
+    >
       <body
         className={
           comfortaa_v2.variable +
           " font-sans antialiased duration-200 animate-in fade-in"
         }
+        suppressHydrationWarning
       >
         <Analytics />
         <Providers>

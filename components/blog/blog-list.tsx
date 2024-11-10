@@ -25,10 +25,10 @@ const BlogList = ({ posts }: { posts: IPost[] }) => {
           return (
             <li key={index}>
               {categories && (
-                <AnimatedLeftComponent className="mb-2 flex items-center gap-x-1 md:gap-x-2 ">
+                <AnimatedLeftComponent className="mb-2 line-clamp-1 flex items-center gap-x-1 md:gap-x-2">
                   {categories.map((category, index) => (
                     <React.Fragment key={index}>
-                      <span className="shrink-0 text-right text-xs uppercase text-foreground-secondary">
+                      <span className="shrink-0 text-right text-[10px] uppercase text-foreground-secondary sm:text-xs">
                         {category.title}
                       </span>
 

@@ -29,7 +29,6 @@ export const RichTextComponent = {
           <SyntaxHighlighter
             language={props.value.language}
             style={dracula}
-            // customStyle={highlighterCustomStyle}
             className="grid-cols-1 text-sm md:text-base"
           >
             {props.value.code}

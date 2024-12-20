@@ -28,9 +28,12 @@ const BlogList = ({ posts }: { posts: IPost[] }) => {
                 <AnimatedLeftComponent className="mb-2 line-clamp-1 flex items-center gap-x-1 md:gap-x-2">
                   {categories.map((category, index) => (
                     <React.Fragment key={index}>
-                      <span className="shrink-0 text-right text-[10px] uppercase text-foreground-secondary sm:text-xs">
+                      <Link
+                        href={`tags/${category.title}`}
+                        className="shrink-0 text-right text-[10px] uppercase text-foreground-secondary hover:underline sm:text-xs"
+                      >
                         {category.title}
-                      </span>
+                      </Link>
 
                       {index < blog.categories.length - 1 && (
                         <span className="text-foreground-secondary">•</span>

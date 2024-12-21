@@ -1,12 +1,13 @@
-import { getDate } from "@/lib/utils";
+import { cn, getDate } from "@/lib/utils";
 import { urlForImage } from "@/sanity/lib/image";
 import { IPost } from "@/types";
 import { PortableText } from "@portabletext/react";
 import BlurImage from "../shared/blur-image";
 import HeaderRef from "../shared/section-refs/header-ref";
-import { Badge } from "../ui/badge";
+import { Badge, badgeVariants } from "../ui/badge";
 import { RichTextComponent } from "./rich-text-component";
 import SocialShare from "./social-share";
+import Link from "next/link";
 
 const SingleBlogPost = ({ data }: { data: IPost }) => {
   const {
@@ -77,9 +78,13 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
       {categories && (
         <div className="mt-12 flex flex-wrap gap-2 md:mt-16">
           {categories.map((category, idx) => (
-            <Badge key={idx} className="bg-background-secondary">
+            <Link
+              href={`/blog/categories/${category.slug.current}`}
+              key={idx}
+              className={cn(badgeVariants({ variant: "default" }), "bg-background-secondary no-underline")}
+            >
               {category.title}
-            </Badge>
+            </Link>
           ))}
         </div>
       )}

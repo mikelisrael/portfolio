@@ -29,7 +29,7 @@ const BlogList = ({ posts }: { posts: IPost[] }) => {
                   {categories.map((category, index) => (
                     <React.Fragment key={index}>
                       <Link
-                        href={`tags/${category.title}`}
+                        href={`blog/categories/${category.slug.current}`}
                         className="shrink-0 text-right text-[10px] uppercase text-foreground-secondary hover:underline sm:text-xs"
                       >
                         {category.title}

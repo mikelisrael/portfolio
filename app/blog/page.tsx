@@ -3,7 +3,6 @@ import Header from "@/components/blog/header";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { IPost } from "@/types";
 import { groq } from "next-sanity";
-import React from "react";
 
 const query = groq`*[_type == "post"]{
   ...,
@@ -13,7 +12,7 @@ const query = groq`*[_type == "post"]{
 }`;
 
 const Blog = async () => {
-  const posts: IPost[] = await sanityFetch({ query, tags: ["post", "author"]});
+  const posts: IPost[] = await sanityFetch({ query, tags: ["post", "author"] });
 
   return (
     <main className="overflow-hidden">

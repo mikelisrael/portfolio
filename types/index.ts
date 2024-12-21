@@ -17,6 +17,10 @@ type sanityImage = {
   };
 };
 
+type Slug = {
+  current: string;
+};
+
 export interface IProject {
   name: string;
   subtitle: string;
@@ -26,7 +30,7 @@ export interface IProject {
   link?: string;
   isPrivate?: boolean;
   priority: number;
-  slug: { current: string };
+  slug: Slug;
   tools: ITool[];
   body: TypedObject[];
 }
@@ -83,10 +87,10 @@ export interface IPageInfo extends Base {
 
 export interface IPost extends Base {
   title: string;
-  slug: { current: string };
+  slug: Slug;
   author: { name: string; image: sanityImage };
   mainImage: sanityImage;
-  categories: { title: string }[];
+  categories: { title: string; slug: Slug }[];
   publishedAt: string;
   body: TypedObject[];
   category: string[];
@@ -97,5 +101,5 @@ export interface IPost extends Base {
 export type ProjectsData = {
   projectsIntro: string;
   projects: IProject[];
-  resumeURL: string
+  resumeURL: string;
 };

@@ -21,7 +21,7 @@ const SingleBlogPost = ({ data }: { data: IPost }) => {
   } = data;
 
   return (
-    <article className="prose prose-sm max-w-full text-foreground-secondary lg:prose-base prose-headings:text-foreground prose-h1:mb-5 prose-h2:mt-5 prose-a:text-white prose-blockquote:border-foreground-secondary prose-blockquote:text-foreground-secondary prose-strong:font-black prose-strong:text-foreground prose-pre:m-0 prose-ol:pl-3 prose-ul:pl-3 [&_code:not([class])]:bg-[#5E627D] [&_code:not([class])]:text-white">
+    <article className="prose prose-sm max-w-full text-foreground-secondary lg:prose-base prose-headings:text-foreground prose-h1:mb-5 prose-h2:mt-5 prose-a:text-foreground-secondary prose-blockquote:border-foreground-secondary prose-blockquote:text-foreground-secondary prose-strong:font-black prose-strong:text-foreground prose-pre:m-0 prose-ol:pl-3 prose-ul:pl-3 [&_code:not([class])]:bg-[#5E627D] [&_code:not([class])]:text-white">
       <p className="flex items-center gap-x-2 text-foreground-secondary">
         <span>{getDate(publishedAt)}</span>
         <span className="text-lg text-primary">•</span>

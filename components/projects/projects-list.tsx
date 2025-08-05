@@ -1,10 +1,9 @@
 "use client";
 
 import { IProject } from "@/types";
-import { useRouter } from "next/navigation";
+import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import ProjectCard from "./project-card";
-import dynamic from "next/dynamic";
 const ExpandedProject = dynamic(() => import("./project-expanded"));
 
 const ProjectsList = ({
@@ -16,7 +15,6 @@ const ProjectsList = ({
 }) => {
   const [selectedProject, setSelectedProject] = useState<null | IProject>(null);
   const sortedProjects = [...projects].sort((a, b) => a.priority - b.priority);
-  const router = useRouter();
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -26,14 +24,25 @@ const ProjectsList = ({
     if (selectedProject) {
       window.addEventListener("keydown", handleEscape);
       document.body.style.overflow = "hidden";
-      router.push(
-        `${window.location.pathname}?project=${selectedProject.slug.current}`,
-        { scroll: false },
-      );
+      
+  
+      const url = new URL(window.location.href);
+      url.searchParams.set('project', selectedProject.slug.current);
+      window.history.pushState({}, '', url.toString());
+      
     } else {
       document.body.style.overflow = "auto";
-      router.replace(window.location.pathname, { scroll: false });
+    
+      const url = new URL(window.location.href);
+      url.searchParams.delete('project');
+      window.history.replaceState({}, '', url.toString());
     }
+
+    return () => {
+      if (selectedProject) {
+        window.removeEventListener("keydown", handleEscape);
+      }
+    };
   }, [selectedProject]);
 
   useEffect(() => {
@@ -41,7 +50,7 @@ const ProjectsList = ({
       const project = projects.find((p) => p.slug.current === search);
       if (project) setSelectedProject(project);
     }
-  }, []);
+  }, [projects, search]);
 
   return (
     <section className="universal_x scroll-m-20 pt-14 md:pt-20">

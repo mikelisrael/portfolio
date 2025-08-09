@@ -23,12 +23,6 @@ const ExpandedProject = ({
     selectedProject;
 
   useEffect(() => {
-    // set again after 1s to ensure it's set...
-    // because router action causes a re-render
-    setTimeout(() => {
-      document.title = name + " • Michael Israel";
-    }, 1000);
-
     const handlePopState = () => {
       setSelectedProject(null);
     };

@@ -2,7 +2,7 @@ import Header from "@/components/projects/header";
 import ProjectsList from "@/components/projects/projects-list";
 import { sanityFetch } from "@/sanity/lib/fetch";
 import { urlForImage } from "@/sanity/lib/image";
-import { ProjectsData, IProject } from "@/types";
+import { IProject, ProjectsData } from "@/types";
 import { Metadata } from "next";
 import { groq } from "next-sanity";
 
@@ -12,18 +12,19 @@ const query = groq`{
   "projects": *[_type == "project"]{..., tools[]->}
 }`;
 
-
 export async function generateMetadata({
   searchParams,
 }: {
   searchParams: { project: string };
 }): Promise<Metadata> {
+  const defaultMetadata = {
+    title: "Projects",
+    description:
+      "I am a software engineer who loves to build and create. Here are some of the projects I have worked on over the years.",
+  };
+
   if (!searchParams.project) {
-    return {
-      title: "Projects",
-      description:
-        "I am a software engineer who loves to build and create. Here are some of the projects I have worked on over the years.",
-    };
+    return defaultMetadata;
   }
 
   try {
@@ -33,17 +34,11 @@ export async function generateMetadata({
     });
 
     const selectedProject = projectsInfo.projects.find(
-      (p: IProject) => p.slug.current === searchParams.project
+      (p: IProject) => p.slug.current === searchParams.project,
     );
 
-    if (!selectedProject) {
-      return {
-        title: "Projects",
-        description:
-          "I am a software engineer who loves to build and create. Here are some of the projects I have worked on over the years.",
-      };
-    }
-  
+    if (!selectedProject) return defaultMetadata;
+
     return {
       title: `${selectedProject.name} • Michael Israel`,
       description: selectedProject.description,
@@ -66,16 +61,13 @@ export async function generateMetadata({
         card: "summary_large_image",
         title: `${selectedProject.name} • Michael Israel`,
         description: selectedProject.description,
-        images: selectedProject.image ? [urlForImage(selectedProject.image)] : [],
+        images: selectedProject.image
+          ? [urlForImage(selectedProject.image)]
+          : [],
       },
     };
   } catch (error) {
-    console.error("Error generating metadata:", error);
-    return {
-      title: "Projects",
-      description:
-        "I am a software engineer who loves to build and create. Here are some of the projects I have worked on over the years.",
-    };
+    return defaultMetadata;
   }
 }
 

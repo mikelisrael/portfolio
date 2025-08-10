@@ -17,7 +17,6 @@ type Props = {
   params: { slug: string };
 };
 
-// get query params
 export async function generateStaticParams() {
   const query = groq`*[_type == "post" && defined(slug)][].slug.current`;
   const slugs = await client.fetch<string[]>(query);

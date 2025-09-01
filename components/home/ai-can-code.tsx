@@ -1,31 +1,16 @@
 import { AnimatedUpComponent } from "../shared/animated-components";
-import { PixelatedCanvas } from "../shared/pixelated-canvas";
+import { EvervaultCard } from "../shared/evervault-card";
 
 const AICanCode = () => {
   return (
     <AnimatedUpComponent
       as="section"
-      className="mx-auto mt-20 flex max-w-4xl items-center justify-center gap-x-10 gap-y-10 px-6"
+      className="mx-auto mt-20 flex max-w-4xl flex-col items-center justify-center gap-x-10 gap-y-10 px-6 md:flex-row"
     >
-      <PixelatedCanvas
-        src="/img/robot.png"
-        cellSize={3}
-        dotScale={0.9}
-        shape="square"
-        backgroundColor="#000000"
-        dropoutStrength={0.4}
-        interactive
-        distortionStrength={3}
-        distortionRadius={80}
-        distortionMode="swirl"
-        followSpeed={0.2}
-        jitterStrength={4}
-        jitterSpeed={4}
-        sampleAverage
-        tintColor="#FFFFFF"
-        tintStrength={0.2}
-        responsive
-        className="hidden aspect-[4/5] w-full rounded-xl border border-neutral-800 shadow-lg md:block"
+      <EvervaultCard
+        text="Hover Me"
+        imageUrl="/img/robot.png"
+        className="aspect-[4/5] w-full"
       />
 
       <div>

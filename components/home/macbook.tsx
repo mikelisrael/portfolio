@@ -162,7 +162,7 @@ export const Lid = ({
       >
         <div className="absolute inset-0 rounded-lg bg-[#272729]" />
         <Image
-          src="/code.jpg"
+          src="/coding-screen.jpg"
           alt="Code on screen"
           fill
           className="absolute inset-0 h-full w-full rounded-lg object-cover object-center"

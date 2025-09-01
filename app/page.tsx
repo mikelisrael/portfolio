@@ -35,6 +35,7 @@ const Home = async () => {
     <main className="pt-0 md:pt-10">
       <Hero {...pageInfo} />
       <Contact {...pageInfo} />
+
       <Services />
       <MacbookScroll />
       <Technologies />

@@ -1,3 +1,4 @@
+import AICanCode from "@/components/home/ai-can-code";
 import { IPageInfo } from "@/types";
 import Link from "next/link";
 import React from "react";
@@ -83,6 +84,8 @@ const Contact: React.FC<IPageInfo> = ({
           <YearsAndClients satisfiedClients={satisfiedClients} />
         </section>
       </div>
+
+      <AICanCode />
     </ContactRef>
   );
 };

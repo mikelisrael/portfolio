@@ -1,7 +1,7 @@
 "use client";
 
 import { LazyMotion, domAnimation, m } from "framer-motion";
-import React from "react";
+import React, { forwardRef } from "react";
 
 interface AnimatedComponentProps {
   children: React.ReactNode;
@@ -12,29 +12,37 @@ interface AnimatedComponentProps {
   as?: keyof typeof m;
 }
 
-export const AnimatedUpComponent = ({
-  as = "div",
-  children,
-  delay,
-  threshold,
-  className,
-}: AnimatedComponentProps) => {
-  const Tag = m[as];
+export const AnimatedUpComponent = forwardRef(
+  (
+    {
+      as = "div",
+      children,
+      delay,
+      threshold,
+      className,
+    }: AnimatedComponentProps,
+    ref,
+  ) => {
+    const Tag = m[as] as any;
 
-  return (
-    <LazyMotion features={domAnimation}>
-      <Tag
-        initial={{ y: 100, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 + (delay || 0) }}
-        viewport={{ once: true, amount: threshold || 0.5 }}
-        className={className}
-      >
-        {children}
-      </Tag>
-    </LazyMotion>
-  );
-};
+    return (
+      <LazyMotion features={domAnimation}>
+        <Tag
+          ref={ref}
+          initial={{ y: 100, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6 + (delay || 0) }}
+          viewport={{ once: true, amount: threshold || 0.5 }}
+          className={className}
+        >
+          {children}
+        </Tag>
+      </LazyMotion>
+    );
+  },
+);
+
+AnimatedUpComponent.displayName = "AnimatedUpComponent";
 
 export const AnimatedLeftComponent = ({
   as = "div",

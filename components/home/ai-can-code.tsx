@@ -1,5 +1,7 @@
+"use client";
+
 import { AnimatedUpComponent } from "../shared/animated-components";
-import { EvervaultCard } from "../shared/evervault-card";
+import PixelatedCanvas from "../shared/pixelated-canvas";
 
 const AICanCode = () => {
   return (
@@ -7,11 +9,31 @@ const AICanCode = () => {
       as="section"
       className="mx-auto mt-20 flex max-w-4xl flex-col items-center justify-center gap-x-10 gap-y-10 px-6 md:flex-row"
     >
-      <EvervaultCard
-        text="Hover Me"
-        imageUrl="/img/robot.png"
-        className="aspect-[4/5] w-full"
-      />
+      <div className="hidden md:block">
+        <PixelatedCanvas
+          src="/img/robot.png"
+          width={400}
+          height={500}
+          cellSize={3}
+          dotScale={0.9}
+          shape="square"
+          backgroundColor="#000000"
+          dropoutStrength={0.4}
+          interactive={true}
+          distortionStrength={3}
+          distortionRadius={80}
+          distortionMode="swirl"
+          followSpeed={0.2}
+          jitterStrength={4}
+          jitterSpeed={4}
+          sampleAverage
+          tintColor="blue"
+          tintStrength={0.2}
+          fadeOnLeave={true}
+          fadeSpeed={0.1}
+          className="rounded-xl border border-neutral-800 shadow-lg"
+        />
+      </div>
 
       <div>
         <h2 className="mb-4 text-xl font-medium capitalize sm:text-3xl md:mb-10">

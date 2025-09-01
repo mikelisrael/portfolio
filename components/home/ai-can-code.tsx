@@ -1,8 +1,12 @@
+import { AnimatedUpComponent } from "../shared/animated-components";
 import { PixelatedCanvas } from "../shared/pixelated-canvas";
 
 const AICanCode = () => {
   return (
-    <section className="mx-auto mt-20 flex max-w-4xl items-center justify-center gap-x-10 gap-y-10 px-6">
+    <AnimatedUpComponent
+      as="section"
+      className="mx-auto mt-20 flex max-w-4xl items-center justify-center gap-x-10 gap-y-10 px-6"
+    >
       <PixelatedCanvas
         src="/img/robot.png"
         cellSize={3}
@@ -38,7 +42,7 @@ const AICanCode = () => {
           </span>
         </p>
       </div>
-    </section>
+    </AnimatedUpComponent>
   );
 };
 

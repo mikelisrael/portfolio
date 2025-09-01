@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useGlobalContext } from "../providers/context";
 type Link = {
   path: "contact" | "projects" | "blog";
@@ -36,6 +36,23 @@ const Navbar = () => {
   const indicatorRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
+  const moveIndicator = useCallback(() => {
+    if (indicatorRef.current) {
+      const activeTabElement =
+        indicatorRef.current.parentElement!.querySelector(
+          `[data-tab="${activeTab}"]`,
+        );
+      if (activeTabElement) {
+        const parentRect =
+          indicatorRef.current.parentElement!.getBoundingClientRect();
+        const activeTabRect = activeTabElement.getBoundingClientRect();
+        const offsetX =
+          activeTabRect.left - parentRect.left + activeTabRect.width / 2;
+        indicatorRef.current.style.transform = `translateX(${offsetX}px)`;
+      }
+    }
+  }, [activeTab, indicatorRef]);
+
   useEffect(() => {
     // Move the indicator after 2 seconds if it's the first page load
     if (!isIndicatorMoved) {
@@ -65,23 +82,6 @@ const Navbar = () => {
       setActiveTab("blog");
     }
   }, [contactInView, projectTopInView, projectBottomInView, blogInView]);
-
-  function moveIndicator() {
-    if (indicatorRef.current) {
-      const activeTabElement =
-        indicatorRef.current.parentElement!.querySelector(
-          `[data-tab="${activeTab}"]`,
-        );
-      if (activeTabElement) {
-        const parentRect =
-          indicatorRef.current.parentElement!.getBoundingClientRect();
-        const activeTabRect = activeTabElement.getBoundingClientRect();
-        const offsetX =
-          activeTabRect.left - parentRect.left + activeTabRect.width / 2;
-        indicatorRef.current.style.transform = `translateX(${offsetX}px)`;
-      }
-    }
-  }
 
   useEffect(() => {
     if (pathname === "/") {

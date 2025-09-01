@@ -55,6 +55,7 @@ export interface ITestimonials extends Base {
 
 export interface IPageInfo extends Base {
   name: string;
+  availableForWork: boolean;
   introductionHeading: string;
   introduction: string;
   subjectImage: sanityImage;

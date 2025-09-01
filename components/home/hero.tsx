@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { urlForImage } from "@/sanity/lib/image";
 import { IPageInfo } from "@/types";
 import React, { useEffect, useState } from "react";
@@ -14,6 +15,7 @@ const Hero: React.FC<IPageInfo> = ({
   introduction,
   socials,
   subjectImage,
+  availableForWork,
 }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -68,11 +70,26 @@ const Hero: React.FC<IPageInfo> = ({
       <section
         style={{ transform: `translateY(-${scrollPosition * 0.3}px)` }} //parallax scroll
       >
+        {availableForWork && (
+          <div className="mb-5 mt-3 flex items-center gap-3 duration-700 animate-in fade-in slide-in-from-right-48">
+            <div className="relative flex items-center">
+              <div className="absolute h-3 w-3 animate-ping rounded-full bg-green-500 opacity-75"></div>
+              <div className="relative h-3 w-3 rounded-full bg-green-500"></div>
+            </div>
+            <span className="text-sm text-foreground-secondary">
+              Available for work
+            </span>
+          </div>
+        )}
+
         <div className="relative">
           <h1
             role="heading"
             aria-level={1}
-            className="relative text-6xl font-medium duration-500 animate-in fade-in slide-in-from-right-48 sm:text-7xl md:pt-10 lg:text-8xl xl:text-9xl"
+            className={cn(
+              "relative text-6xl font-medium duration-500 animate-in fade-in slide-in-from-right-48 sm:text-7xl md:pt-3 lg:text-8xl xl:text-9xl",
+              availableForWork && "md:pt-0",
+            )}
           >
             {firstName}{" "}
             <span className="block -translate-y-2 md:-translate-y-4 lg:-translate-y-6">
@@ -98,7 +115,7 @@ const Hero: React.FC<IPageInfo> = ({
 
       <section
         role="complementary"
-        className="flex h-max justify-start pt-10 md:justify-end"
+        className="flex h-max justify-start pt-10 md:justify-end md:pt-3"
         style={{ transform: `translateY(-${scrollPosition * 0.3}px)` }} // parallax scroll
       >
         <div className="backdrop-blur sm:max-w-sm md:px-2">

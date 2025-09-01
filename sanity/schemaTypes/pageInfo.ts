@@ -11,6 +11,11 @@ export default defineType({
       type: "string",
     }),
     defineField({
+      name: "availableForWork",
+      title: "Available for work",
+      type: "boolean",
+    }),
+    defineField({
       name: "introductionHeading",
       title: "Introduction Heading",
       type: "string",

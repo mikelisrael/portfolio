@@ -119,8 +119,8 @@ const Navbar = () => {
     >
       <Link href="/" onClick={() => setActiveTab("contact")}>
         <motion.div
-          initial={{ scale: 0 }}
-          animate={{ rotate: 180, scale: 1 }}
+          initial={{ scale: 0, rotate: 180 }}
+          animate={{ rotate: 0, scale: 1 }}
           transition={{
             type: "spring",
             stiffness: 260,

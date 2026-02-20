@@ -17,7 +17,7 @@ const Contact: React.FC<IPageInfo> = ({
   return (
     <ContactRef
       id="contact"
-      className="scroll-m-20 bg-background-secondary pb-60 pt-20 md:pt-40"
+      className="scroll-m-20 rounded-b-[999px] bg-background-secondary pb-60 pt-20 md:pt-40"
     >
       <div className="universal_x grid gap-x-5 gap-y-16 md:grid-cols-2">
         <section

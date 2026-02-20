@@ -17,6 +17,7 @@ const Hero: React.FC<IPageInfo> = ({
   availableForWork,
 }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleScroll: EventListener = () => {
@@ -28,44 +29,66 @@ const Hero: React.FC<IPageInfo> = ({
     };
   }, []);
 
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const { left, top, width, height } =
+      e.currentTarget.getBoundingClientRect();
+
+    const relX = ((e.clientX - left) / width) * 2 - 1;
+    const relY = ((e.clientY - top) / height) * 2 - 1;
+
+    setTilt({
+      x: relY * 1.5, // top/bottom tilt
+      y: relX * 2, // left/right lean
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setTilt({ x: 0, y: 0 });
+  };
+
   const [firstName, lastName] = name.split(" ");
 
   return (
     <HeaderRef
       role="banner"
-      className="universal_x relative isolate  grid py-10 md:grid-cols-2"
+      className="universal_x relative isolate grid py-10 md:grid-cols-2"
       id="home"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
     >
       <Spotlight className="-top-40 left-0 md:-top-20" fill="#FFF0A0" />
 
       {/* image */}
+      {/* Tilt wrapper: pivots from bottom center, no clipping */}
       <div
         role="img"
-        className="absolute bottom-0 left-auto right-0 -z-10 w-[32rem] overflow-hidden md:left-[15%] md:right-auto lg:left-[20%] xl:w-[36rem]"
+        className="absolute bottom-0 left-auto right-0 -z-10 w-[32rem] md:left-[15%] md:right-auto lg:left-[20%] xl:w-[36rem]"
+        style={{
+          transformOrigin: "bottom center",
+          transform: `perspective(1200px) rotateX(${-tilt.x}deg) rotateY(${tilt.y}deg)`,
+          transition: "transform 0.25s ease-out",
+        }}
       >
-        <div className="size-full duration-700 animate-in fade-in slide-in-from-bottom-[30%] slide-in-from-left-[30%]">
-          <div
-            className="size-full"
-            style={{ transform: `translateY(${scrollPosition * 0.4}px)` }}
-          >
-            <BlurImage
-              priority
-              width={1000}
-              height={1000}
-              src={"/img/israel4.png"}
-              alt={subjectImage.alt}
-              aria-label="Michael Israel"
-              className="w-full translate-x-[16rem] md:translate-x-0 md:scale-x-100"
-            />
+        {/* Clip box: contains the image so scroll parallax never bleeds outside */}
+        <div className="relative size-full overflow-hidden">
+          {/* Scroll parallax: moves image upward as user scrolls */}
+          <div style={{ transform: `translateY(${scrollPosition * 0.4}px)` }}>
+            <div className="duration-700 animate-in fade-in slide-in-from-bottom-[30%] slide-in-from-left-[30%]">
+              <BlurImage
+                priority
+                width={1000}
+                height={1000}
+                src={"/img/israel4.png"}
+                alt={subjectImage.alt}
+                aria-label="Michael Israel"
+                className="w-full translate-x-[16rem] md:translate-x-0 md:scale-x-100"
+              />
+            </div>
           </div>
         </div>
-        {/* block image */}
-        <div className="absolute inset-0" />
       </div>
 
-      <section
-        style={{ transform: `translateY(-${scrollPosition * 0.3}px)` }} //parallax scroll
-      >
+      <section style={{ transform: `translateY(-${scrollPosition * 0.3}px)` }}>
         {availableForWork && (
           <div className="mb-5 mt-3 flex items-center gap-3 duration-700 animate-in fade-in slide-in-from-right-48">
             <div className="relative flex items-center">
@@ -112,10 +135,10 @@ const Hero: React.FC<IPageInfo> = ({
       <section
         role="complementary"
         className="flex h-max justify-start pt-10 md:justify-end md:pt-3"
-        style={{ transform: `translateY(-${scrollPosition * 0.3}px)` }} // parallax scroll
+        style={{ transform: `translateY(-${scrollPosition * 0.3}px)` }}
       >
         <div className="backdrop-blur sm:max-w-sm md:px-2">
-          <h6 className="text-xs tracking-[0.2em] text-foreground-secondary duration-500  animate-in  fade-in slide-in-from-right-48 md:text-sm">
+          <h6 className="text-xs tracking-[0.2em] text-foreground-secondary duration-500 animate-in fade-in slide-in-from-right-48 md:text-sm">
             - Introduction
           </h6>
 

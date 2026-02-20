@@ -21,7 +21,7 @@ type Slug = {
   current: string;
 };
 
-export interface IProject {
+export interface IProject extends Base {
   name: string;
   subtitle: string;
   description: string;

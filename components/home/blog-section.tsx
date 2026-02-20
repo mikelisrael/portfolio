@@ -32,7 +32,7 @@ const BlogSection = ({ posts }: Props) => {
           <AnimatedUpComponent
             as="h2"
             delay={0.1}
-            className="mb-1 mt-3 text-balance text-xl font-semibold sm:mb-4 sm:text-3xl md:mb-10"
+            className="mb-1 mt-3 text-balance font-serif text-xl sm:mb-4 sm:text-3xl md:mb-10"
           >
             What&rsquo;s New? <br /> My blog and news.
           </AnimatedUpComponent>
@@ -56,7 +56,7 @@ const BlogSection = ({ posts }: Props) => {
                     <span>Blog</span>
                   </span>
 
-                  <h4 className="text-sm line-clamp-2 font-bold sm:text-base md:text-xl">
+                  <h4 className="line-clamp-2 text-sm font-bold sm:text-base md:text-xl">
                     {blog.title}
                   </h4>
 

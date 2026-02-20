@@ -1,21 +1,23 @@
+import fluid, { extract, fontSize, screens } from "fluid-tailwind";
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 import addVariablesForColors from "./plugins/add-variables-focus";
-const colors = require("tailwindcss/colors");
 
 const config = {
-  future: {
-    hoverOnlyWhenSupported: true,
-  },
   darkMode: ["class"],
-  content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-  ],
+  content: {
+    files: [
+      "./pages/**/*.{ts,tsx}",
+      "./components/**/*.{ts,tsx}",
+      "./app/**/*.{ts,tsx}",
+      "./src/**/*.{ts,tsx}",
+    ],
+    extract,
+  },
   prefix: "",
   theme: {
+    screens,
+    fontSize,
     container: {
       center: true,
       padding: "2rem",
@@ -99,6 +101,7 @@ const config = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
+        serif: ["var(--font-serif)", ...fontFamily.serif],
       },
     },
   },
@@ -107,6 +110,7 @@ const config = {
     require("tailwind-scrollbar"),
     require("@tailwindcss/typography"),
     addVariablesForColors,
+    fluid,
   ],
 } satisfies Config;
 

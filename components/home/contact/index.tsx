@@ -35,9 +35,9 @@ const Contact: React.FC<IPageInfo> = ({
 
             <AnimatedUpComponent
               as="h2"
-              className="mb-4 mt-3 text-xl font-medium capitalize sm:text-3xl md:mb-10"
+              className="mb-4 mt-3 font-serif text-xl capitalize italic sm:text-3xl md:mb-10"
             >
-              any type of query & discussion
+              Let&rsquo;s Build Something Amazing Together
             </AnimatedUpComponent>
 
             <AnimatedUpComponent
@@ -69,7 +69,7 @@ const Contact: React.FC<IPageInfo> = ({
           <div>
             <AnimatedUpComponent
               as="h2"
-              className="mb-4 text-xl font-medium capitalize sm:text-3xl md:mb-10"
+              className="mb-4 font-serif text-xl capitalize sm:text-3xl md:mb-10"
             >
               {freeTalkHeading}
             </AnimatedUpComponent>

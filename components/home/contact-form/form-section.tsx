@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { FaArrowRight } from "react-icons/fa";
-import { AnimatedUpComponent } from "../../shared/animated-components";
 import ContactForm from ".";
+import { AnimatedUpComponent } from "../../shared/animated-components";
 
 const FormSection = ({ email, cta }: { email: string; cta: string }) => {
   return (
@@ -12,7 +12,7 @@ const FormSection = ({ email, cta }: { email: string; cta: string }) => {
         <AnimatedUpComponent
           as="h2"
           delay={0.1}
-          className="mb-4 text-balance text-xl font-semibold sm:text-3xl md:mb-7"
+          className="mb-4 text-balance font-serif text-xl sm:text-3xl md:mb-7"
         >
           Got a project? <br /> Let&rsquo;s Talk.
         </AnimatedUpComponent>
@@ -38,7 +38,7 @@ const FormSection = ({ email, cta }: { email: string; cta: string }) => {
         <AnimatedUpComponent
           as="h2"
           delay={0.1}
-          className="mb-10 text-balance text-xl font-semibold sm:text-3xl"
+          className="mb-10 text-balance font-serif text-xl italic sm:text-3xl"
         >
           Fill in the details below. <br /> Let&rsquo;s get the ball rolling.
         </AnimatedUpComponent>

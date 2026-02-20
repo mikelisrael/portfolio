@@ -2,8 +2,7 @@ import BlogSection from "@/components/home/blog-section";
 import Contact from "@/components/home/contact";
 import FormSection from "@/components/home/contact-form/form-section";
 import Hero from "@/components/home/hero";
-import { MacbookScroll } from "@/components/home/macbook";
-import Projects from "@/components/home/projects-section";
+import ProjectsGalleryDisplay from "@/components/home/projects-gallery-display";
 import Services from "@/components/home/services";
 import Technologies from "@/components/home/technologies";
 import Testimonials from "@/components/home/testimonials";
@@ -37,9 +36,10 @@ const Home = async () => {
       <Contact {...pageInfo} />
 
       <Services />
-      <MacbookScroll />
+      {/* <MacbookScroll /> */}
       <Technologies />
-      <Projects {...pageInfo} />
+      <ProjectsGalleryDisplay {...pageInfo} />
+      {/* <Projects {...pageInfo} /> */}
       <BlogSection posts={pageInfo.latestPosts} />
       <Testimonials {...pageInfo} />
       <FormSection email={pageInfo.email} cta={pageInfo.cta} />

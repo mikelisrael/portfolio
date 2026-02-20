@@ -158,7 +158,7 @@ export const Lid = ({
           transformStyle: "preserve-3d",
           transformOrigin: "top",
         }}
-        className="absolute inset-0 h-96 w-[32rem] rounded-2xl bg-[#010101] p-2"
+        className="pointer-events-none absolute inset-0 h-96 w-[32rem] rounded-2xl bg-[#010101] p-2"
       >
         <div className="absolute inset-0 rounded-lg bg-[#272729]" />
         <Image

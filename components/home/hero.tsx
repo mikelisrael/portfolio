@@ -1,7 +1,6 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { urlForImage } from "@/sanity/lib/image";
 import { IPageInfo } from "@/types";
 import React, { useEffect, useState } from "react";
 import BlurImage from "../shared/blur-image";
@@ -34,12 +33,12 @@ const Hero: React.FC<IPageInfo> = ({
   return (
     <HeaderRef
       role="banner"
-      className="universal_x relative isolate grid py-10 md:grid-cols-2"
+      className="universal_x relative isolate  grid py-10 md:grid-cols-2"
       id="home"
     >
       <Spotlight
         className="-top-40 left-0 hidden md:-top-20 md:block"
-        fill="white"
+        fill="#FFF0A0"
       />
 
       {/* image */}
@@ -56,10 +55,10 @@ const Hero: React.FC<IPageInfo> = ({
               priority
               width={1000}
               height={1000}
-              src={urlForImage(subjectImage)}
+              src={"/img/israel4.png"}
               alt={subjectImage.alt}
               aria-label="Michael Israel"
-              className="w-full translate-x-[16rem] -scale-x-100 md:translate-x-0 md:scale-x-100"
+              className="w-full translate-x-[16rem] md:translate-x-0 md:scale-x-100"
             />
           </div>
         </div>
@@ -125,7 +124,7 @@ const Hero: React.FC<IPageInfo> = ({
 
           <h2
             aria-label="about"
-            className="mb-1 mt-3 text-balance text-xl font-medium duration-700 animate-in fade-in slide-in-from-right-48 sm:mb-4 sm:text-3xl md:mb-10"
+            className="mb-1 mt-3 text-balance font-serif text-xl duration-700 animate-in fade-in slide-in-from-right-48 sm:mb-4 sm:text-3xl md:mb-10"
           >
             {introductionHeading}
           </h2>

@@ -36,7 +36,7 @@ const AICanCode = () => {
       </div>
 
       <div>
-        <h2 className="mb-4 text-xl font-medium capitalize sm:text-3xl md:mb-10">
+        <h2 className="mb-4 font-serif text-xl capitalize sm:text-3xl md:mb-10">
           AI can code, but it is always gonna be garbage in, garbage out
         </h2>
         <p className="text-balance text-foreground-secondary">

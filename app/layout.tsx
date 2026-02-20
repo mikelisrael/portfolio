@@ -5,14 +5,8 @@ import { Toaster } from "@/components/ui/sonner";
 import { metaKeywords } from "@/lib/metaKeywords";
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
-import { Comfortaa } from "next/font/google";
 import "./globals.css";
-
-const comfortaa_v2 = Comfortaa({
-  subsets: ["cyrillic"],
-  weight: ["300", "400", "500", "600", "700"],
-  variable: "--font-sans",
-});
+import { comfortaa_v2, playfairDisplay } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: {
@@ -66,6 +60,8 @@ export default function RootLayout({
       <body
         className={
           comfortaa_v2.variable +
+          " " +
+          playfairDisplay.variable +
           " font-sans antialiased duration-200 animate-in fade-in"
         }
         suppressHydrationWarning

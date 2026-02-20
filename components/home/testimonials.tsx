@@ -30,7 +30,12 @@ const Testimonials: React.FC<IPageInfo> = ({ testimonials }) => {
   return (
     <section className="scroll-m-20 bg-background-secondary pb-24 md:pb-40">
       <div className="universal_x grid gap-5 sm:grid-cols-[auto_1fr] sm:gap-10 lg:gap-28">
-        <AnimatedUpComponent threshold={0.2}>
+        <motion.div
+          key={activeIndex}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.25, ease: "easeOut" }}
+        >
           {/* Testimonial Image */}
           <BlurImage
             src={urlForImage(testimonials[activeIndex].photo)}
@@ -39,40 +44,32 @@ const Testimonials: React.FC<IPageInfo> = ({ testimonials }) => {
             alt={testimonials[activeIndex].name}
             className="size-[150px] rounded-full object-cover brightness-110 contrast-[1.1] grayscale filter sm:size-[200px] md:h-[400px] md:w-[350px] md:rounded-none"
           />
-        </AnimatedUpComponent>
+        </motion.div>
 
         <div className="flex min-h-full flex-col justify-between gap-y-5">
-          <div>
+          <motion.div
+            key={activeIndex}
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+          >
             {/* Testimonial Quote */}
-            <AnimatedUpComponent>
-              <RiDoubleQuotesL className="text-5xl text-foreground-secondary/50" />
-            </AnimatedUpComponent>
+            <RiDoubleQuotesL className="text-5xl text-foreground-secondary/50" />
 
-            <AnimatedUpComponent
-              as="p"
-              className="mt-3 font-medium sm:text-base md:text-lg lg:text-xl"
-            >
+            <p className="mt-3 font-medium sm:text-base md:text-lg lg:text-xl">
               {testimonials[activeIndex].quote}
-            </AnimatedUpComponent>
+            </p>
 
             {/* Testimonial author */}
-            <AnimatedUpComponent
-              threshold={0.1}
-              as="h6"
-              className="mt-5 text-sm font-semibold md:mt-10 md:text-lg"
-            >
+            <h6 className="mt-5 text-sm font-semibold md:mt-10 md:text-lg">
               {testimonials[activeIndex].name}
-            </AnimatedUpComponent>
+            </h6>
 
             {/* Testimonial position */}
-            <AnimatedUpComponent
-              threshold={0.1}
-              as="span"
-              className="text-xs text-foreground-secondary md:text-sm"
-            >
+            <span className="text-xs text-foreground-secondary md:text-sm">
               {testimonials[activeIndex].position}
-            </AnimatedUpComponent>
-          </div>
+            </span>
+          </motion.div>
 
           {/* Controls Buttons */}
           <div className="flex gap-5">

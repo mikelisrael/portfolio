@@ -21,11 +21,11 @@ const config = {
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
     },
     extend: {
+      maxWidth: {
+        "2xl": "1400px",
+      },
       colors: {
         bgTertiary: "#424657",
         gray: "#646672",
@@ -46,7 +46,6 @@ const config = {
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
-          // foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",

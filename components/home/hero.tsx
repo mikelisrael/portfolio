@@ -36,10 +36,7 @@ const Hero: React.FC<IPageInfo> = ({
       className="universal_x relative isolate  grid py-10 md:grid-cols-2"
       id="home"
     >
-      <Spotlight
-        className="-top-40 left-0 hidden md:-top-20 md:block"
-        fill="#FFF0A0"
-      />
+      <Spotlight className="-top-40 left-0 md:-top-20" fill="#FFF0A0" />
 
       {/* image */}
       <div
@@ -124,7 +121,7 @@ const Hero: React.FC<IPageInfo> = ({
 
           <h2
             aria-label="about"
-            className="mb-1 mt-3 text-balance font-serif text-xl duration-700 animate-in fade-in slide-in-from-right-48 sm:mb-4 sm:text-3xl md:mb-10"
+            className="mb-4 mt-3 text-balance font-serif text-xl duration-700 animate-in fade-in slide-in-from-right-48 sm:text-3xl md:mb-10"
           >
             {introductionHeading}
           </h2>

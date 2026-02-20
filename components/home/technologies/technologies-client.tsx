@@ -1,6 +1,6 @@
 "use client";
 
-import { ScrollVelocity } from "@/components/ScrollVelocity";
+import { ScrollVelocity } from "@/components/shared/ScrollVelocity";
 import { urlForImage } from "@/sanity/lib/image";
 import { ITool } from "@/types";
 import Image from "next/image";

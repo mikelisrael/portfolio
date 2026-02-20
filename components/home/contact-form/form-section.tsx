@@ -7,7 +7,7 @@ import { AnimatedUpComponent } from "../../shared/animated-components";
 
 const FormSection = ({ email, cta }: { email: string; cta: string }) => {
   return (
-    <section className="universal_x grid gap-x-10 gap-y-10 py-20 md:grid-cols-[40%,1fr] md:py-40 lg:gap-x-28">
+    <section className="universal_x grid gap-x-10 gap-y-10 pt-20 md:grid-cols-[40%,1fr] md:pt-40 lg:gap-x-28">
       <div>
         <AnimatedUpComponent
           as="h2"

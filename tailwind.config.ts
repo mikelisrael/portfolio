@@ -1,31 +1,26 @@
-import fluid, { extract, fontSize, screens } from "fluid-tailwind";
 import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 import addVariablesForColors from "./plugins/add-variables-focus";
+const colors = require("tailwindcss/colors");
 
 const config = {
   darkMode: ["class"],
-  content: {
-    files: [
-      "./pages/**/*.{ts,tsx}",
-      "./components/**/*.{ts,tsx}",
-      "./app/**/*.{ts,tsx}",
-      "./src/**/*.{ts,tsx}",
-    ],
-    extract,
-  },
+  content: [
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
+  ],
   prefix: "",
   theme: {
-    screens,
-    fontSize,
     container: {
       center: true,
       padding: "2rem",
-    },
-    extend: {
-      maxWidth: {
+      screens: {
         "2xl": "1400px",
       },
+    },
+    extend: {
       colors: {
         bgTertiary: "#424657",
         gray: "#646672",
@@ -46,6 +41,7 @@ const config = {
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
+          // foreground: "hsl(var(--secondary-foreground))",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
@@ -109,7 +105,6 @@ const config = {
     require("tailwind-scrollbar"),
     require("@tailwindcss/typography"),
     addVariablesForColors,
-    fluid,
   ],
 } satisfies Config;
 

@@ -29,7 +29,7 @@ const ProjectsGalleryDisplay: React.FC<IPageInfo> = ({
       <AnimatedUpComponent as="header" className="text-center">
         <h2
           className={cn(
-            "~text-3xl/4xl mb-7 font-serif font-light capitalize italic",
+            "text-3xl sm:text-4xl mb-7 font-serif font-light capitalize italic",
           )}
         >
           {projectInvitationHeading}

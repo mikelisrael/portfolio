@@ -21,14 +21,14 @@ function TechnologiesClient({ tools }: Props) {
         height={48}
         loading={idx < 6 ? "eager" : "lazy"}
         priority={idx < 3}
-        className="~size-10/12 object-contain"
+        className="size-10 object-contain sm:size-12"
       />
       <span className="text-xs text-foreground-secondary">{tool.name}</span>
     </div>
   ));
 
   return (
-    <div className="~gap-3/6 flex w-full flex-col">
+    <div className="flex w-full flex-col gap-3 sm:gap-6">
       <ScrollVelocity
         items={items}
         velocity={35}

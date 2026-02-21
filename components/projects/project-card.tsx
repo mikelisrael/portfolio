@@ -1,13 +1,13 @@
 import { cn } from "@/lib/utils";
 import { urlForImage } from "@/sanity/lib/image";
 import { IProject } from "@/types";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useRef } from "react";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { GiEmptyHourglass } from "react-icons/gi";
-import { LuMousePointerClick } from "react-icons/lu";
 import { AnimatedUpComponent } from "../shared/animated-components";
 import BlurImage from "../shared/blur-image";
 
@@ -19,99 +19,200 @@ interface IProjectCard {
 const ProjectCard = ({ project, setSelectedProject }: IProjectCard) => {
   const { name, description, image, link, github, isPrivate, tools } = project;
 
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [8, -8]), {
+    stiffness: 200,
+    damping: 20,
+  });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-8, 8]), {
+    stiffness: 200,
+    damping: 20,
+  });
+
+  const glowX = useTransform(mouseX, [-0.5, 0.5], [0, 100]);
+  const glowY = useTransform(mouseY, [-0.5, 0.5], [0, 100]);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    mouseX.set(x);
+    mouseY.set(y);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
   return (
-    <AnimatedUpComponent threshold={0.2}>
-      <motion.article
-        tabIndex={0}
-        layoutId={name}
-        className="group flex h-full cursor-pointer flex-col gap-1.5 outline-offset-8"
-        onClick={() => setSelectedProject(project)}
-        onKeyPress={(e) => {
-          if (e.key === "Enter") setSelectedProject(project);
-        }}
+    <AnimatedUpComponent threshold={0.15}>
+      <motion.div
+        ref={cardRef}
+        style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        className="group relative"
       >
-        <div className="relative aspect-video overflow-hidden rounded-lg outline outline-1 outline-gray">
-          {image ? (
-            <BlurImage
-              src={urlForImage(image)}
-              alt={name}
-              width={500}
-              height={500}
-              className="h-full w-full object-cover transition-all duration-200 ease-in-out group-focus-within:scale-125 group-hover:scale-125 group-focus:scale-125"
-              unoptimized
-            />
-          ) : (
-            <div className="flex size-full items-center justify-center bg-background-secondary">
-              <GiEmptyHourglass className="text-3xl text-foreground-secondary" />
-            </div>
-          )}
+        <motion.article
+          tabIndex={0}
+          className="relative flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] outline-offset-8 backdrop-blur-sm transition-all duration-500 hover:border-primary/20 hover:shadow-[0_20px_60px_rgba(0,0,0,0.5),0_0_40px_rgba(245,158,11,0.05)]"
+          onClick={() => setSelectedProject(project)}
+          onKeyPress={(e) => {
+            if (e.key === "Enter") setSelectedProject(project);
+          }}
+        >
+          {/* Mouse-follow glow */}
+          <motion.div
+            className="pointer-events-none absolute inset-0 z-10 rounded-2xl opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+            style={{
+              background: useTransform(
+                [glowX, glowY],
+                ([x, y]) =>
+                  `radial-gradient(200px circle at ${x}% ${y}%, rgba(245,158,11,0.08), transparent 70%)`,
+              ),
+            }}
+          />
 
-          <div className="absolute inset-0 isolate flex flex-col before:absolute before:bottom-0 before:z-[-1] before:h-8 before:w-full before:bg-black/35 before:to-10% before:transition-all before:duration-300 before:group-hover:h-full before:group-hover:bg-black/60">
-            <div className="flex flex-1 items-center justify-center font-bold text-white opacity-0 transition-all duration-300 group-hover:opacity-100">
-              Cl
-              <LuMousePointerClick size={25} className="mb-2" />
-              ck to view project
+          {/* Image */}
+          <div className="relative aspect-video overflow-hidden">
+            {image ? (
+              <BlurImage
+                src={urlForImage(image)}
+                alt={name}
+                width={500}
+                height={500}
+                className="h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-110"
+                unoptimized
+              />
+            ) : (
+              <div className="flex size-full items-center justify-center bg-white/[0.03]">
+                <GiEmptyHourglass className="text-3xl text-foreground-secondary/40" />
+              </div>
+            )}
+
+            {/* Gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+            {/* Click prompt */}
+            <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-all duration-300 group-hover:opacity-100">
+              <motion.div
+                initial={false}
+                whileHover={{ scale: 1.05 }}
+                className="flex items-center gap-2 rounded-full border border-primary/40 bg-black/60 px-5 py-2.5 backdrop-blur-md"
+              >
+                <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+                  View Project
+                </span>
+                <svg
+                  className="h-3 w-3 text-primary"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2.5}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </motion.div>
             </div>
 
+            {/* Tools bar */}
             {tools && tools.length > 0 && (
-              <div className="absolute bottom-0 flex w-full justify-center gap-2 px-2 py-1">
+              <div className="absolute bottom-0 flex w-full items-center justify-end gap-2 px-4 py-3">
                 {tools
                   .sort((a, b) => a.name.localeCompare(b.name))
+                  .slice(0, 5)
                   .map((tool, idx) => (
-                    <Image
-                      unoptimized
-                      width={tool.name === "Next.js" ? 30 : 20}
-                      height={tool.name === "Next.js" ? 30 : 20}
+                    <div
                       key={idx}
-                      src={urlForImage(tool.toolImage)}
-                      alt={tool.name}
-                      className="object-contain"
-                    />
+                      title={tool.name}
+                      className="flex h-7 w-7 items-center justify-center rounded-md bg-black/50 p-1 backdrop-blur-sm"
+                    >
+                      <Image
+                        unoptimized
+                        width={20}
+                        height={20}
+                        src={urlForImage(tool.toolImage)}
+                        alt={tool.name}
+                        className="object-contain"
+                      />
+                    </div>
                   ))}
               </div>
             )}
           </div>
-        </div>
 
-        <h3 className="mt-2 text-sm font-bold md:text-base">{name}.</h3>
-        <p className="line-clamp-3 text-sm text-foreground-secondary">
-          {description}
-        </p>
-
-        <div className="mt-auto flex items-center justify-between py-7">
-          <span className="text-gray-400 w-[77px] bg-background-secondary py-0.5 text-center text-[10px] tracking-wider">
-            {isPrivate ? "PRIVATE" : "PUBLIC"}
-          </span>
-
-          <div className="flex items-center gap-3">
-            {github && (
-              <Link
-                target="_blank"
-                rel="noopener noreferrer"
-                href={github}
-                onClick={(e) => e.stopPropagation()}
+          {/* Content */}
+          <div className="flex flex-1 flex-col gap-3 p-5">
+            <div className="flex items-start justify-between">
+              <h3 className="text-sm font-bold tracking-tight text-foreground md:text-base">
+                {name}
+              </h3>
+              <span
+                className={cn(
+                  "rounded-full px-2.5 py-0.5 text-[9px] font-semibold uppercase tracking-wider",
+                  isPrivate
+                    ? "bg-white/5 text-white/30"
+                    : "bg-primary/10 text-primary",
+                )}
               >
-                <FaGithub className="text-base hover:text-primary lg:text-lg" />
-              </Link>
-            )}
+                {isPrivate ? "Private" : "Public"}
+              </span>
+            </div>
 
-            {link && (
-              <Link
-                target={
-                  link && link.startsWith("http") && !link.startsWith("https")
-                    ? "_self"
-                    : "_blank"
-                }
-                rel="noopener noreferrer"
-                href={link}
-                onClick={(e) => e.stopPropagation()}
-              >
-                <FaExternalLinkAlt className="text-base hover:text-primary lg:text-lg" />
-              </Link>
+            <p className="line-clamp-3 text-xs leading-relaxed text-foreground-secondary/70">
+              {description}
+            </p>
+
+            {/* Links */}
+            {(github || link) && (
+              <div className="mt-auto flex items-center gap-3 border-t border-white/5 pt-3">
+                {github && (
+                  <Link
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={github}
+                    onClick={(e) => e.stopPropagation()}
+                    className="group/link flex items-center gap-1.5 text-foreground-secondary/50 transition-colors hover:text-primary"
+                  >
+                    <FaGithub className="text-sm" />
+                    <span className="text-[10px] font-medium uppercase tracking-wider opacity-0 transition-all duration-200 group-hover/link:opacity-100">
+                      Code
+                    </span>
+                  </Link>
+                )}
+                {link && (
+                  <Link
+                    target={
+                      link.startsWith("http") && !link.startsWith("https")
+                        ? "_self"
+                        : "_blank"
+                    }
+                    rel="noopener noreferrer"
+                    href={link}
+                    onClick={(e) => e.stopPropagation()}
+                    className="group/link flex items-center gap-1.5 text-foreground-secondary/50 transition-colors hover:text-primary"
+                  >
+                    <FaExternalLinkAlt className="text-xs" />
+                    <span className="text-[10px] font-medium uppercase tracking-wider opacity-0 transition-all duration-200 group-hover/link:opacity-100">
+                      Live
+                    </span>
+                  </Link>
+                )}
+              </div>
             )}
           </div>
-        </div>
-      </motion.article>
+        </motion.article>
+      </motion.div>
     </AnimatedUpComponent>
   );
 };

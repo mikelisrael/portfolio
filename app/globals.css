@@ -130,3 +130,7 @@ ul li {
 div[data-ui="ToolScreen"] * {
   @apply font-sans;
 }
+
+.text-balance {
+  text-wrap: balance;
+}

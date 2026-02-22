@@ -7,7 +7,7 @@ const ThankYou = () => {
         marqueeText="Thank ✦ You ✦ For ✦ Scrolling ✦ Bye ✦"
         speed={2}
         curveAmount={400}
-        direction="right"
+        direction="left"
       />
     </div>
   );

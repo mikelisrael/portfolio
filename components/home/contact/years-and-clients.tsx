@@ -20,7 +20,7 @@ function YearsAndClients({ satisfiedClients }: Props) {
   const [clientsCounted, setClientsCounted] = useState(false);
 
   const yearsCalculator = () => {
-    const startDate = new Date(2018, 7, 1);
+    const startDate = new Date(2022, 1, 1);
     const now = new Date();
     const years =
       (now.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24 * 365.25);

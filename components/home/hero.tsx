@@ -80,7 +80,7 @@ const Hero: React.FC<IPageInfo> = ({
                 height={1000}
                 src={"/img/israel4.png"}
                 alt={subjectImage.alt}
-                aria-label="Michael Israel"
+                aria-label="Israel Michael-Ipinko"
                 className="w-full translate-x-[16rem] md:translate-x-0 md:scale-x-100"
               />
             </div>

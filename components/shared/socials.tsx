@@ -4,6 +4,7 @@ import Link from "next/link";
 import { FaDiscord, FaGithub, FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { IconType } from "react-icons/lib";
+import { FaDev } from "react-icons/fa";
 import {
   Tooltip,
   TooltipContent,
@@ -16,6 +17,7 @@ const iconMap: { [key: string]: IconType } = {
   Instagram: FaInstagram,
   X: FaXTwitter,
   Github: FaGithub,
+  Dev: FaDev,
 };
 
 function Socials({ socials }: { socials: ISocial[] }) {
@@ -27,6 +29,8 @@ function Socials({ socials }: { socials: ISocial[] }) {
     if (b.name === "Discord") return 1;
     if (a.name === "X") return -1;
     if (b.name === "X") return 1;
+    if (a.name === "Dev") return -1;
+    if (b.name === "Dev") return 1;
     return 0;
   });
 

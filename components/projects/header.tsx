@@ -6,8 +6,6 @@ import Link from "next/link";
 import { useGlobalContext } from "../providers/context";
 import { buttonVariants } from "../ui/button";
 
-const words = ["Projects"];
-
 const letterVariants = {
   hidden: { opacity: 0, y: 60, rotateX: -40 },
   visible: (i: number) => ({

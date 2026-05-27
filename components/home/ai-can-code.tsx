@@ -37,16 +37,10 @@ const AICanCode = () => {
 
       <div>
         <h2 className="mb-4 font-serif text-xl capitalize sm:text-3xl md:mb-10">
-          AI can code, but it is always gonna be garbage in, garbage out
+          AI can write code. It cannot care about your users.
         </h2>
         <p className="text-balance text-foreground-secondary">
-          AI is fast, but it only mirrors patterns. It cannot feel a
-          user&rsquo;s pain, judge what truly matters, or imagine what has never
-          existed before. <br />
-          <span className="text-foreground">
-            Smart tools are great, but great products come from engineers who
-            care.
-          </span>
+        Every AI-generated line of code is only as good as the thinking behind it. It cannot feel where a user gets frustrated. It cannot judge what actually matters to your specific business. It cannot imagine what has never existed. I use smart tools where they help and human judgment where it counts.
         </p>
       </div>
     </AnimatedUpComponent>

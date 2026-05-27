@@ -40,7 +40,11 @@ const AICanCode = () => {
           AI can write code. It cannot care about your users.
         </h2>
         <p className="text-balance text-foreground-secondary">
-        Every AI-generated line of code is only as good as the thinking behind it. It cannot feel where a user gets frustrated. It cannot judge what actually matters to your specific business. It cannot imagine what has never existed. I use smart tools where they help and human judgment where it counts.
+          Every AI-generated line of code is only as good as the thinking behind
+          it. It cannot feel where a user gets frustrated. It cannot judge what
+          actually matters to your specific business. It cannot imagine what has
+          never existed. I use smart tools where they help and human judgment
+          where it counts.
         </p>
       </div>
     </AnimatedUpComponent>

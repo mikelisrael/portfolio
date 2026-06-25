@@ -112,11 +112,18 @@ const Navbar = () => {
       role="navigation"
       aria-label="Main Navigation"
       className={cn(
-        "universal_x z-30 my-5 flex w-full justify-between py-2 md:py-5",
+        "universal_x relative z-30 my-5 flex w-full justify-between py-2 md:py-5",
         !headerInView &&
-          "sticky top-0 rounded-xl border border-gray backdrop-blur-md duration-500 animate-in slide-in-from-top-10 ",
+          "sticky top-0 duration-500 animate-in slide-in-from-top-10 ",
       )}
     >
+      {/* feathered blur layer, separate from nav content so the fade doesn't affect text/logo opacity */}
+      {!headerInView && (
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[180%] rounded-t-xl backdrop-blur-sm [-webkit-mask-image:linear-gradient(to_bottom,black_45%,transparent_100%)] [mask-image:linear-gradient(to_bottom,black_45%,transparent_100%)]"
+        />
+      )}
       <Link href="/" onClick={() => setActiveTab("contact")}>
         <motion.div
           initial={{ scale: 0, rotate: 180 }}

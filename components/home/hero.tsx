@@ -42,13 +42,13 @@ const Hero: React.FC<IPageInfo> = ({
       const y = currentScrollY.current;
 
       if (scrollInnerRef.current) {
-        scrollInnerRef.current.style.transform = `translateY(${y * 0.4}px)`;
+        scrollInnerRef.current.style.transform = `translateY(${y * 0.22}px)`;
       }
       if (textSection1Ref.current) {
-        textSection1Ref.current.style.transform = `translateY(-${y * 0.3}px)`;
+        textSection1Ref.current.style.transform = `translateY(-${y * 0.15}px)`;
       }
       if (textSection2Ref.current) {
-        textSection2Ref.current.style.transform = `translateY(-${y * 0.3}px)`;
+        textSection2Ref.current.style.transform = `translateY(-${y * 0.15}px)`;
       }
 
       rafRef.current = requestAnimationFrame(animate);

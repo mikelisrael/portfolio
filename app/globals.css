@@ -134,3 +134,21 @@ div[data-ui="ToolScreen"] * {
 .text-balance {
   text-wrap: balance;
 }
+
+.noise-bg {
+  position: relative;
+  isolation: isolate; /* keeps the blend mode from leaking onto siblings */
+  overflow: hidden;   /* optional, keeps the noise tile clipped to rounded corners etc. */
+}
+
+.noise-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.08;            /* grain strength — 0.03–0.08 is the usual usable range */
+  mix-blend-mode: overlay;  /* try "soft-light" too — softer, less contrasty */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 160px 160px; /* smaller = finer grain, larger = coarser/blotchier */
+}

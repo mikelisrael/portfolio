@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { IPageInfo } from "@/types";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import BlurImage from "../shared/blur-image";
 import HeaderRef from "../shared/section-refs/header-ref";
 import Socials from "../shared/socials";
@@ -16,16 +16,50 @@ const Hero: React.FC<IPageInfo> = ({
   subjectImage,
   availableForWork,
 }) => {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const tiltWrapperRef = useRef<HTMLDivElement>(null);
+  const scrollInnerRef = useRef<HTMLDivElement>(null);
+  const textSection1Ref = useRef<HTMLElement>(null);
+  const textSection2Ref = useRef<HTMLElement>(null);
+  const tiltRef = useRef({ x: 0, y: 0 });
+  const rafRef = useRef<number>(0);
+
+  const targetScrollY = useRef(0);
+  const currentScrollY = useRef(0);
 
   useEffect(() => {
-    const handleScroll: EventListener = () => {
-      setScrollPosition(window.scrollY);
+    const onScroll = () => {
+      // only record the target here — DOM writes happen in the rAF loop below,
+      // decoupled from however often/unevenly the browser fires scroll events
+      targetScrollY.current = window.scrollY;
     };
-    window.addEventListener("scroll", handleScroll);
+
+    const animate = () => {
+      // ease current value toward target every frame — this is what removes
+      // the stepping you get from mouse-wheel / fast-fling scroll deltas
+      currentScrollY.current +=
+        (targetScrollY.current - currentScrollY.current) * 0.08;
+
+      const y = currentScrollY.current;
+
+      if (scrollInnerRef.current) {
+        scrollInnerRef.current.style.transform = `translateY(${y * 0.4}px)`;
+      }
+      if (textSection1Ref.current) {
+        textSection1Ref.current.style.transform = `translateY(-${y * 0.3}px)`;
+      }
+      if (textSection2Ref.current) {
+        textSection2Ref.current.style.transform = `translateY(-${y * 0.3}px)`;
+      }
+
+      rafRef.current = requestAnimationFrame(animate);
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    rafRef.current = requestAnimationFrame(animate);
+
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(rafRef.current);
     };
   }, []);
 
@@ -36,14 +70,21 @@ const Hero: React.FC<IPageInfo> = ({
     const relX = ((e.clientX - left) / width) * 2 - 1;
     const relY = ((e.clientY - top) / height) * 2 - 1;
 
-    setTilt({
-      x: relY * 1.5, // top/bottom tilt
-      y: relX * 2, // left/right lean
-    });
+    tiltRef.current = {
+      x: relY * 1.5,
+      y: relX * 2,
+    };
+
+    if (tiltWrapperRef.current) {
+      tiltWrapperRef.current.style.transform = `perspective(1200px) rotateX(${-tiltRef.current.x}deg) rotateY(${tiltRef.current.y}deg)`;
+    }
   };
 
   const handleMouseLeave = () => {
-    setTilt({ x: 0, y: 0 });
+    tiltRef.current = { x: 0, y: 0 };
+    if (tiltWrapperRef.current) {
+      tiltWrapperRef.current.style.transform = `perspective(1200px) rotateX(0deg) rotateY(0deg)`;
+    }
   };
 
   const [firstName, lastName] = name.split(" ");
@@ -58,21 +99,21 @@ const Hero: React.FC<IPageInfo> = ({
     >
       <Spotlight className="-top-40 left-0 md:-top-20" fill="#FFF0A0" />
 
-      {/* image */}
-      {/* Tilt wrapper: pivots from bottom center, no clipping */}
+      {/* Tilt wrapper: only handles mouse tilt, no scroll */}
       <div
+        ref={tiltWrapperRef}
         role="img"
         className="absolute bottom-0 left-auto right-0 -z-10 w-[32rem] md:left-[15%] md:right-auto lg:left-[20%] xl:w-[36rem]"
         style={{
           transformOrigin: "bottom center",
-          transform: `perspective(1200px) rotateX(${-tilt.x}deg) rotateY(${tilt.y}deg)`,
+          willChange: "transform",
           transition: "transform 0.25s ease-out",
         }}
       >
-        {/* Clip box: contains the image so scroll parallax never bleeds outside */}
+        {/* Clip box: overflow-hidden masks the scroll parallax so image never bleeds */}
         <div className="relative size-full overflow-hidden">
-          {/* Scroll parallax: moves image upward as user scrolls */}
-          <div style={{ transform: `translateY(${scrollPosition * 0.4}px)` }}>
+          {/* Scroll inner: translateY moves image upward inside the clip mask */}
+          <div ref={scrollInnerRef} style={{ willChange: "transform" }}>
             <div className="duration-700 animate-in fade-in slide-in-from-bottom-[30%] slide-in-from-left-[30%]">
               <BlurImage
                 priority
@@ -88,7 +129,7 @@ const Hero: React.FC<IPageInfo> = ({
         </div>
       </div>
 
-      <section style={{ transform: `translateY(-${scrollPosition * 0.3}px)` }}>
+      <section ref={textSection1Ref} style={{ willChange: "transform" }}>
         {availableForWork && (
           <div className="mb-5 mt-3 flex items-center gap-3 duration-700 animate-in fade-in slide-in-from-right-48">
             <div className="relative flex items-center">
@@ -115,14 +156,12 @@ const Hero: React.FC<IPageInfo> = ({
               {lastName}.
             </span>
           </h1>
-          {/* underline */}
           <div
             data-aos-delay="150"
             className="absolute -bottom-4 h-2 w-[15%] bg-primary duration-700 content-[''] animate-in fade-in slide-in-from-right-32 md:w-[20%] lg:h-4"
-          ></div>
+          />
         </div>
 
-        {/* icons */}
         <ul
           role="list"
           aria-label="social media links"
@@ -133,9 +172,10 @@ const Hero: React.FC<IPageInfo> = ({
       </section>
 
       <section
+        ref={textSection2Ref}
         role="complementary"
         className="flex h-max justify-start pt-10 md:justify-end md:pt-3"
-        style={{ transform: `translateY(-${scrollPosition * 0.3}px)` }}
+        style={{ willChange: "transform" }}
       >
         <div className="backdrop-blur sm:max-w-sm md:px-2">
           <h6 className="text-xs tracking-[0.2em] text-foreground-secondary duration-500 animate-in fade-in slide-in-from-right-48 md:text-sm">

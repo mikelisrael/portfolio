@@ -148,7 +148,7 @@ const ExpandedProject = ({
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.5 }}
-                  className="mt-4 text-sm leading-relaxed text-white/50"
+                  className="mt-4 text-sm leading-relaxed text-white/70"
                 >
                   {description}
                 </motion.p>
@@ -183,7 +183,7 @@ const ExpandedProject = ({
                     transition={{ delay: 0.45, duration: 0.4 }}
                     className="flex flex-wrap items-center gap-2 px-8 py-5"
                   >
-                    <span className="mr-2 text-[10px] font-semibold uppercase tracking-widest text-white/20">
+                    <span className="mr-2 text-[10px] font-semibold uppercase tracking-widest text-white/50">
                       Built with
                     </span>
                     {tools
@@ -202,7 +202,7 @@ const ExpandedProject = ({
                             alt={tool.name}
                             className="object-contain"
                           />
-                          <span className="text-[10px] font-medium text-white/40">
+                          <span className="text-[10px] font-medium">
                             {tool.name}
                           </span>
                         </div>
@@ -217,7 +217,7 @@ const ExpandedProject = ({
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.5, duration: 0.6 }}
-                  className="prose prose-sm prose-invert max-w-none px-8 pb-12 prose-headings:text-white prose-h2:mt-8 prose-h2:text-xl prose-h2:font-black prose-h3:border-b prose-h3:border-white/10 prose-h3:pb-2 prose-h3:text-base prose-h3:font-bold prose-p:leading-relaxed prose-p:text-white/50 prose-a:text-primary prose-a:no-underline hover:prose-a:text-amber-300 prose-blockquote:border-primary/40 prose-blockquote:text-white/40 prose-strong:font-bold prose-strong:text-white prose-ol:pl-3 prose-ul:pl-3"
+                  className="prose prose-sm prose-invert max-w-none px-8 pb-12 prose-headings:text-white prose-h2:mt-8 prose-h2:text-xl prose-h2:font-black prose-h3:border-b prose-h3:border-white/10 prose-h3:pb-2 prose-h3:text-base prose-h3:font-bold prose-p:leading-relaxed prose-p:text-white/70 prose-ul:text-white/70 prose-a:text-primary prose-a:no-underline hover:prose-a:text-amber-300 prose-blockquote:border-primary/40 prose-blockquote:text-white/40 prose-strong:font-bold prose-strong:text-white prose-ol:pl-3 prose-ul:pl-3"
                 >
                   <PortableText value={body} components={RichTextComponent} />
                 </motion.div>
